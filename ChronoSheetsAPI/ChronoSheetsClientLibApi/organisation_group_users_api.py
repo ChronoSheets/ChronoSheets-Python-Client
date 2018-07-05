@@ -34,7 +34,7 @@ class OrganisationGroupUsersApi(object):
         self.api_client = api_client
 
     def organisation_group_users_get_organisation_group_users(self, org_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation group users that belong to an organisation group  # noqa: E501
+        """Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int org_group_id: (required)
+        :param int org_group_id: An OrganisatioGroup Id (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class OrganisationGroupUsersApi(object):
             return data
 
     def organisation_group_users_get_organisation_group_users_with_http_info(self, org_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation group users that belong to an organisation group  # noqa: E501
+        """Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int org_group_id: (required)
+        :param int org_group_id: An OrganisatioGroup Id (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
@@ -143,7 +143,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetOrganisationGroupUsersRequest request:  (required)
+        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -165,7 +165,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetOrganisationGroupUsersRequest request:  (required)
+        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,

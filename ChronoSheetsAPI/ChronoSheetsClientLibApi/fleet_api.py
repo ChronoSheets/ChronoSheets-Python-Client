@@ -34,7 +34,7 @@ class FleetApi(object):
         self.api_client = api_client
 
     def fleet_create_vehicle(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a vehicle  # noqa: E501
+        """Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertVehicleRequest request:  (required)
+        :param CSInsertVehicleRequest request: An Insert Vehicle Request object containing values for the new Vehicle to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class FleetApi(object):
             return data
 
     def fleet_create_vehicle_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a vehicle  # noqa: E501
+        """Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertVehicleRequest request:  (required)
+        :param CSInsertVehicleRequest request: An Insert Vehicle Request object containing values for the new Vehicle to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -147,7 +147,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int vehicle_id: The ID of the vehicle you want to get (required)
+        :param int vehicle_id: The ID of the Vehicle you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseFleetVehicle
                  If the method is called asynchronously,
@@ -169,7 +169,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int vehicle_id: The ID of the vehicle you want to get (required)
+        :param int vehicle_id: The ID of the Vehicle you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseFleetVehicle
                  If the method is called asynchronously,
@@ -248,7 +248,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param bool include_deleted: (required)
+        :param bool include_deleted: Whether or not to include deleted vehicles (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListFleetVehicle
                  If the method is called asynchronously,
@@ -270,7 +270,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param bool include_deleted: (required)
+        :param bool include_deleted: Whether or not to include deleted vehicles (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListFleetVehicle
                  If the method is called asynchronously,
@@ -341,7 +341,7 @@ class FleetApi(object):
             collection_formats=collection_formats)
 
     def fleet_update_vehicle(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a vehicle  # noqa: E501
+        """Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -349,7 +349,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSaveVehicleRequest request:  (required)
+        :param CSSaveVehicleRequest request: A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -363,7 +363,7 @@ class FleetApi(object):
             return data
 
     def fleet_update_vehicle_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a vehicle  # noqa: E501
+        """Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -371,7 +371,7 @@ class FleetApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSaveVehicleRequest request:  (required)
+        :param CSSaveVehicleRequest request: A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,

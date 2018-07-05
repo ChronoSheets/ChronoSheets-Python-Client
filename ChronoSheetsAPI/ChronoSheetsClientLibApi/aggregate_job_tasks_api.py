@@ -34,7 +34,7 @@ class AggregateJobTasksApi(object):
         self.api_client = api_client
 
     def aggregate_job_tasks_get_aggregate_job_tasks(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get jobs and tasks information, aggregated  # noqa: E501
+        """Get jobs and tasks information, aggregated.  Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -55,7 +55,7 @@ class AggregateJobTasksApi(object):
             return data
 
     def aggregate_job_tasks_get_aggregate_job_tasks_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get jobs and tasks information, aggregated  # noqa: E501
+        """Get jobs and tasks information, aggregated.  Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

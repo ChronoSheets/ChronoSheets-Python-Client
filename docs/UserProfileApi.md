@@ -192,7 +192,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_profile_update_my_profile**
-> CSApiResponseSignupResponse user_profile_update_my_profile(request, x_chronosheets_auth)
+> CSApiResponseUpdateProfileResponse user_profile_update_my_profile(request, x_chronosheets_auth)
 
 
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CSApiResponseSignupResponse**](CSApiResponseSignupResponse.md)
+[**CSApiResponseUpdateProfileResponse**](CSApiResponseUpdateProfileResponse.md)
 
 ### Authorization
 

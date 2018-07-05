@@ -34,7 +34,7 @@ class OrganisationGroupsApi(object):
         self.api_client = api_client
 
     def organisation_groups_create_organisation_group(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create an organisation group  # noqa: E501
+        """Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertOrganisationGroupRequest request:  (required)
+        :param CSInsertOrganisationGroupRequest request: An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_create_organisation_group_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create an organisation group  # noqa: E501
+        """Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertOrganisationGroupRequest request:  (required)
+        :param CSInsertOrganisationGroupRequest request: An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -139,7 +139,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_group(self, organisation_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular organisation group  # noqa: E501
+        """Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -147,7 +147,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int organisation_group_id: The ID of the organisation group you want to get (required)
+        :param int organisation_group_id: The ID of the OrganisationGroup you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseOrganisationGroup
                  If the method is called asynchronously,
@@ -161,7 +161,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_group_with_http_info(self, organisation_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular organisation group  # noqa: E501
+        """Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -169,7 +169,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int organisation_group_id: The ID of the organisation group you want to get (required)
+        :param int organisation_group_id: The ID of the OrganisationGroup you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseOrganisationGroup
                  If the method is called asynchronously,
@@ -240,7 +240,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation groups that are under your organisation  # noqa: E501
+        """Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -261,7 +261,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation groups that are under your organisation  # noqa: E501
+        """Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -333,7 +333,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups_for_job(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular job  # noqa: E501
+        """Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -355,7 +355,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_for_job_with_http_info(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular job  # noqa: E501
+        """Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -434,7 +434,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups_for_vehicle(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular vehicle  # noqa: E501
+        """Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -456,7 +456,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_for_vehicle_with_http_info(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular vehicle  # noqa: E501
+        """Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -535,7 +535,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_update_organisation_group(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation group  # noqa: E501
+        """Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -543,7 +543,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSaveOrganisationGroupRequest request:  (required)
+        :param CSSaveOrganisationGroupRequest request: A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -557,7 +557,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_update_organisation_group_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation group  # noqa: E501
+        """Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -565,7 +565,7 @@ class OrganisationGroupsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSaveOrganisationGroupRequest request:  (required)
+        :param CSSaveOrganisationGroupRequest request: A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,

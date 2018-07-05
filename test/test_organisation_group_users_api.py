@@ -32,7 +32,7 @@ class TestOrganisationGroupUsersApi(unittest.TestCase):
     def test_organisation_group_users_get_organisation_group_users(self):
         """Test case for organisation_group_users_get_organisation_group_users
 
-        Get a collection of organisation group users that belong to an organisation group  # noqa: E501
+        Get a collection of organisation group users that belong to an organisation group.  Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 

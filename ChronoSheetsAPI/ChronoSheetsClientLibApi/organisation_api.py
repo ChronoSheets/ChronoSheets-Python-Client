@@ -135,7 +135,7 @@ class OrganisationApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSUpdateOrganisationRequest request:  (required)
+        :param CSUpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateOrganisationResponse
                  If the method is called asynchronously,
@@ -157,7 +157,7 @@ class OrganisationApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSUpdateOrganisationRequest request:  (required)
+        :param CSUpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateOrganisationResponse
                  If the method is called asynchronously,

@@ -69,7 +69,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.OrganisationApi()
-request = ChronoSheetsAPI.CSUpdateOrganisationRequest() # CSUpdateOrganisationRequest | 
+request = ChronoSheetsAPI.CSUpdateOrganisationRequest() # CSUpdateOrganisationRequest | An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -84,7 +84,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSUpdateOrganisationRequest**](CSUpdateOrganisationRequest.md)|  | 
+ **request** | [**CSUpdateOrganisationRequest**](CSUpdateOrganisationRequest.md)| An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

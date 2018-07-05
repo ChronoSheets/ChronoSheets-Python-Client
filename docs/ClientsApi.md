@@ -4,16 +4,16 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**clients_create_client**](ClientsApi.md#clients_create_client) | **PUT** /api/Clients/CreateClient | Create a client
-[**clients_get_client**](ClientsApi.md#clients_get_client) | **GET** /api/Clients/GetClient | Get a particular client
-[**clients_get_clients**](ClientsApi.md#clients_get_clients) | **GET** /api/Clients/GetClients | Get a collection of clients that are under your organisation
-[**clients_update_client**](ClientsApi.md#clients_update_client) | **POST** /api/Clients/UpdateClient | Update a client
+[**clients_create_client**](ClientsApi.md#clients_create_client) | **PUT** /api/Clients/CreateClient | Create a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
+[**clients_get_client**](ClientsApi.md#clients_get_client) | **GET** /api/Clients/GetClient | Get a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+[**clients_get_clients**](ClientsApi.md#clients_get_clients) | **GET** /api/Clients/GetClients | Get a collection of clients that are under your organisation.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+[**clients_update_client**](ClientsApi.md#clients_update_client) | **POST** /api/Clients/UpdateClient | Update a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
 
 
 # **clients_create_client**
 > CSApiResponseInt32 clients_create_client(request, x_chronosheets_auth)
 
-Create a client
+Create a client.  Requires the 'ManageClientsAndProjects' permission.
 
 ### Example
 ```python
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.ClientsApi()
-request = ChronoSheetsAPI.CSInsertClientRequest() # CSInsertClientRequest | 
+request = ChronoSheetsAPI.CSInsertClientRequest() # CSInsertClientRequest | An Insert Client Request object containing values for the new Client to create
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Create a client
+    # Create a client.  Requires the 'ManageClientsAndProjects' permission.
     api_response = api_instance.clients_create_client(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -40,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSInsertClientRequest**](CSInsertClientRequest.md)|  | 
+ **request** | [**CSInsertClientRequest**](CSInsertClientRequest.md)| An Insert Client Request object containing values for the new Client to create | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -61,7 +61,7 @@ No authorization required
 # **clients_get_client**
 > CSApiResponseClient clients_get_client(client_id, x_chronosheets_auth)
 
-Get a particular client
+Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
 
 ### Example
 ```python
@@ -73,11 +73,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.ClientsApi()
-client_id = 56 # int | The ID of the client you want to get
+client_id = 56 # int | The ID of the Client you want to get
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get a particular client
+    # Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.clients_get_client(client_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -88,7 +88,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_id** | **int**| The ID of the client you want to get | 
+ **client_id** | **int**| The ID of the Client you want to get | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -109,7 +109,7 @@ No authorization required
 # **clients_get_clients**
 > CSApiResponseListClient clients_get_clients(x_chronosheets_auth)
 
-Get a collection of clients that are under your organisation
+Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
 
 ### Example
 ```python
@@ -124,7 +124,7 @@ api_instance = ChronoSheetsAPI.ClientsApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get a collection of clients that are under your organisation
+    # Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.clients_get_clients(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -155,7 +155,7 @@ No authorization required
 # **clients_update_client**
 > CSApiResponseBoolean clients_update_client(request, x_chronosheets_auth)
 
-Update a client
+Update a client.  Requires the 'ManageClientsAndProjects' permission.
 
 ### Example
 ```python
@@ -167,11 +167,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.ClientsApi()
-request = ChronoSheetsAPI.CSSaveClientRequest() # CSSaveClientRequest | 
+request = ChronoSheetsAPI.CSSaveClientRequest() # CSSaveClientRequest | A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Update a client
+    # Update a client.  Requires the 'ManageClientsAndProjects' permission.
     api_response = api_instance.clients_update_client(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -182,7 +182,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSSaveClientRequest**](CSSaveClientRequest.md)|  | 
+ **request** | [**CSSaveClientRequest**](CSSaveClientRequest.md)| A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

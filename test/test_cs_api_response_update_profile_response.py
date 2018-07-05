@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import ChronoSheetsAPI
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_signup_response import CSSignupResponse  # noqa: E501
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_update_profile_response import CSApiResponseUpdateProfileResponse  # noqa: E501
 from ChronoSheetsAPI.rest import ApiException
 
 
-class TestCSSignupResponse(unittest.TestCase):
-    """CSSignupResponse unit test stubs"""
+class TestCSApiResponseUpdateProfileResponse(unittest.TestCase):
+    """CSApiResponseUpdateProfileResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestCSSignupResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCSSignupResponse(self):
-        """Test CSSignupResponse"""
+    def testCSApiResponseUpdateProfileResponse(self):
+        """Test CSApiResponseUpdateProfileResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ChronoSheetsAPI.models.cs_signup_response.CSSignupResponse()  # noqa: E501
+        # model = ChronoSheetsAPI.models.cs_api_response_update_profile_response.CSApiResponseUpdateProfileResponse()  # noqa: E501
         pass
 
 

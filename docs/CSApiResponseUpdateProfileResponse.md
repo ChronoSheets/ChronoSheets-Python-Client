@@ -1,9 +1,9 @@
-# CSApiResponseSignupResponse
+# CSApiResponseUpdateProfileResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CSSignupResponse**](CSSignupResponse.md) |  | [optional] 
+**data** | [**CSUpdateProfileResponse**](CSUpdateProfileResponse.md) |  | [optional] 
 **status** | **str** |  | [optional] 
 **message** | **str** |  | [optional] 
 

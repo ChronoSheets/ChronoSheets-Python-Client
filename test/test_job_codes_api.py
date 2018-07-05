@@ -32,35 +32,35 @@ class TestJobCodesApi(unittest.TestCase):
     def test_job_codes_create_job_code(self):
         """Test case for job_codes_create_job_code
 
-        Create a job code  # noqa: E501
+        Create a job code.  Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 
     def test_job_codes_delete_job_code(self):
         """Test case for job_codes_delete_job_code
 
-        Delete a job code  # noqa: E501
+        Delete a job code.  Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 
     def test_job_codes_get_job_code_by_id(self):
         """Test case for job_codes_get_job_code_by_id
 
-        Get a particular job code by job code id  # noqa: E501
+        Get a particular job code by job code id.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
         """
         pass
 
     def test_job_codes_get_job_codes(self):
         """Test case for job_codes_get_job_codes
 
-        Get job codes for your organisation  # noqa: E501
+        Get job codes for your organisation.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
         """
         pass
 
     def test_job_codes_update_job_code(self):
         """Test case for job_codes_update_job_code
 
-        Update a job code  # noqa: E501
+        Update a job code.  Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 

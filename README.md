@@ -56,7 +56,7 @@ api_instance = ChronoSheetsAPI.AggregateJobTasksApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get jobs and tasks information, aggregated
+    # Get jobs and tasks information, aggregated.  Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.aggregate_job_tasks_get_aggregate_job_tasks(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -70,30 +70,30 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AggregateJobTasksApi* | [**aggregate_job_tasks_get_aggregate_job_tasks**](docs/AggregateJobTasksApi.md#aggregate_job_tasks_get_aggregate_job_tasks) | **GET** /api/AggregateJobTasks/GetAggregateJobTasks | Get jobs and tasks information, aggregated
-*ClientsApi* | [**clients_create_client**](docs/ClientsApi.md#clients_create_client) | **PUT** /api/Clients/CreateClient | Create a client
-*ClientsApi* | [**clients_get_client**](docs/ClientsApi.md#clients_get_client) | **GET** /api/Clients/GetClient | Get a particular client
-*ClientsApi* | [**clients_get_clients**](docs/ClientsApi.md#clients_get_clients) | **GET** /api/Clients/GetClients | Get a collection of clients that are under your organisation
-*ClientsApi* | [**clients_update_client**](docs/ClientsApi.md#clients_update_client) | **POST** /api/Clients/UpdateClient | Update a client
-*FleetApi* | [**fleet_create_vehicle**](docs/FleetApi.md#fleet_create_vehicle) | **PUT** /api/Fleet/CreateVehicle | Create a vehicle
+*AggregateJobTasksApi* | [**aggregate_job_tasks_get_aggregate_job_tasks**](docs/AggregateJobTasksApi.md#aggregate_job_tasks_get_aggregate_job_tasks) | **GET** /api/AggregateJobTasks/GetAggregateJobTasks | Get jobs and tasks information, aggregated.  Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
+*ClientsApi* | [**clients_create_client**](docs/ClientsApi.md#clients_create_client) | **PUT** /api/Clients/CreateClient | Create a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
+*ClientsApi* | [**clients_get_client**](docs/ClientsApi.md#clients_get_client) | **GET** /api/Clients/GetClient | Get a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+*ClientsApi* | [**clients_get_clients**](docs/ClientsApi.md#clients_get_clients) | **GET** /api/Clients/GetClients | Get a collection of clients that are under your organisation.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.
+*ClientsApi* | [**clients_update_client**](docs/ClientsApi.md#clients_update_client) | **POST** /api/Clients/UpdateClient | Update a client.  Requires the &#39;ManageClientsAndProjects&#39; permission.
+*FleetApi* | [**fleet_create_vehicle**](docs/FleetApi.md#fleet_create_vehicle) | **PUT** /api/Fleet/CreateVehicle | Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.
 *FleetApi* | [**fleet_get_vehicle_by_id**](docs/FleetApi.md#fleet_get_vehicle_by_id) | **GET** /api/Fleet/GetVehicleById | Get a particular vehicle
 *FleetApi* | [**fleet_get_vehicles**](docs/FleetApi.md#fleet_get_vehicles) | **GET** /api/Fleet/GetVehicles | Get a collection of vehicles that are under your organisation
-*FleetApi* | [**fleet_update_vehicle**](docs/FleetApi.md#fleet_update_vehicle) | **POST** /api/Fleet/UpdateVehicle | Update a vehicle
-*JobCodesApi* | [**job_codes_create_job_code**](docs/JobCodesApi.md#job_codes_create_job_code) | **PUT** /api/JobCodes/CreateJobCode | Create a job code
-*JobCodesApi* | [**job_codes_delete_job_code**](docs/JobCodesApi.md#job_codes_delete_job_code) | **DELETE** /api/JobCodes/DeleteJobCode | Delete a job code
-*JobCodesApi* | [**job_codes_get_job_code_by_id**](docs/JobCodesApi.md#job_codes_get_job_code_by_id) | **GET** /api/JobCodes/GetJobCodeById | Get a particular job code by job code id
-*JobCodesApi* | [**job_codes_get_job_codes**](docs/JobCodesApi.md#job_codes_get_job_codes) | **GET** /api/JobCodes/GetJobCodes | Get job codes for your organisation
-*JobCodesApi* | [**job_codes_update_job_code**](docs/JobCodesApi.md#job_codes_update_job_code) | **POST** /api/JobCodes/UpdateJobCode | Update a job code
+*FleetApi* | [**fleet_update_vehicle**](docs/FleetApi.md#fleet_update_vehicle) | **POST** /api/Fleet/UpdateVehicle | Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.
+*JobCodesApi* | [**job_codes_create_job_code**](docs/JobCodesApi.md#job_codes_create_job_code) | **PUT** /api/JobCodes/CreateJobCode | Create a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.
+*JobCodesApi* | [**job_codes_delete_job_code**](docs/JobCodesApi.md#job_codes_delete_job_code) | **DELETE** /api/JobCodes/DeleteJobCode | Delete a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.
+*JobCodesApi* | [**job_codes_get_job_code_by_id**](docs/JobCodesApi.md#job_codes_get_job_code_by_id) | **GET** /api/JobCodes/GetJobCodeById | Get a particular job code by job code id.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.
+*JobCodesApi* | [**job_codes_get_job_codes**](docs/JobCodesApi.md#job_codes_get_job_codes) | **GET** /api/JobCodes/GetJobCodes | Get job codes for your organisation.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.
+*JobCodesApi* | [**job_codes_update_job_code**](docs/JobCodesApi.md#job_codes_update_job_code) | **POST** /api/JobCodes/UpdateJobCode | Update a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.
 *OrganisationApi* | [**organisation_get_organisation**](docs/OrganisationApi.md#organisation_get_organisation) | **GET** /api/Organisation/GetOrganisation | Get your organisation.  Requires &#39;OrganisationAdmin&#39; permission.
 *OrganisationApi* | [**organisation_update_organisation**](docs/OrganisationApi.md#organisation_update_organisation) | **POST** /api/Organisation/UpdateOrganisation | Update an organisation.  Requires &#39;OrganisationAdmin&#39; permission.
-*OrganisationGroupUsersApi* | [**organisation_group_users_get_organisation_group_users**](docs/OrganisationGroupUsersApi.md#organisation_group_users_get_organisation_group_users) | **GET** /api/OrganisationGroupUsers/GetOrganisationGroupUsers | Get a collection of organisation group users that belong to an organisation group
+*OrganisationGroupUsersApi* | [**organisation_group_users_get_organisation_group_users**](docs/OrganisationGroupUsersApi.md#organisation_group_users_get_organisation_group_users) | **GET** /api/OrganisationGroupUsers/GetOrganisationGroupUsers | Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.
 *OrganisationGroupUsersApi* | [**organisation_group_users_update_organisation_group_users**](docs/OrganisationGroupUsersApi.md#organisation_group_users_update_organisation_group_users) | **POST** /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers | Set the users who belong to an organisation group
-*OrganisationGroupsApi* | [**organisation_groups_create_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_create_organisation_group) | **PUT** /api/OrganisationGroups/CreateOrganisationGroup | Create an organisation group
-*OrganisationGroupsApi* | [**organisation_groups_get_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_group) | **GET** /api/OrganisationGroups/GetOrganisationGroup | Get a particular organisation group
-*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups) | **GET** /api/OrganisationGroups/GetOrganisationGroups | Get a collection of organisation groups that are under your organisation
-*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups_for_job**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups_for_job) | **GET** /api/OrganisationGroups/GetOrganisationGroupsForJob | Get org groups for a particular job
-*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups_for_vehicle**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups_for_vehicle) | **GET** /api/OrganisationGroups/GetOrganisationGroupsForVehicle | Get org groups for a particular vehicle
-*OrganisationGroupsApi* | [**organisation_groups_update_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_update_organisation_group) | **POST** /api/OrganisationGroups/UpdateOrganisationGroup | Update an organisation group
+*OrganisationGroupsApi* | [**organisation_groups_create_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_create_organisation_group) | **PUT** /api/OrganisationGroups/CreateOrganisationGroup | Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.
+*OrganisationGroupsApi* | [**organisation_groups_get_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_group) | **GET** /api/OrganisationGroups/GetOrganisationGroup | Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
+*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups) | **GET** /api/OrganisationGroups/GetOrganisationGroups | Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
+*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups_for_job**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups_for_job) | **GET** /api/OrganisationGroups/GetOrganisationGroupsForJob | Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.
+*OrganisationGroupsApi* | [**organisation_groups_get_organisation_groups_for_vehicle**](docs/OrganisationGroupsApi.md#organisation_groups_get_organisation_groups_for_vehicle) | **GET** /api/OrganisationGroups/GetOrganisationGroupsForVehicle | Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.
+*OrganisationGroupsApi* | [**organisation_groups_update_organisation_group**](docs/OrganisationGroupsApi.md#organisation_groups_update_organisation_group) | **POST** /api/OrganisationGroups/UpdateOrganisationGroup | Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.
 *ProjectsApi* | [**projects_create_project**](docs/ProjectsApi.md#projects_create_project) | **PUT** /api/Projects/CreateProject | Create a project
 *ProjectsApi* | [**projects_get_project_by_id**](docs/ProjectsApi.md#projects_get_project_by_id) | **GET** /api/Projects/GetProjectById | Get project by Id
 *ProjectsApi* | [**projects_get_projects_for_client**](docs/ProjectsApi.md#projects_get_projects_for_client) | **GET** /api/Projects/GetProjectsForClient | Get projects for a particular client
@@ -171,10 +171,10 @@ Class | Method | HTTP request | Description
  - [CSApiResponseOrganisation](docs/CSApiResponseOrganisation.md)
  - [CSApiResponseOrganisationGroup](docs/CSApiResponseOrganisationGroup.md)
  - [CSApiResponseProject](docs/CSApiResponseProject.md)
- - [CSApiResponseSignupResponse](docs/CSApiResponseSignupResponse.md)
  - [CSApiResponseTimesheetTask](docs/CSApiResponseTimesheetTask.md)
  - [CSApiResponseTrip](docs/CSApiResponseTrip.md)
  - [CSApiResponseUpdateOrganisationResponse](docs/CSApiResponseUpdateOrganisationResponse.md)
+ - [CSApiResponseUpdateProfileResponse](docs/CSApiResponseUpdateProfileResponse.md)
  - [CSApiResponseUpdateUserResponse](docs/CSApiResponseUpdateUserResponse.md)
  - [CSApiResponseUserForManagement](docs/CSApiResponseUserForManagement.md)
  - [CSApiResponseUserProfile](docs/CSApiResponseUserProfile.md)
@@ -215,7 +215,6 @@ Class | Method | HTTP request | Description
  - [CSSaveVehicleRequest](docs/CSSaveVehicleRequest.md)
  - [CSSetOrganisationGroupUsersRequest](docs/CSSetOrganisationGroupUsersRequest.md)
  - [CSSetUsualHoursRequest](docs/CSSetUsualHoursRequest.md)
- - [CSSignupResponse](docs/CSSignupResponse.md)
  - [CSTaskSeriesReportItem](docs/CSTaskSeriesReportItem.md)
  - [CSTaskTotalsReportItem](docs/CSTaskTotalsReportItem.md)
  - [CSTimeSlot](docs/CSTimeSlot.md)
@@ -227,6 +226,7 @@ Class | Method | HTTP request | Description
  - [CSUpdateMyProfileRequest](docs/CSUpdateMyProfileRequest.md)
  - [CSUpdateOrganisationRequest](docs/CSUpdateOrganisationRequest.md)
  - [CSUpdateOrganisationResponse](docs/CSUpdateOrganisationResponse.md)
+ - [CSUpdateProfileResponse](docs/CSUpdateProfileResponse.md)
  - [CSUpdateProjectRequest](docs/CSUpdateProjectRequest.md)
  - [CSUpdateTaskRequest](docs/CSUpdateTaskRequest.md)
  - [CSUpdateUserRequest](docs/CSUpdateUserRequest.md)

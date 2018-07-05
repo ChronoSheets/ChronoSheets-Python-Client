@@ -4,16 +4,16 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fleet_create_vehicle**](FleetApi.md#fleet_create_vehicle) | **PUT** /api/Fleet/CreateVehicle | Create a vehicle
+[**fleet_create_vehicle**](FleetApi.md#fleet_create_vehicle) | **PUT** /api/Fleet/CreateVehicle | Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.
 [**fleet_get_vehicle_by_id**](FleetApi.md#fleet_get_vehicle_by_id) | **GET** /api/Fleet/GetVehicleById | Get a particular vehicle
 [**fleet_get_vehicles**](FleetApi.md#fleet_get_vehicles) | **GET** /api/Fleet/GetVehicles | Get a collection of vehicles that are under your organisation
-[**fleet_update_vehicle**](FleetApi.md#fleet_update_vehicle) | **POST** /api/Fleet/UpdateVehicle | Update a vehicle
+[**fleet_update_vehicle**](FleetApi.md#fleet_update_vehicle) | **POST** /api/Fleet/UpdateVehicle | Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.
 
 
 # **fleet_create_vehicle**
 > CSApiResponseInt32 fleet_create_vehicle(request, x_chronosheets_auth)
 
-Create a vehicle
+Create a vehicle.  Requires the 'ManageFleet' permission.
 
 ### Example
 ```python
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.FleetApi()
-request = ChronoSheetsAPI.CSInsertVehicleRequest() # CSInsertVehicleRequest | 
+request = ChronoSheetsAPI.CSInsertVehicleRequest() # CSInsertVehicleRequest | An Insert Vehicle Request object containing values for the new Vehicle to create
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Create a vehicle
+    # Create a vehicle.  Requires the 'ManageFleet' permission.
     api_response = api_instance.fleet_create_vehicle(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -40,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSInsertVehicleRequest**](CSInsertVehicleRequest.md)|  | 
+ **request** | [**CSInsertVehicleRequest**](CSInsertVehicleRequest.md)| An Insert Vehicle Request object containing values for the new Vehicle to create | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -73,7 +73,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.FleetApi()
-vehicle_id = 56 # int | The ID of the vehicle you want to get
+vehicle_id = 56 # int | The ID of the Vehicle you want to get
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -88,7 +88,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vehicle_id** | **int**| The ID of the vehicle you want to get | 
+ **vehicle_id** | **int**| The ID of the Vehicle you want to get | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -121,7 +121,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.FleetApi()
-include_deleted = true # bool | 
+include_deleted = true # bool | Whether or not to include deleted vehicles
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -136,7 +136,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include_deleted** | **bool**|  | 
+ **include_deleted** | **bool**| Whether or not to include deleted vehicles | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -157,7 +157,7 @@ No authorization required
 # **fleet_update_vehicle**
 > CSApiResponseBoolean fleet_update_vehicle(request, x_chronosheets_auth)
 
-Update a vehicle
+Update a vehicle.  Requires the 'ManageFleet' permission.
 
 ### Example
 ```python
@@ -169,11 +169,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.FleetApi()
-request = ChronoSheetsAPI.CSSaveVehicleRequest() # CSSaveVehicleRequest | 
+request = ChronoSheetsAPI.CSSaveVehicleRequest() # CSSaveVehicleRequest | A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Update a vehicle
+    # Update a vehicle.  Requires the 'ManageFleet' permission.
     api_response = api_instance.fleet_update_vehicle(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -184,7 +184,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSSaveVehicleRequest**](CSSaveVehicleRequest.md)|  | 
+ **request** | [**CSSaveVehicleRequest**](CSSaveVehicleRequest.md)| A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

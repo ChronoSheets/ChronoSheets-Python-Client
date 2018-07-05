@@ -420,7 +420,7 @@ class UserProfileApi(object):
         :param async bool
         :param CSUpdateMyProfileRequest request: (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :return: CSApiResponseSignupResponse
+        :return: CSApiResponseUpdateProfileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -442,7 +442,7 @@ class UserProfileApi(object):
         :param async bool
         :param CSUpdateMyProfileRequest request: (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :return: CSApiResponseSignupResponse
+        :return: CSApiResponseUpdateProfileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -506,7 +506,7 @@ class UserProfileApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CSApiResponseSignupResponse',  # noqa: E501
+            response_type='CSApiResponseUpdateProfileResponse',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
