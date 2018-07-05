@@ -34,7 +34,7 @@ class ReportsApi(object):
         self.api_client = api_client
 
     def reports_get_all_charts_data_admin(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)  # noqa: E501
+        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,9 +42,9 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -58,7 +58,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_all_charts_data_admin_with_http_info(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)  # noqa: E501
+        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -66,9 +66,9 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -151,7 +151,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_get_all_charts_data_user(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs and Tasks)  # noqa: E501
+        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.  Requires the &#39;ViewOwnReports&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -159,8 +159,8 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -174,7 +174,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_all_charts_data_user_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs and Tasks)  # noqa: E501
+        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.  Requires the &#39;ViewOwnReports&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -182,8 +182,8 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -260,7 +260,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_get_org_trip_by_id(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes  # noqa: E501
+        """Get trip by Id, for reporting purposes.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -268,7 +268,7 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int trip_id: The ID of the trip (required)
+        :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
                  If the method is called asynchronously,
@@ -282,7 +282,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_org_trip_by_id_with_http_info(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes  # noqa: E501
+        """Get trip by Id, for reporting purposes.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -290,7 +290,7 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int trip_id: The ID of the trip (required)
+        :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
                  If the method is called asynchronously,
@@ -361,7 +361,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_get_organisation_timesheet_file_attachments(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments  # noqa: E501
+        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -369,11 +369,11 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param int skip: Skip this many items (required)
+        :param int take: Take this many items (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
@@ -387,7 +387,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_organisation_timesheet_file_attachments_with_http_info(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments  # noqa: E501
+        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -395,11 +395,11 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param int skip: Skip this many items (required)
+        :param int take: Take this many items (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
@@ -494,7 +494,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_get_organisation_trips(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation)  # noqa: E501
+        """Reports on Organisation trips (GPS tracking from whole organisation).  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -502,11 +502,11 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param int skip: Skip this many items (required)
+        :param int take: Take this many items (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
@@ -520,7 +520,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_organisation_trips_with_http_info(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation)  # noqa: E501
+        """Reports on Organisation trips (GPS tracking from whole organisation).  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -528,11 +528,11 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param int skip: Skip this many items (required)
+        :param int take: Take this many items (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
@@ -627,7 +627,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_get_raw_data_admin(self, start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data  # noqa: E501
+        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -635,13 +635,13 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
-        :param str sort: (required)
-        :param str order: (required)
-        :param int skip: (required)
-        :param int take: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str sort: Decide which column to sort on (required)
+        :param str order: Decide which direction to sort the column (required)
+        :param int skip: Skip this many rows (required)
+        :param int take: Take this many rows (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListRawReportItem
                  If the method is called asynchronously,
@@ -655,7 +655,7 @@ class ReportsApi(object):
             return data
 
     def reports_get_raw_data_admin_with_http_info(self, start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data  # noqa: E501
+        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -663,13 +663,13 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
-        :param str sort: (required)
-        :param str order: (required)
-        :param int skip: (required)
-        :param int take: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str sort: Decide which column to sort on (required)
+        :param str order: Decide which direction to sort the column (required)
+        :param int skip: Skip this many rows (required)
+        :param int take: Take this many rows (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListRawReportItem
                  If the method is called asynchronously,
@@ -776,7 +776,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_project_costings_admin(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users  # noqa: E501
+        """Gets project cost estimations VS actual cost for date range and users.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -784,9 +784,9 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
@@ -800,7 +800,7 @@ class ReportsApi(object):
             return data
 
     def reports_project_costings_admin_with_http_info(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users  # noqa: E501
+        """Gets project cost estimations VS actual cost for date range and users.  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -808,9 +808,9 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param str user_ids: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
+        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
@@ -893,7 +893,7 @@ class ReportsApi(object):
             collection_formats=collection_formats)
 
     def reports_user_jobs_over_time(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user  # noqa: E501
+        """Timeseries jobs data for the logged in user.  Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -901,8 +901,8 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListJobSeriesReportItem
                  If the method is called asynchronously,
@@ -916,7 +916,7 @@ class ReportsApi(object):
             return data
 
     def reports_user_jobs_over_time_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user  # noqa: E501
+        """Timeseries jobs data for the logged in user.  Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -924,8 +924,8 @@ class ReportsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
+        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
+        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListJobSeriesReportItem
                  If the method is called asynchronously,

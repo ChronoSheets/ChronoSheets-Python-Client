@@ -32,56 +32,56 @@ class TestReportsApi(unittest.TestCase):
     def test_reports_get_all_charts_data_admin(self):
         """Test case for reports_get_all_charts_data_admin
 
-        Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)  # noqa: E501
+        Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_get_all_charts_data_user(self):
         """Test case for reports_get_all_charts_data_user
 
-        Get Consolidated User Reports Data (Jobs and Tasks)  # noqa: E501
+        Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.  Requires the 'ViewOwnReports' permission.  # noqa: E501
         """
         pass
 
     def test_reports_get_org_trip_by_id(self):
         """Test case for reports_get_org_trip_by_id
 
-        Get trip by Id, for reporting purposes  # noqa: E501
+        Get trip by Id, for reporting purposes.  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_get_organisation_timesheet_file_attachments(self):
         """Test case for reports_get_organisation_timesheet_file_attachments
 
-        Reports on Organisation timesheet file attachments  # noqa: E501
+        Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_get_organisation_trips(self):
         """Test case for reports_get_organisation_trips
 
-        Reports on Organisation trips (GPS tracking from whole organisation)  # noqa: E501
+        Reports on Organisation trips (GPS tracking from whole organisation).  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_get_raw_data_admin(self):
         """Test case for reports_get_raw_data_admin
 
-        Get Timesheets Raw Data  # noqa: E501
+        Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_project_costings_admin(self):
         """Test case for reports_project_costings_admin
 
-        Gets project cost estimations VS actual cost for date range and users  # noqa: E501
+        Gets project cost estimations VS actual cost for date range and users.  Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_reports_user_jobs_over_time(self):
         """Test case for reports_user_jobs_over_time
 
-        Timeseries jobs data for the logged in user  # noqa: E501
+        Timeseries jobs data for the logged in user.  Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
         """
         pass
 
