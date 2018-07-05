@@ -31,7 +31,7 @@ from pprint import pprint
 api_instance = ChronoSheetsAPI.ReportsApi()
 start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the date range.  Report data in the response is after this date
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
-user_ids = 'user_ids_example' # str | The Ids of the users, if you want to filter the report data to particular users
+user_ids = 'user_ids_example' # str | A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_date** | **datetime**| The start date for the date range.  Report data in the response is after this date | 
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
- **user_ids** | **str**| The Ids of the users, if you want to filter the report data to particular users | 
+ **user_ids** | **str**| A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -183,7 +183,7 @@ start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the dat
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
 skip = 56 # int | Skip this many items
 take = 56 # int | Take this many items
-user_ids = 'user_ids_example' # str | The Ids of the users, if you want to filter the report data to particular users
+user_ids = 'user_ids_example' # str | A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
  **skip** | **int**| Skip this many items | 
  **take** | **int**| Take this many items | 
- **user_ids** | **str**| The Ids of the users, if you want to filter the report data to particular users | 
+ **user_ids** | **str**| A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -239,7 +239,7 @@ start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the dat
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
 skip = 56 # int | Skip this many items
 take = 56 # int | Take this many items
-user_ids = 'user_ids_example' # str | The Ids of the users, if you want to filter the report data to particular users
+user_ids = 'user_ids_example' # str | A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
  **skip** | **int**| Skip this many items | 
  **take** | **int**| Take this many items | 
- **user_ids** | **str**| The Ids of the users, if you want to filter the report data to particular users | 
+ **user_ids** | **str**| A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -293,7 +293,7 @@ from pprint import pprint
 api_instance = ChronoSheetsAPI.ReportsApi()
 start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the date range.  Report data in the response is after this date
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
-user_ids = 'user_ids_example' # str | The Ids of the users, if you want to filter the report data to particular users
+user_ids = 'user_ids_example' # str | A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
 sort = 'sort_example' # str | Decide which column to sort on
 order = 'order_example' # str | Decide which direction to sort the column
 skip = 56 # int | Skip this many rows
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_date** | **datetime**| The start date for the date range.  Report data in the response is after this date | 
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
- **user_ids** | **str**| The Ids of the users, if you want to filter the report data to particular users | 
+ **user_ids** | **str**| A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
  **sort** | **str**| Decide which column to sort on | 
  **order** | **str**| Decide which direction to sort the column | 
  **skip** | **int**| Skip this many rows | 
@@ -353,7 +353,7 @@ from pprint import pprint
 api_instance = ChronoSheetsAPI.ReportsApi()
 start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the date range.  Report data in the response is after this date
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
-user_ids = 'user_ids_example' # str | The Ids of the users, if you want to filter the report data to particular users
+user_ids = 'user_ids_example' # str | A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_date** | **datetime**| The start date for the date range.  Report data in the response is after this date | 
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
- **user_ids** | **str**| The Ids of the users, if you want to filter the report data to particular users | 
+ **user_ids** | **str**| A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

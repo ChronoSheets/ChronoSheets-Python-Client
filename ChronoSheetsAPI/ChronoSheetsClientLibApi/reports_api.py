@@ -44,7 +44,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -68,7 +68,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
@@ -373,7 +373,7 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param int skip: Skip this many items (required)
         :param int take: Take this many items (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
@@ -399,7 +399,7 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param int skip: Skip this many items (required)
         :param int take: Take this many items (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
@@ -506,7 +506,7 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param int skip: Skip this many items (required)
         :param int take: Take this many items (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
@@ -532,7 +532,7 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param int skip: Skip this many items (required)
         :param int take: Take this many items (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
@@ -637,7 +637,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str sort: Decide which column to sort on (required)
         :param str order: Decide which direction to sort the column (required)
         :param int skip: Skip this many rows (required)
@@ -665,7 +665,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str sort: Decide which column to sort on (required)
         :param str order: Decide which direction to sort the column (required)
         :param int skip: Skip this many rows (required)
@@ -786,7 +786,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
@@ -810,7 +810,7 @@ class ReportsApi(object):
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: The Ids of the users, if you want to filter the report data to particular users (required)
+        :param str user_ids: A comma-seperated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
