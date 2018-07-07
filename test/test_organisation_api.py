@@ -32,14 +32,14 @@ class TestOrganisationApi(unittest.TestCase):
     def test_organisation_get_organisation(self):
         """Test case for organisation_get_organisation
 
-        Get your organisation.  Requires 'OrganisationAdmin' permission.  # noqa: E501
+        Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
         """
         pass
 
     def test_organisation_update_organisation(self):
         """Test case for organisation_update_organisation
 
-        Update an organisation.  Requires 'OrganisationAdmin' permission.  # noqa: E501
+        Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
         """
         pass
 

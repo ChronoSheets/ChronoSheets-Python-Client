@@ -32,42 +32,42 @@ class TestOrganisationGroupsApi(unittest.TestCase):
     def test_organisation_groups_create_organisation_group(self):
         """Test case for organisation_groups_create_organisation_group
 
-        Create an organisation group.  Requires the 'ManageOrganisationGroups' permissions.  # noqa: E501
+        Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.  # noqa: E501
         """
         pass
 
     def test_organisation_groups_get_organisation_group(self):
         """Test case for organisation_groups_get_organisation_group
 
-        Get a particular organisation group.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
+        Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 
     def test_organisation_groups_get_organisation_groups(self):
         """Test case for organisation_groups_get_organisation_groups
 
-        Get a collection of organisation groups that are under your organisation.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
+        Get a collection of organisation groups that are under your organisation.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 
     def test_organisation_groups_get_organisation_groups_for_job(self):
         """Test case for organisation_groups_get_organisation_groups_for_job
 
-        Get org groups for a particular job.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
+        Get org groups for a particular job.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 
     def test_organisation_groups_get_organisation_groups_for_vehicle(self):
         """Test case for organisation_groups_get_organisation_groups_for_vehicle
 
-        Get org groups for a particular vehicle.  Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.  # noqa: E501
+        Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 
     def test_organisation_groups_update_organisation_group(self):
         """Test case for organisation_groups_update_organisation_group
 
-        Update an organisation group.  Requires the 'ManageOrganisationGroups' permissions.  # noqa: E501
+        Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.  # noqa: E501
         """
         pass
 

@@ -32,21 +32,21 @@ class TestUserJobFavouritesApi(unittest.TestCase):
     def test_user_job_favourites_create_job_favourite(self):
         """Test case for user_job_favourites_create_job_favourite
 
-        Create a job favourite  # noqa: E501
+        Create a job favourite.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_user_job_favourites_delete_job_favourite(self):
         """Test case for user_job_favourites_delete_job_favourite
 
-        Delete a job favourite  # noqa: E501
+        Delete a job favourite.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_user_job_favourites_get_job_favourites(self):
         """Test case for user_job_favourites_get_job_favourites
 
-        Get your job favourites  # noqa: E501
+        Get your job favourites.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 

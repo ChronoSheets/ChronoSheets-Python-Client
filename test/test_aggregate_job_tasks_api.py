@@ -32,7 +32,7 @@ class TestAggregateJobTasksApi(unittest.TestCase):
     def test_aggregate_job_tasks_get_aggregate_job_tasks(self):
         """Test case for aggregate_job_tasks_get_aggregate_job_tasks
 
-        Get jobs and tasks information, aggregated.  Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
+        Get jobs and tasks information, aggregated.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 

@@ -32,28 +32,28 @@ class TestFleetApi(unittest.TestCase):
     def test_fleet_create_vehicle(self):
         """Test case for fleet_create_vehicle
 
-        Create a vehicle.  Requires the 'ManageFleet' permission.  # noqa: E501
+        Create a vehicle.    Requires the 'ManageFleet' permission.  # noqa: E501
         """
         pass
 
     def test_fleet_get_vehicle_by_id(self):
         """Test case for fleet_get_vehicle_by_id
 
-        Get a particular vehicle  # noqa: E501
+        Get a particular vehicle.  Does not require any special permission.  # noqa: E501
         """
         pass
 
     def test_fleet_get_vehicles(self):
         """Test case for fleet_get_vehicles
 
-        Get a collection of vehicles that are under your organisation  # noqa: E501
+        Get a collection of vehicles that are under your organisation.    Does not require any special permission.  # noqa: E501
         """
         pass
 
     def test_fleet_update_vehicle(self):
         """Test case for fleet_update_vehicle
 
-        Update a vehicle.  Requires the 'ManageFleet' permission.  # noqa: E501
+        Update a vehicle.    Requires the 'ManageFleet' permission.  # noqa: E501
         """
         pass
 

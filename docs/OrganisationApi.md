@@ -4,14 +4,14 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**organisation_get_organisation**](OrganisationApi.md#organisation_get_organisation) | **GET** /api/Organisation/GetOrganisation | Get your organisation.  Requires &#39;OrganisationAdmin&#39; permission.
-[**organisation_update_organisation**](OrganisationApi.md#organisation_update_organisation) | **POST** /api/Organisation/UpdateOrganisation | Update an organisation.  Requires &#39;OrganisationAdmin&#39; permission.
+[**organisation_get_organisation**](OrganisationApi.md#organisation_get_organisation) | **GET** /api/Organisation/GetOrganisation | Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.
+[**organisation_update_organisation**](OrganisationApi.md#organisation_update_organisation) | **POST** /api/Organisation/UpdateOrganisation | Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.
 
 
 # **organisation_get_organisation**
 > CSApiResponseOrganisation organisation_get_organisation(x_chronosheets_auth)
 
-Get your organisation.  Requires 'OrganisationAdmin' permission.
+Get your organisation.    Requires 'OrganisationAdmin' permission.
 
 ### Example
 ```python
@@ -26,7 +26,7 @@ api_instance = ChronoSheetsAPI.OrganisationApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get your organisation.  Requires 'OrganisationAdmin' permission.
+    # Get your organisation.    Requires 'OrganisationAdmin' permission.
     api_response = api_instance.organisation_get_organisation(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -57,7 +57,7 @@ No authorization required
 # **organisation_update_organisation**
 > CSApiResponseUpdateOrganisationResponse organisation_update_organisation(request, x_chronosheets_auth)
 
-Update an organisation.  Requires 'OrganisationAdmin' permission.
+Update an organisation.    Requires 'OrganisationAdmin' permission.
 
 ### Example
 ```python
@@ -73,7 +73,7 @@ request = ChronoSheetsAPI.CSUpdateOrganisationRequest() # CSUpdateOrganisationRe
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Update an organisation.  Requires 'OrganisationAdmin' permission.
+    # Update an organisation.    Requires 'OrganisationAdmin' permission.
     api_response = api_instance.organisation_update_organisation(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:

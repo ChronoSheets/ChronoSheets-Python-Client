@@ -34,7 +34,7 @@ class OrganisationApi(object):
         self.api_client = api_client
 
     def organisation_get_organisation(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.  Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -55,7 +55,7 @@ class OrganisationApi(object):
             return data
 
     def organisation_get_organisation_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.  Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -127,7 +127,7 @@ class OrganisationApi(object):
             collection_formats=collection_formats)
 
     def organisation_update_organisation(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation.  Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -149,7 +149,7 @@ class OrganisationApi(object):
             return data
 
     def organisation_update_organisation_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation.  Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

@@ -34,7 +34,7 @@ class TimesheetsApi(object):
         self.api_client = api_client
 
     def timesheets_create_single_timesheet(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Inserts a single timesheet record  # noqa: E501
+        """Inserts a single timesheet record.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSTimesheet request: The timesheet request object (required)
+        :param CSTimesheet request: A Timesheet Request object containing values for the new Timesheet to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class TimesheetsApi(object):
             return data
 
     def timesheets_create_single_timesheet_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Inserts a single timesheet record  # noqa: E501
+        """Inserts a single timesheet record.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSTimesheet request: The timesheet request object (required)
+        :param CSTimesheet request: A Timesheet Request object containing values for the new Timesheet to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -139,7 +139,7 @@ class TimesheetsApi(object):
             collection_formats=collection_formats)
 
     def timesheets_delete_timesheet(self, timesheet_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a timesheet  # noqa: E501
+        """Delete a timesheet.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -147,7 +147,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int timesheet_id: The ID of the timesheet to delete (required)
+        :param int timesheet_id: The ID of the Timesheet you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -161,7 +161,7 @@ class TimesheetsApi(object):
             return data
 
     def timesheets_delete_timesheet_with_http_info(self, timesheet_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a timesheet  # noqa: E501
+        """Delete a timesheet.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -169,7 +169,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int timesheet_id: The ID of the timesheet to delete (required)
+        :param int timesheet_id: The ID of the Timesheet you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -240,7 +240,7 @@ class TimesheetsApi(object):
             collection_formats=collection_formats)
 
     def timesheets_get_timesheets(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get timesheets between start and end dates  # noqa: E501
+        """Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -263,7 +263,7 @@ class TimesheetsApi(object):
             return data
 
     def timesheets_get_timesheets_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get timesheets between start and end dates  # noqa: E501
+        """Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -349,7 +349,7 @@ class TimesheetsApi(object):
             collection_formats=collection_formats)
 
     def timesheets_update_timesheets(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Batch update timesheets  # noqa: E501
+        """Batch update timesheets.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -357,7 +357,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSBatchUpdateTimesheetRequest request: The batch update timesheets request (required)
+        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListInt32
                  If the method is called asynchronously,
@@ -371,7 +371,7 @@ class TimesheetsApi(object):
             return data
 
     def timesheets_update_timesheets_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Batch update timesheets  # noqa: E501
+        """Batch update timesheets.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -379,7 +379,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSBatchUpdateTimesheetRequest request: The batch update timesheets request (required)
+        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListInt32
                  If the method is called asynchronously,

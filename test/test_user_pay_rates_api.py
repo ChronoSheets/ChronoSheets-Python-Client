@@ -32,14 +32,14 @@ class TestUserPayRatesApi(unittest.TestCase):
     def test_user_pay_rates_create_pay_rate(self):
         """Test case for user_pay_rates_create_pay_rate
 
-        Create a new pay rate for a particular user, archiving the previous pay rate  # noqa: E501
+        Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
         """
         pass
 
     def test_user_pay_rates_get_pay_rates(self):
         """Test case for user_pay_rates_get_pay_rates
 
-        Get a collection of pay rates for a particular user, specified by user id  # noqa: E501
+        Get a collection of pay rates for a particular user, specified by user id.    Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
         """
         pass
 

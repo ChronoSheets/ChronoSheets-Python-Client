@@ -34,7 +34,7 @@ class UserProfileApi(object):
         self.api_client = api_client
 
     def user_profile_do_login(self, request, **kwargs):  # noqa: E501
-        """user_profile_do_login  # noqa: E501
+        """Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class UserProfileApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSDoLoginRequest request: (required)
+        :param CSDoLoginRequest request: A request object containing your username/email and password. (required)
         :return: CSApiResponseDoLoginResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -55,7 +55,7 @@ class UserProfileApi(object):
             return data
 
     def user_profile_do_login_with_http_info(self, request, **kwargs):  # noqa: E501
-        """user_profile_do_login  # noqa: E501
+        """Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -63,7 +63,7 @@ class UserProfileApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSDoLoginRequest request: (required)
+        :param CSDoLoginRequest request: A request object containing your username/email and password. (required)
         :return: CSApiResponseDoLoginResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -131,7 +131,7 @@ class UserProfileApi(object):
             collection_formats=collection_formats)
 
     def user_profile_do_logout(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_do_logout  # noqa: E501
+        """Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -152,7 +152,7 @@ class UserProfileApi(object):
             return data
 
     def user_profile_do_logout_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_do_logout  # noqa: E501
+        """Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -224,7 +224,7 @@ class UserProfileApi(object):
             collection_formats=collection_formats)
 
     def user_profile_get_my_profile(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_get_my_profile  # noqa: E501
+        """Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -245,7 +245,7 @@ class UserProfileApi(object):
             return data
 
     def user_profile_get_my_profile_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_get_my_profile  # noqa: E501
+        """Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -317,7 +317,7 @@ class UserProfileApi(object):
             collection_formats=collection_formats)
 
     def user_profile_keep_session_alive(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_keep_session_alive  # noqa: E501
+        """Keep a session alive.  Use this method to keep a session active.  You could use this to &#39;ping&#39; ChronoSheets every &#39;x&#39; minutes to make sure your Auth Token will keep working.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -338,7 +338,7 @@ class UserProfileApi(object):
             return data
 
     def user_profile_keep_session_alive_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_keep_session_alive  # noqa: E501
+        """Keep a session alive.  Use this method to keep a session active.  You could use this to &#39;ping&#39; ChronoSheets every &#39;x&#39; minutes to make sure your Auth Token will keep working.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -410,7 +410,7 @@ class UserProfileApi(object):
             collection_formats=collection_formats)
 
     def user_profile_update_my_profile(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_update_my_profile  # noqa: E501
+        """Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -418,7 +418,7 @@ class UserProfileApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSUpdateMyProfileRequest request: (required)
+        :param CSUpdateMyProfileRequest request: An Update MyProfile Request object containing updated fields. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateProfileResponse
                  If the method is called asynchronously,
@@ -432,7 +432,7 @@ class UserProfileApi(object):
             return data
 
     def user_profile_update_my_profile_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """user_profile_update_my_profile  # noqa: E501
+        """Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -440,7 +440,7 @@ class UserProfileApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSUpdateMyProfileRequest request: (required)
+        :param CSUpdateMyProfileRequest request: An Update MyProfile Request object containing updated fields. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateProfileResponse
                  If the method is called asynchronously,

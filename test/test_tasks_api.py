@@ -32,42 +32,42 @@ class TestTasksApi(unittest.TestCase):
     def test_tasks_create_task(self):
         """Test case for tasks_create_task
 
-        Create a task  # noqa: E501
+        Create a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 
     def test_tasks_delete_task(self):
         """Test case for tasks_delete_task
 
-        Delete a task  # noqa: E501
+        Delete a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 
     def test_tasks_get_task_by_id(self):
         """Test case for tasks_get_task_by_id
 
-        Get a particular task by id  # noqa: E501
+        Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_tasks_get_tasks(self):
         """Test case for tasks_get_tasks
 
-        Get tasks in your organisation  # noqa: E501
+        Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_tasks_get_tasks_for_job(self):
         """Test case for tasks_get_tasks_for_job
 
-        Get tasks for a particular job  # noqa: E501
+        Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_tasks_update_task(self):
         """Test case for tasks_update_task
 
-        Update a task  # noqa: E501
+        Update a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
         """
         pass
 

@@ -32,28 +32,28 @@ class TestProjectsApi(unittest.TestCase):
     def test_projects_create_project(self):
         """Test case for projects_create_project
 
-        Create a project.  Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
+        Create a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
         """
         pass
 
     def test_projects_get_project_by_id(self):
         """Test case for projects_get_project_by_id
 
-        Get a project by its Id.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
+        Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_projects_get_projects_for_client(self):
         """Test case for projects_get_projects_for_client
 
-        Get projects for a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
+        Get projects for a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_projects_update_project(self):
         """Test case for projects_update_project
 
-        Update a project.  Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
+        Update a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
         """
         pass
 

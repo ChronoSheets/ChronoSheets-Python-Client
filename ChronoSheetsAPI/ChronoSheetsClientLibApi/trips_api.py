@@ -34,7 +34,7 @@ class TripsApi(object):
         self.api_client = api_client
 
     def trips_create_trip(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.  # noqa: E501
+        """Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSCreateTripRequest request: The create trip request (required)
+        :param CSCreateTripRequest request: A Create Trip Request object containing values for the new Trip to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class TripsApi(object):
             return data
 
     def trips_create_trip_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.  # noqa: E501
+        """Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSCreateTripRequest request: The create trip request (required)
+        :param CSCreateTripRequest request: A Create Trip Request object containing values for the new Trip to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -139,7 +139,7 @@ class TripsApi(object):
             collection_formats=collection_formats)
 
     def trips_get_my_trip_by_id(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id  # noqa: E501
+        """Get trip by Id.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -147,7 +147,7 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int trip_id: The ID of the trip (required)
+        :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
                  If the method is called asynchronously,
@@ -161,7 +161,7 @@ class TripsApi(object):
             return data
 
     def trips_get_my_trip_by_id_with_http_info(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id  # noqa: E501
+        """Get trip by Id.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -169,7 +169,7 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int trip_id: The ID of the trip (required)
+        :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
                  If the method is called asynchronously,
@@ -240,7 +240,7 @@ class TripsApi(object):
             collection_formats=collection_formats)
 
     def trips_get_my_trips(self, start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my trips  # noqa: E501
+        """Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -248,11 +248,11 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param int vehicle_id: (required)
+        :param datetime start_date: The Start date of the date range.  Trips after this date will be obtained. (required)
+        :param datetime end_date: The End date of the date range.  Trips before this date will be obtained. (required)
+        :param int skip: Skip this many Trips (required)
+        :param int take: Take this many Trips (required)
+        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListTrip
                  If the method is called asynchronously,
@@ -266,7 +266,7 @@ class TripsApi(object):
             return data
 
     def trips_get_my_trips_with_http_info(self, start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my trips  # noqa: E501
+        """Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -274,11 +274,11 @@ class TripsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param datetime start_date: (required)
-        :param datetime end_date: (required)
-        :param int skip: (required)
-        :param int take: (required)
-        :param int vehicle_id: (required)
+        :param datetime start_date: The Start date of the date range.  Trips after this date will be obtained. (required)
+        :param datetime end_date: The End date of the date range.  Trips before this date will be obtained. (required)
+        :param int skip: Skip this many Trips (required)
+        :param int take: Take this many Trips (required)
+        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedListTrip
                  If the method is called asynchronously,

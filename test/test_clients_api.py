@@ -32,28 +32,28 @@ class TestClientsApi(unittest.TestCase):
     def test_clients_create_client(self):
         """Test case for clients_create_client
 
-        Create a client.  Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
+        Create a client.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
         """
         pass
 
     def test_clients_get_client(self):
         """Test case for clients_get_client
 
-        Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
+        Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_clients_get_clients(self):
         """Test case for clients_get_clients
 
-        Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
+        Get a collection of clients that are under your organisation.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
         """
         pass
 
     def test_clients_update_client(self):
         """Test case for clients_update_client
 
-        Update a client.  Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
+        Update a client.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
         """
         pass
 

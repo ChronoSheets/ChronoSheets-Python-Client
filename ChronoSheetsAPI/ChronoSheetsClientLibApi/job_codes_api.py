@@ -34,7 +34,7 @@ class JobCodesApi(object):
         self.api_client = api_client
 
     def job_codes_create_job_code(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -56,7 +56,7 @@ class JobCodesApi(object):
             return data
 
     def job_codes_create_job_code_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -139,7 +139,7 @@ class JobCodesApi(object):
             collection_formats=collection_formats)
 
     def job_codes_delete_job_code(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -161,7 +161,7 @@ class JobCodesApi(object):
             return data
 
     def job_codes_delete_job_code_with_http_info(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -240,7 +240,7 @@ class JobCodesApi(object):
             collection_formats=collection_formats)
 
     def job_codes_get_job_code_by_id(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular job code by job code id.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get a particular job code by job code id.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -262,7 +262,7 @@ class JobCodesApi(object):
             return data
 
     def job_codes_get_job_code_by_id_with_http_info(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular job code by job code id.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get a particular job code by job code id.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -341,7 +341,7 @@ class JobCodesApi(object):
             collection_formats=collection_formats)
 
     def job_codes_get_job_codes(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get job codes for your organisation.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get job codes for your organisation.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -362,7 +362,7 @@ class JobCodesApi(object):
             return data
 
     def job_codes_get_job_codes_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get job codes for your organisation.  Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get job codes for your organisation.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -434,7 +434,7 @@ class JobCodesApi(object):
             collection_formats=collection_formats)
 
     def job_codes_update_job_code(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -456,7 +456,7 @@ class JobCodesApi(object):
             return data
 
     def job_codes_update_job_code_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a job code.  Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

@@ -34,7 +34,7 @@ class UserJobFavouritesApi(object):
         self.api_client = api_client
 
     def user_job_favourites_create_job_favourite(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job favourite  # noqa: E501
+        """Create a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class UserJobFavouritesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertUserJobFavouriteRequest request:  (required)
+        :param CSInsertUserJobFavouriteRequest request: An Insert UserJobFavourite Request object containing values for the new UserJobFavourite to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class UserJobFavouritesApi(object):
             return data
 
     def user_job_favourites_create_job_favourite_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job favourite  # noqa: E501
+        """Create a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class UserJobFavouritesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertUserJobFavouriteRequest request:  (required)
+        :param CSInsertUserJobFavouriteRequest request: An Insert UserJobFavourite Request object containing values for the new UserJobFavourite to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -139,7 +139,7 @@ class UserJobFavouritesApi(object):
             collection_formats=collection_formats)
 
     def user_job_favourites_delete_job_favourite(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job favourite  # noqa: E501
+        """Delete a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -147,7 +147,7 @@ class UserJobFavouritesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int job_id: The ID of the Job (required)
+        :param int job_id: The ID of the Job for the Job Favourite you want to delete. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -161,7 +161,7 @@ class UserJobFavouritesApi(object):
             return data
 
     def user_job_favourites_delete_job_favourite_with_http_info(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job favourite  # noqa: E501
+        """Delete a job favourite.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -169,7 +169,7 @@ class UserJobFavouritesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int job_id: The ID of the Job (required)
+        :param int job_id: The ID of the Job for the Job Favourite you want to delete. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -240,7 +240,7 @@ class UserJobFavouritesApi(object):
             collection_formats=collection_formats)
 
     def user_job_favourites_get_job_favourites(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your job favourites  # noqa: E501
+        """Get your job favourites.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -261,7 +261,7 @@ class UserJobFavouritesApi(object):
             return data
 
     def user_job_favourites_get_job_favourites_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your job favourites  # noqa: E501
+        """Get your job favourites.    Requires the &#39;SubmitTimesheets&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

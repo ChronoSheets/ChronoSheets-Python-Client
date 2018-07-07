@@ -34,7 +34,7 @@ class ProjectsApi(object):
         self.api_client = api_client
 
     def projects_create_project(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -56,7 +56,7 @@ class ProjectsApi(object):
             return data
 
     def projects_create_project_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -139,7 +139,7 @@ class ProjectsApi(object):
             collection_formats=collection_formats)
 
     def projects_get_project_by_id(self, project_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a project by its Id.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a project by its Id.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -161,7 +161,7 @@ class ProjectsApi(object):
             return data
 
     def projects_get_project_by_id_with_http_info(self, project_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a project by its Id.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a project by its Id.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -240,7 +240,7 @@ class ProjectsApi(object):
             collection_formats=collection_formats)
 
     def projects_get_projects_for_client(self, client_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get projects for a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get projects for a particular client.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -262,7 +262,7 @@ class ProjectsApi(object):
             return data
 
     def projects_get_projects_for_client_with_http_info(self, client_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get projects for a particular client.  Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get projects for a particular client.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -341,7 +341,7 @@ class ProjectsApi(object):
             collection_formats=collection_formats)
 
     def projects_update_project(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Update a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -363,7 +363,7 @@ class ProjectsApi(object):
             return data
 
     def projects_update_project_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a project.  Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Update a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

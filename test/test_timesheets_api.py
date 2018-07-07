@@ -32,28 +32,28 @@ class TestTimesheetsApi(unittest.TestCase):
     def test_timesheets_create_single_timesheet(self):
         """Test case for timesheets_create_single_timesheet
 
-        Inserts a single timesheet record  # noqa: E501
+        Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_timesheets_delete_timesheet(self):
         """Test case for timesheets_delete_timesheet
 
-        Delete a timesheet  # noqa: E501
+        Delete a timesheet.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_timesheets_get_timesheets(self):
         """Test case for timesheets_get_timesheets
 
-        Get timesheets between start and end dates  # noqa: E501
+        Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_timesheets_update_timesheets(self):
         """Test case for timesheets_update_timesheets
 
-        Batch update timesheets  # noqa: E501
+        Batch update timesheets.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 

@@ -34,7 +34,7 @@ class FleetApi(object):
         self.api_client = api_client
 
     def fleet_create_vehicle(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
+        """Create a vehicle.    Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -56,7 +56,7 @@ class FleetApi(object):
             return data
 
     def fleet_create_vehicle_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
+        """Create a vehicle.    Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -139,7 +139,7 @@ class FleetApi(object):
             collection_formats=collection_formats)
 
     def fleet_get_vehicle_by_id(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular vehicle  # noqa: E501
+        """Get a particular vehicle.  Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -161,7 +161,7 @@ class FleetApi(object):
             return data
 
     def fleet_get_vehicle_by_id_with_http_info(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular vehicle  # noqa: E501
+        """Get a particular vehicle.  Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -240,7 +240,7 @@ class FleetApi(object):
             collection_formats=collection_formats)
 
     def fleet_get_vehicles(self, include_deleted, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of vehicles that are under your organisation  # noqa: E501
+        """Get a collection of vehicles that are under your organisation.    Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -262,7 +262,7 @@ class FleetApi(object):
             return data
 
     def fleet_get_vehicles_with_http_info(self, include_deleted, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of vehicles that are under your organisation  # noqa: E501
+        """Get a collection of vehicles that are under your organisation.    Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -341,7 +341,7 @@ class FleetApi(object):
             collection_formats=collection_formats)
 
     def fleet_update_vehicle(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
+        """Update a vehicle.    Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -363,7 +363,7 @@ class FleetApi(object):
             return data
 
     def fleet_update_vehicle_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a vehicle.  Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
+        """Update a vehicle.    Requires the &#39;ManageFleet&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

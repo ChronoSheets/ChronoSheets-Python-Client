@@ -32,28 +32,28 @@ class TestUsersApi(unittest.TestCase):
     def test_users_create_timesheet_user(self):
         """Test case for users_create_timesheet_user
 
-        Create a user in your organisation  # noqa: E501
+        Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
         """
         pass
 
     def test_users_get_timesheet_user(self):
         """Test case for users_get_timesheet_user
 
-        Get a particular user in your organisation  # noqa: E501
+        Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
         """
         pass
 
     def test_users_get_timesheet_users(self):
         """Test case for users_get_timesheet_users
 
-        Get users for your organisation  # noqa: E501
+        Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
         """
         pass
 
     def test_users_update_timesheet_user(self):
         """Test case for users_update_timesheet_user
 
-        Update a user  # noqa: E501
+        Update a user account.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
         """
         pass
 

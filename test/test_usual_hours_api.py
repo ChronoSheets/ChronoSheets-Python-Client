@@ -32,14 +32,14 @@ class TestUsualHoursApi(unittest.TestCase):
     def test_usual_hours_get_usual_hours(self):
         """Test case for usual_hours_get_usual_hours
 
-        Get usual hours (rostered hours) for an employee  # noqa: E501
+        Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 
     def test_usual_hours_set_usual_hours(self):
         """Test case for usual_hours_set_usual_hours
 
-        Set usual hours (rostered hours) for an employee  # noqa: E501
+        Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.  # noqa: E501
         """
         pass
 

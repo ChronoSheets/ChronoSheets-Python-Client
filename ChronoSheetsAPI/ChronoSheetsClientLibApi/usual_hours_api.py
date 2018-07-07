@@ -34,7 +34,7 @@ class UsualHoursApi(object):
         self.api_client = api_client
 
     def usual_hours_get_usual_hours(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get usual hours (rostered hours) for an employee  # noqa: E501
+        """Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class UsualHoursApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: (required)
+        :param int user_id: The ID of the User for which you want to get UsualHours for (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUsualHoursDay
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class UsualHoursApi(object):
             return data
 
     def usual_hours_get_usual_hours_with_http_info(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get usual hours (rostered hours) for an employee  # noqa: E501
+        """Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class UsualHoursApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: (required)
+        :param int user_id: The ID of the User for which you want to get UsualHours for (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUsualHoursDay
                  If the method is called asynchronously,
@@ -135,7 +135,7 @@ class UsualHoursApi(object):
             collection_formats=collection_formats)
 
     def usual_hours_set_usual_hours(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set usual hours (rostered hours) for an employee  # noqa: E501
+        """Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -143,7 +143,7 @@ class UsualHoursApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetUsualHoursRequest request:  (required)
+        :param CSSetUsualHoursRequest request: A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -157,7 +157,7 @@ class UsualHoursApi(object):
             return data
 
     def usual_hours_set_usual_hours_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set usual hours (rostered hours) for an employee  # noqa: E501
+        """Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -165,7 +165,7 @@ class UsualHoursApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetUsualHoursRequest request:  (required)
+        :param CSSetUsualHoursRequest request: A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,

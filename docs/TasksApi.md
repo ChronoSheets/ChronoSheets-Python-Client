@@ -4,18 +4,18 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tasks_create_task**](TasksApi.md#tasks_create_task) | **PUT** /api/Tasks/CreateTask | Create a task
-[**tasks_delete_task**](TasksApi.md#tasks_delete_task) | **DELETE** /api/Tasks/DeleteTask | Delete a task
-[**tasks_get_task_by_id**](TasksApi.md#tasks_get_task_by_id) | **GET** /api/Tasks/GetTaskById | Get a particular task by id
-[**tasks_get_tasks**](TasksApi.md#tasks_get_tasks) | **GET** /api/Tasks/GetTasks | Get tasks in your organisation
-[**tasks_get_tasks_for_job**](TasksApi.md#tasks_get_tasks_for_job) | **GET** /api/Tasks/GetTasksForJob | Get tasks for a particular job
-[**tasks_update_task**](TasksApi.md#tasks_update_task) | **POST** /api/Tasks/UpdateTask | Update a task
+[**tasks_create_task**](TasksApi.md#tasks_create_task) | **PUT** /api/Tasks/CreateTask | Create a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
+[**tasks_delete_task**](TasksApi.md#tasks_delete_task) | **DELETE** /api/Tasks/DeleteTask | Delete a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
+[**tasks_get_task_by_id**](TasksApi.md#tasks_get_task_by_id) | **GET** /api/Tasks/GetTaskById | Get a particular task by Id.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
+[**tasks_get_tasks**](TasksApi.md#tasks_get_tasks) | **GET** /api/Tasks/GetTasks | Get tasks in your organisation.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
+[**tasks_get_tasks_for_job**](TasksApi.md#tasks_get_tasks_for_job) | **GET** /api/Tasks/GetTasksForJob | Get a collection of tasks for a particular Job, specified by JobId.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.
+[**tasks_update_task**](TasksApi.md#tasks_update_task) | **POST** /api/Tasks/UpdateTask | Update a task.    Requires the &#39;ManageJobsAndTask&#39; permission.
 
 
 # **tasks_create_task**
 > CSApiResponseInt32 tasks_create_task(request, x_chronosheets_auth)
 
-Create a task
+Create a task.    Requires the 'ManageJobsAndTask' permission.
 
 ### Example
 ```python
@@ -27,11 +27,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.TasksApi()
-request = ChronoSheetsAPI.CSInsertTaskRequest() # CSInsertTaskRequest | 
+request = ChronoSheetsAPI.CSInsertTaskRequest() # CSInsertTaskRequest | An Insert Task Request object containing values for the new Task to create
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Create a task
+    # Create a task.    Requires the 'ManageJobsAndTask' permission.
     api_response = api_instance.tasks_create_task(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -42,7 +42,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSInsertTaskRequest**](CSInsertTaskRequest.md)|  | 
+ **request** | [**CSInsertTaskRequest**](CSInsertTaskRequest.md)| An Insert Task Request object containing values for the new Task to create | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -63,7 +63,7 @@ No authorization required
 # **tasks_delete_task**
 > CSApiResponseBoolean tasks_delete_task(task_id, x_chronosheets_auth)
 
-Delete a task
+Delete a task.    Requires the 'ManageJobsAndTask' permission.
 
 ### Example
 ```python
@@ -75,11 +75,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.TasksApi()
-task_id = 56 # int | 
+task_id = 56 # int | The ID of the Task you want to delete
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Delete a task
+    # Delete a task.    Requires the 'ManageJobsAndTask' permission.
     api_response = api_instance.tasks_delete_task(task_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -90,7 +90,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | **int**|  | 
+ **task_id** | **int**| The ID of the Task you want to delete | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -111,7 +111,7 @@ No authorization required
 # **tasks_get_task_by_id**
 > CSApiResponseTimesheetTask tasks_get_task_by_id(task_id, x_chronosheets_auth)
 
-Get a particular task by id
+Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
 
 ### Example
 ```python
@@ -123,11 +123,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.TasksApi()
-task_id = 56 # int | 
+task_id = 56 # int | The ID of the TimesheetTask you want to get
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get a particular task by id
+    # Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.tasks_get_task_by_id(task_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -138,7 +138,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | **int**|  | 
+ **task_id** | **int**| The ID of the TimesheetTask you want to get | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -159,7 +159,7 @@ No authorization required
 # **tasks_get_tasks**
 > CSApiResponseListTimesheetTask tasks_get_tasks(x_chronosheets_auth)
 
-Get tasks in your organisation
+Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
 
 ### Example
 ```python
@@ -174,7 +174,7 @@ api_instance = ChronoSheetsAPI.TasksApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get tasks in your organisation
+    # Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.tasks_get_tasks(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -205,7 +205,7 @@ No authorization required
 # **tasks_get_tasks_for_job**
 > CSApiResponseListTimesheetTask tasks_get_tasks_for_job(job_id, x_chronosheets_auth)
 
-Get tasks for a particular job
+Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
 
 ### Example
 ```python
@@ -221,7 +221,7 @@ job_id = 56 # int | The ID of the job
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get tasks for a particular job
+    # Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
     api_response = api_instance.tasks_get_tasks_for_job(job_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -253,7 +253,7 @@ No authorization required
 # **tasks_update_task**
 > CSApiResponseBoolean tasks_update_task(request, x_chronosheets_auth)
 
-Update a task
+Update a task.    Requires the 'ManageJobsAndTask' permission.
 
 ### Example
 ```python
@@ -265,11 +265,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.TasksApi()
-request = ChronoSheetsAPI.CSUpdateTaskRequest() # CSUpdateTaskRequest | 
+request = ChronoSheetsAPI.CSUpdateTaskRequest() # CSUpdateTaskRequest | An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Update a task
+    # Update a task.    Requires the 'ManageJobsAndTask' permission.
     api_response = api_instance.tasks_update_task(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -280,7 +280,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSUpdateTaskRequest**](CSUpdateTaskRequest.md)|  | 
+ **request** | [**CSUpdateTaskRequest**](CSUpdateTaskRequest.md)| An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

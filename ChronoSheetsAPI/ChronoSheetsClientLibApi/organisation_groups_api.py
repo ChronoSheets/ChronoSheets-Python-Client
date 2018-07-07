@@ -34,7 +34,7 @@ class OrganisationGroupsApi(object):
         self.api_client = api_client
 
     def organisation_groups_create_organisation_group(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Create an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -56,7 +56,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_create_organisation_group_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Create an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -139,7 +139,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_group(self, organisation_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a particular organisation group.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -161,7 +161,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_group_with_http_info(self, organisation_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular organisation group.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a particular organisation group.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -240,7 +240,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a collection of organisation groups that are under your organisation.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -261,7 +261,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation groups that are under your organisation.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a collection of organisation groups that are under your organisation.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -333,7 +333,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups_for_job(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get org groups for a particular job.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -355,7 +355,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_for_job_with_http_info(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular job.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get org groups for a particular job.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageJobsAndTask&#39;, &#39;ManageClientsAndProjects&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -434,7 +434,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_get_organisation_groups_for_vehicle(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get org groups for a particular vehicle.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -456,7 +456,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_get_organisation_groups_for_vehicle_with_http_info(self, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get org groups for a particular vehicle.  Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get org groups for a particular vehicle.    Requires the &#39;ManageOrganisationGroups&#39;, &#39;ManageFleet&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -535,7 +535,7 @@ class OrganisationGroupsApi(object):
             collection_formats=collection_formats)
 
     def organisation_groups_update_organisation_group(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Update an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -557,7 +557,7 @@ class OrganisationGroupsApi(object):
             return data
 
     def organisation_groups_update_organisation_group_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Update an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

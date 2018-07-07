@@ -4,16 +4,16 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_create_timesheet_user**](UsersApi.md#users_create_timesheet_user) | **PUT** /api/Users/CreateTimesheetUser | Create a user in your organisation
-[**users_get_timesheet_user**](UsersApi.md#users_get_timesheet_user) | **GET** /api/Users/GetTimesheetUser | Get a particular user in your organisation
-[**users_get_timesheet_users**](UsersApi.md#users_get_timesheet_users) | **GET** /api/Users/GetTimesheetUsers | Get users for your organisation
-[**users_update_timesheet_user**](UsersApi.md#users_update_timesheet_user) | **POST** /api/Users/UpdateTimesheetUser | Update a user
+[**users_create_timesheet_user**](UsersApi.md#users_create_timesheet_user) | **PUT** /api/Users/CreateTimesheetUser | Create a user account in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; permission.
+[**users_get_timesheet_user**](UsersApi.md#users_get_timesheet_user) | **GET** /api/Users/GetTimesheetUser | Get a particular user in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.
+[**users_get_timesheet_users**](UsersApi.md#users_get_timesheet_users) | **GET** /api/Users/GetTimesheetUsers | Get users accounts in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.
+[**users_update_timesheet_user**](UsersApi.md#users_update_timesheet_user) | **POST** /api/Users/UpdateTimesheetUser | Update a user account.  Requires the &#39;ManageOrganisationUsers&#39; permission.
 
 
 # **users_create_timesheet_user**
 > CSApiResponseInsertUserResponse users_create_timesheet_user(request, x_chronosheets_auth)
 
-Create a user in your organisation
+Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
 
 ### Example
 ```python
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.UsersApi()
-request = ChronoSheetsAPI.CSInsertUserRequest() # CSInsertUserRequest | 
+request = ChronoSheetsAPI.CSInsertUserRequest() # CSInsertUserRequest | An Insert User Request object containing values for the new User to create
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Create a user in your organisation
+    # Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
     api_response = api_instance.users_create_timesheet_user(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -40,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSInsertUserRequest**](CSInsertUserRequest.md)|  | 
+ **request** | [**CSInsertUserRequest**](CSInsertUserRequest.md)| An Insert User Request object containing values for the new User to create | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -61,7 +61,7 @@ No authorization required
 # **users_get_timesheet_user**
 > CSApiResponseUserForManagement users_get_timesheet_user(user_id, x_chronosheets_auth)
 
-Get a particular user in your organisation
+Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
 
 ### Example
 ```python
@@ -73,11 +73,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.UsersApi()
-user_id = 56 # int | 
+user_id = 56 # int | The User ID of the UserForManagement you want to get
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get a particular user in your organisation
+    # Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
     api_response = api_instance.users_get_timesheet_user(user_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -88,7 +88,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**|  | 
+ **user_id** | **int**| The User ID of the UserForManagement you want to get | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type
@@ -109,7 +109,7 @@ No authorization required
 # **users_get_timesheet_users**
 > CSApiResponseListUserForManagement users_get_timesheet_users(x_chronosheets_auth)
 
-Get users for your organisation
+Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
 
 ### Example
 ```python
@@ -124,7 +124,7 @@ api_instance = ChronoSheetsAPI.UsersApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get users for your organisation
+    # Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
     api_response = api_instance.users_get_timesheet_users(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -155,7 +155,7 @@ No authorization required
 # **users_update_timesheet_user**
 > CSApiResponseUpdateUserResponse users_update_timesheet_user(request, x_chronosheets_auth)
 
-Update a user
+Update a user account.  Requires the 'ManageOrganisationUsers' permission.
 
 ### Example
 ```python
@@ -167,11 +167,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.UsersApi()
-request = ChronoSheetsAPI.CSUpdateUserRequest() # CSUpdateUserRequest | 
+request = ChronoSheetsAPI.CSUpdateUserRequest() # CSUpdateUserRequest | A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Update a user
+    # Update a user account.  Requires the 'ManageOrganisationUsers' permission.
     api_response = api_instance.users_update_timesheet_user(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -182,7 +182,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSUpdateUserRequest**](CSUpdateUserRequest.md)|  | 
+ **request** | [**CSUpdateUserRequest**](CSUpdateUserRequest.md)| A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

@@ -32,21 +32,21 @@ class TestTripsApi(unittest.TestCase):
     def test_trips_create_trip(self):
         """Test case for trips_create_trip
 
-        Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.  # noqa: E501
+        Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
         """
         pass
 
     def test_trips_get_my_trip_by_id(self):
         """Test case for trips_get_my_trip_by_id
 
-        Get trip by Id  # noqa: E501
+        Get trip by Id.    Requires the 'ViewMyTrips' permission.  # noqa: E501
         """
         pass
 
     def test_trips_get_my_trips(self):
         """Test case for trips_get_my_trips
 
-        Get my trips  # noqa: E501
+        Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.  # noqa: E501
         """
         pass
 

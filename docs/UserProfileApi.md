@@ -4,17 +4,17 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**user_profile_do_login**](UserProfileApi.md#user_profile_do_login) | **POST** /api/UserProfile/DoLogin | 
-[**user_profile_do_logout**](UserProfileApi.md#user_profile_do_logout) | **DELETE** /api/UserProfile/DoLogout | 
-[**user_profile_get_my_profile**](UserProfileApi.md#user_profile_get_my_profile) | **GET** /api/UserProfile/GetMyProfile | 
-[**user_profile_keep_session_alive**](UserProfileApi.md#user_profile_keep_session_alive) | **GET** /api/UserProfile/KeepSessionAlive | 
-[**user_profile_update_my_profile**](UserProfileApi.md#user_profile_update_my_profile) | **POST** /api/UserProfile/UpdateMyProfile | 
+[**user_profile_do_login**](UserProfileApi.md#user_profile_do_login) | **POST** /api/UserProfile/DoLogin | Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
+[**user_profile_do_logout**](UserProfileApi.md#user_profile_do_logout) | **DELETE** /api/UserProfile/DoLogout | Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.
+[**user_profile_get_my_profile**](UserProfileApi.md#user_profile_get_my_profile) | **GET** /api/UserProfile/GetMyProfile | Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.
+[**user_profile_keep_session_alive**](UserProfileApi.md#user_profile_keep_session_alive) | **GET** /api/UserProfile/KeepSessionAlive | Keep a session alive.  Use this method to keep a session active.  You could use this to &#39;ping&#39; ChronoSheets every &#39;x&#39; minutes to make sure your Auth Token will keep working.    Does not require any special permissions.
+[**user_profile_update_my_profile**](UserProfileApi.md#user_profile_update_my_profile) | **POST** /api/UserProfile/UpdateMyProfile | Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.
 
 
 # **user_profile_do_login**
 > CSApiResponseDoLoginResponse user_profile_do_login(request)
 
-
+Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
 
 ### Example
 ```python
@@ -26,9 +26,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.UserProfileApi()
-request = ChronoSheetsAPI.CSDoLoginRequest() # CSDoLoginRequest | 
+request = ChronoSheetsAPI.CSDoLoginRequest() # CSDoLoginRequest | A request object containing your username/email and password.
 
 try:
+    # Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
     api_response = api_instance.user_profile_do_login(request)
     pprint(api_response)
 except ApiException as e:
@@ -39,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSDoLoginRequest**](CSDoLoginRequest.md)|  | 
+ **request** | [**CSDoLoginRequest**](CSDoLoginRequest.md)| A request object containing your username/email and password. | 
 
 ### Return type
 
@@ -59,7 +60,7 @@ No authorization required
 # **user_profile_do_logout**
 > CSApiResponseBoolean user_profile_do_logout(x_chronosheets_auth)
 
-
+Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.
 
 ### Example
 ```python
@@ -74,6 +75,7 @@ api_instance = ChronoSheetsAPI.UserProfileApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
+    # Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.
     api_response = api_instance.user_profile_do_logout(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -104,7 +106,7 @@ No authorization required
 # **user_profile_get_my_profile**
 > CSApiResponseUserProfile user_profile_get_my_profile(x_chronosheets_auth)
 
-
+Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.
 
 ### Example
 ```python
@@ -119,6 +121,7 @@ api_instance = ChronoSheetsAPI.UserProfileApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
+    # Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.
     api_response = api_instance.user_profile_get_my_profile(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -149,7 +152,7 @@ No authorization required
 # **user_profile_keep_session_alive**
 > CSApiResponseBoolean user_profile_keep_session_alive(x_chronosheets_auth)
 
-
+Keep a session alive.  Use this method to keep a session active.  You could use this to 'ping' ChronoSheets every 'x' minutes to make sure your Auth Token will keep working.    Does not require any special permissions.
 
 ### Example
 ```python
@@ -164,6 +167,7 @@ api_instance = ChronoSheetsAPI.UserProfileApi()
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
+    # Keep a session alive.  Use this method to keep a session active.  You could use this to 'ping' ChronoSheets every 'x' minutes to make sure your Auth Token will keep working.    Does not require any special permissions.
     api_response = api_instance.user_profile_keep_session_alive(x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -194,7 +198,7 @@ No authorization required
 # **user_profile_update_my_profile**
 > CSApiResponseUpdateProfileResponse user_profile_update_my_profile(request, x_chronosheets_auth)
 
-
+Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.
 
 ### Example
 ```python
@@ -206,10 +210,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.UserProfileApi()
-request = ChronoSheetsAPI.CSUpdateMyProfileRequest() # CSUpdateMyProfileRequest | 
+request = ChronoSheetsAPI.CSUpdateMyProfileRequest() # CSUpdateMyProfileRequest | An Update MyProfile Request object containing updated fields.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
+    # Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.
     api_response = api_instance.user_profile_update_my_profile(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -220,7 +225,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSUpdateMyProfileRequest**](CSUpdateMyProfileRequest.md)|  | 
+ **request** | [**CSUpdateMyProfileRequest**](CSUpdateMyProfileRequest.md)| An Update MyProfile Request object containing updated fields. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

@@ -32,30 +32,35 @@ class TestUserProfileApi(unittest.TestCase):
     def test_user_profile_do_login(self):
         """Test case for user_profile_do_login
 
+        Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.  # noqa: E501
         """
         pass
 
     def test_user_profile_do_logout(self):
         """Test case for user_profile_do_logout
 
+        Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.  # noqa: E501
         """
         pass
 
     def test_user_profile_get_my_profile(self):
         """Test case for user_profile_get_my_profile
 
+        Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.  # noqa: E501
         """
         pass
 
     def test_user_profile_keep_session_alive(self):
         """Test case for user_profile_keep_session_alive
 
+        Keep a session alive.  Use this method to keep a session active.  You could use this to 'ping' ChronoSheets every 'x' minutes to make sure your Auth Token will keep working.    Does not require any special permissions.  # noqa: E501
         """
         pass
 
     def test_user_profile_update_my_profile(self):
         """Test case for user_profile_update_my_profile
 
+        Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.  # noqa: E501
         """
         pass
 

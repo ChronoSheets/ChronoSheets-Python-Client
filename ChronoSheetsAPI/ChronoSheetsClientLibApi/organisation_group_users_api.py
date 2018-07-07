@@ -34,7 +34,7 @@ class OrganisationGroupUsersApi(object):
         self.api_client = api_client
 
     def organisation_group_users_get_organisation_group_users(self, org_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a collection of organisation group users that belong to an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -56,7 +56,7 @@ class OrganisationGroupUsersApi(object):
             return data
 
     def organisation_group_users_get_organisation_group_users_with_http_info(self, org_group_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of organisation group users that belong to an organisation group.  Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get a collection of organisation group users that belong to an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -135,7 +135,7 @@ class OrganisationGroupUsersApi(object):
             collection_formats=collection_formats)
 
     def organisation_group_users_update_organisation_group_users(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set the users who belong to an organisation group  # noqa: E501
+        """Set the users who belong to an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -157,7 +157,7 @@ class OrganisationGroupUsersApi(object):
             return data
 
     def organisation_group_users_update_organisation_group_users_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set the users who belong to an organisation group  # noqa: E501
+        """Set the users who belong to an organisation group.    Requires the &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True

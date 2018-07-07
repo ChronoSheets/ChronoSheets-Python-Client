@@ -34,7 +34,7 @@ class UserPayRatesApi(object):
         self.api_client = api_client
 
     def user_pay_rates_create_pay_rate(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a new pay rate for a particular user, archiving the previous pay rate  # noqa: E501
+        """Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -42,7 +42,7 @@ class UserPayRatesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertUserHourlyRateRequest request:  (required)
+        :param CSInsertUserHourlyRateRequest request: An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class UserPayRatesApi(object):
             return data
 
     def user_pay_rates_create_pay_rate_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a new pay rate for a particular user, archiving the previous pay rate  # noqa: E501
+        """Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -64,7 +64,7 @@ class UserPayRatesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertUserHourlyRateRequest request:  (required)
+        :param CSInsertUserHourlyRateRequest request: An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -139,7 +139,7 @@ class UserPayRatesApi(object):
             collection_formats=collection_formats)
 
     def user_pay_rates_get_pay_rates(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of pay rates for a particular user, specified by user id  # noqa: E501
+        """Get a collection of pay rates for a particular user, specified by user id.    Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -147,7 +147,7 @@ class UserPayRatesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: (required)
+        :param int user_id: The ID of the User for which you want to get UserHourlyRate objects (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserHourlyRate
                  If the method is called asynchronously,
@@ -161,7 +161,7 @@ class UserPayRatesApi(object):
             return data
 
     def user_pay_rates_get_pay_rates_with_http_info(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of pay rates for a particular user, specified by user id  # noqa: E501
+        """Get a collection of pay rates for a particular user, specified by user id.    Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -169,7 +169,7 @@ class UserPayRatesApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: (required)
+        :param int user_id: The ID of the User for which you want to get UserHourlyRate objects (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserHourlyRate
                  If the method is called asynchronously,
