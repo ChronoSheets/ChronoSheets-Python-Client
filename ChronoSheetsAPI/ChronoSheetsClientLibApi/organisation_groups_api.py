@@ -123,7 +123,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/CreateOrganisationGroup', 'PUT',
+            '/api/OrganisationGroups/CreateOrganisationGroup', 'POST',
             path_params,
             query_params,
             header_params,
@@ -624,7 +624,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/UpdateOrganisationGroup', 'POST',
+            '/api/OrganisationGroups/UpdateOrganisationGroup', 'PUT',
             path_params,
             query_params,
             header_params,

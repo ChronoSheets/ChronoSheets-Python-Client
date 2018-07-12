@@ -5,7 +5,7 @@ All URIs are relative to *https://www.chronosheets.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**organisation_get_organisation**](OrganisationApi.md#organisation_get_organisation) | **GET** /api/Organisation/GetOrganisation | Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.
-[**organisation_update_organisation**](OrganisationApi.md#organisation_update_organisation) | **POST** /api/Organisation/UpdateOrganisation | Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.
+[**organisation_update_organisation**](OrganisationApi.md#organisation_update_organisation) | **PUT** /api/Organisation/UpdateOrganisation | Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.
 
 
 # **organisation_get_organisation**

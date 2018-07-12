@@ -224,7 +224,7 @@ class UsualHoursApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UsualHours/SetUsualHours', 'POST',
+            '/api/UsualHours/SetUsualHours', 'PUT',
             path_params,
             query_params,
             header_params,

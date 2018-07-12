@@ -123,7 +123,7 @@ class UsersApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Users/CreateTimesheetUser', 'PUT',
+            '/api/Users/CreateTimesheetUser', 'POST',
             path_params,
             query_params,
             header_params,
@@ -422,7 +422,7 @@ class UsersApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Users/UpdateTimesheetUser', 'POST',
+            '/api/Users/UpdateTimesheetUser', 'PUT',
             path_params,
             query_params,
             header_params,

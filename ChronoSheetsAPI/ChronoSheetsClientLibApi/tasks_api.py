@@ -123,7 +123,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/CreateTask', 'PUT',
+            '/api/Tasks/CreateTask', 'POST',
             path_params,
             query_params,
             header_params,
@@ -624,7 +624,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/UpdateTask', 'POST',
+            '/api/Tasks/UpdateTask', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -123,7 +123,7 @@ class UserJobFavouritesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserJobFavourites/CreateJobFavourite', 'PUT',
+            '/api/UserJobFavourites/CreateJobFavourite', 'POST',
             path_params,
             query_params,
             header_params,

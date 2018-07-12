@@ -115,7 +115,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/DoLogin', 'POST',
+            '/api/UserProfile/DoLogin', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -499,7 +499,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/UpdateMyProfile', 'POST',
+            '/api/UserProfile/UpdateMyProfile', 'PUT',
             path_params,
             query_params,
             header_params,
