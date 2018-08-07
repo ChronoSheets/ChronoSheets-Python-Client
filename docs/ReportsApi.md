@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reports_get_all_charts_data_admin**](ReportsApi.md#reports_get_all_charts_data_admin) | **GET** /api/Reports/GetAllChartsDataAdmin | Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.
 [**reports_get_all_charts_data_user**](ReportsApi.md#reports_get_all_charts_data_user) | **GET** /api/Reports/GetAllChartsDataUser | Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.    Requires the &#39;ViewOwnReports&#39; permission.
+[**reports_get_fleet_summary_admin**](ReportsApi.md#reports_get_fleet_summary_admin) | **GET** /api/Reports/GetFleetSummaryAdmin | Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.
 [**reports_get_org_trip_by_id**](ReportsApi.md#reports_get_org_trip_by_id) | **GET** /api/Reports/GetOrgTripById | Get trip by Id, for reporting purposes.    Requires the &#39;ReportAdmin&#39; permission.
-[**reports_get_organisation_timesheet_file_attachments**](ReportsApi.md#reports_get_organisation_timesheet_file_attachments) | **GET** /api/Reports/GetOrganisationTimesheetFileAttachments | Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the &#39;ReportAdmin&#39; permission.
+[**reports_get_organisation_timesheet_file_attachments**](ReportsApi.md#reports_get_organisation_timesheet_file_attachments) | **GET** /api/Reports/GetOrganisationTimesheetFileAttachments | Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.
+[**reports_get_organisation_transcripts**](ReportsApi.md#reports_get_organisation_transcripts) | **GET** /api/Reports/GetOrganisationTranscripts | Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.
 [**reports_get_organisation_trips**](ReportsApi.md#reports_get_organisation_trips) | **GET** /api/Reports/GetOrganisationTrips | Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.
 [**reports_get_raw_data_admin**](ReportsApi.md#reports_get_raw_data_admin) | **GET** /api/Reports/GetRawDataAdmin | Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.
 [**reports_project_costings_admin**](ReportsApi.md#reports_project_costings_admin) | **GET** /api/Reports/ProjectCostingsAdmin | Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.
@@ -116,6 +118,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **reports_get_fleet_summary_admin**
+> CSApiResponseListFleetSummaryReportItem reports_get_fleet_summary_admin(start_date, end_date, user_ids, x_chronosheets_auth)
+
+Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ChronoSheetsAPI
+from ChronoSheetsAPI.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = ChronoSheetsAPI.ReportsApi()
+start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the date range.  Report data in the response is after this date
+end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
+user_ids = 'user_ids_example' # str | A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+
+try:
+    # Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.
+    api_response = api_instance.reports_get_fleet_summary_admin(start_date, end_date, user_ids, x_chronosheets_auth)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReportsApi->reports_get_fleet_summary_admin: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **datetime**| The start date for the date range.  Report data in the response is after this date | 
+ **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
+ **user_ids** | **str**| A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+
+### Return type
+
+[**CSApiResponseListFleetSummaryReportItem**](CSApiResponseListFleetSummaryReportItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **reports_get_org_trip_by_id**
 > CSApiResponseTrip reports_get_org_trip_by_id(trip_id, x_chronosheets_auth)
 
@@ -167,7 +221,7 @@ No authorization required
 # **reports_get_organisation_timesheet_file_attachments**
 > CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment reports_get_organisation_timesheet_file_attachments(start_date, end_date, skip, take, user_ids, x_chronosheets_auth)
 
-Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
+Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.
 
 ### Example
 ```python
@@ -187,7 +241,7 @@ user_ids = 'user_ids_example' # str | A comma-separated list of user Ids, if you
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
+    # Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.
     api_response = api_instance.reports_get_organisation_timesheet_file_attachments(start_date, end_date, skip, take, user_ids, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -208,6 +262,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment**](CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reports_get_organisation_transcripts**
+> CSApiResponseForPaginatedListOrgReportTranscript reports_get_organisation_transcripts(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth)
+
+Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ChronoSheetsAPI
+from ChronoSheetsAPI.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = ChronoSheetsAPI.ReportsApi()
+start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the date range.  Report data in the response is after this date
+end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
+skip = 56 # int | Skip this many items
+take = 56 # int | Take this many items
+user_ids = 'user_ids_example' # str | A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+keywords = 'keywords_example' # str | Search the transcripts by keyword(s)
+x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+
+try:
+    # Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.
+    api_response = api_instance.reports_get_organisation_transcripts(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReportsApi->reports_get_organisation_transcripts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **datetime**| The start date for the date range.  Report data in the response is after this date | 
+ **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
+ **skip** | **int**| Skip this many items | 
+ **take** | **int**| Take this many items | 
+ **user_ids** | **str**| A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | 
+ **keywords** | **str**| Search the transcripts by keyword(s) | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+
+### Return type
+
+[**CSApiResponseForPaginatedListOrgReportTranscript**](CSApiResponseForPaginatedListOrgReportTranscript.md)
 
 ### Authorization
 

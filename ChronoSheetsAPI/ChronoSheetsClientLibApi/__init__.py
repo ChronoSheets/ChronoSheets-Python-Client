@@ -3,8 +3,10 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from ChronoSheetsClientLibApi.aggregate_client_projects_api import AggregateClientProjectsApi
 from ChronoSheetsClientLibApi.aggregate_job_tasks_api import AggregateJobTasksApi
 from ChronoSheetsClientLibApi.clients_api import ClientsApi
+from ChronoSheetsClientLibApi.file_attachments_api import FileAttachmentsApi
 from ChronoSheetsClientLibApi.fleet_api import FleetApi
 from ChronoSheetsClientLibApi.job_codes_api import JobCodesApi
 from ChronoSheetsClientLibApi.organisation_api import OrganisationApi
@@ -14,6 +16,7 @@ from ChronoSheetsClientLibApi.projects_api import ProjectsApi
 from ChronoSheetsClientLibApi.reports_api import ReportsApi
 from ChronoSheetsClientLibApi.tasks_api import TasksApi
 from ChronoSheetsClientLibApi.timesheets_api import TimesheetsApi
+from ChronoSheetsClientLibApi.transcripts_api import TranscriptsApi
 from ChronoSheetsClientLibApi.trips_api import TripsApi
 from ChronoSheetsClientLibApi.user_job_favourites_api import UserJobFavouritesApi
 from ChronoSheetsClientLibApi.user_pay_rates_api import UserPayRatesApi

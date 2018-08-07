@@ -37,6 +37,7 @@ class CSProjectCostingReportItem(object):
         'organisation_id': 'int',
         'client_name': 'str',
         'estimated_cost': 'float',
+        'actual_cost_filtered': 'float',
         'actual_cost': 'float'
     }
 
@@ -47,10 +48,11 @@ class CSProjectCostingReportItem(object):
         'organisation_id': 'OrganisationId',
         'client_name': 'ClientName',
         'estimated_cost': 'EstimatedCost',
+        'actual_cost_filtered': 'ActualCostFiltered',
         'actual_cost': 'ActualCost'
     }
 
-    def __init__(self, project_id=None, project_name=None, client_id=None, organisation_id=None, client_name=None, estimated_cost=None, actual_cost=None):  # noqa: E501
+    def __init__(self, project_id=None, project_name=None, client_id=None, organisation_id=None, client_name=None, estimated_cost=None, actual_cost_filtered=None, actual_cost=None):  # noqa: E501
         """CSProjectCostingReportItem - a model defined in Swagger"""  # noqa: E501
 
         self._project_id = None
@@ -59,6 +61,7 @@ class CSProjectCostingReportItem(object):
         self._organisation_id = None
         self._client_name = None
         self._estimated_cost = None
+        self._actual_cost_filtered = None
         self._actual_cost = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class CSProjectCostingReportItem(object):
             self.client_name = client_name
         if estimated_cost is not None:
             self.estimated_cost = estimated_cost
+        if actual_cost_filtered is not None:
+            self.actual_cost_filtered = actual_cost_filtered
         if actual_cost is not None:
             self.actual_cost = actual_cost
 
@@ -202,6 +207,27 @@ class CSProjectCostingReportItem(object):
         """
 
         self._estimated_cost = estimated_cost
+
+    @property
+    def actual_cost_filtered(self):
+        """Gets the actual_cost_filtered of this CSProjectCostingReportItem.  # noqa: E501
+
+
+        :return: The actual_cost_filtered of this CSProjectCostingReportItem.  # noqa: E501
+        :rtype: float
+        """
+        return self._actual_cost_filtered
+
+    @actual_cost_filtered.setter
+    def actual_cost_filtered(self, actual_cost_filtered):
+        """Sets the actual_cost_filtered of this CSProjectCostingReportItem.
+
+
+        :param actual_cost_filtered: The actual_cost_filtered of this CSProjectCostingReportItem.  # noqa: E501
+        :type: float
+        """
+
+        self._actual_cost_filtered = actual_cost_filtered
 
     @property
     def actual_cost(self):

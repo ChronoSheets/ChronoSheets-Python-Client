@@ -1,8 +1,17 @@
-# CSOrgReportTimesheetFileAttachment
+# CSOrgReportTranscript
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**finished_job** | **bool** |  | [optional] 
+**completed_processing** | **datetime** |  | [optional] 
+**created** | **datetime** |  | [optional] 
+**started_processing** | **datetime** |  | [optional] 
+**transcription_id** | **int** |  | [optional] 
+**job_name** | **str** |  | [optional] 
+**contents** | **str** |  | [optional] 
+**media_type** | **str** |  | [optional] 
+**transcription_status** | **str** |  | [optional] 
 **username** | **str** |  | [optional] 
 **email_address** | **str** |  | [optional] 
 **first_name** | **str** |  | [optional] 

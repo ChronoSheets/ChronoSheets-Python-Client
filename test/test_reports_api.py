@@ -43,6 +43,13 @@ class TestReportsApi(unittest.TestCase):
         """
         pass
 
+    def test_reports_get_fleet_summary_admin(self):
+        """Test case for reports_get_fleet_summary_admin
+
+        Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
+        """
+        pass
+
     def test_reports_get_org_trip_by_id(self):
         """Test case for reports_get_org_trip_by_id
 
@@ -53,7 +60,14 @@ class TestReportsApi(unittest.TestCase):
     def test_reports_get_organisation_timesheet_file_attachments(self):
         """Test case for reports_get_organisation_timesheet_file_attachments
 
-        Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.  # noqa: E501
+        Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
+        """
+        pass
+
+    def test_reports_get_organisation_transcripts(self):
+        """Test case for reports_get_organisation_transcripts
+
+        Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
         """
         pass
 

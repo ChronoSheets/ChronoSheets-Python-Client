@@ -4,7 +4,7 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**trips_create_trip**](TripsApi.md#trips_create_trip) | **PUT** /api/Trips/CreateTrip | Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.
+[**trips_create_trip**](TripsApi.md#trips_create_trip) | **POST** /api/Trips/CreateTrip | Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.
 [**trips_get_my_trip_by_id**](TripsApi.md#trips_get_my_trip_by_id) | **GET** /api/Trips/GetMyTripById | Get trip by Id.    Requires the &#39;ViewMyTrips&#39; permission.
 [**trips_get_my_trips**](TripsApi.md#trips_get_my_trips) | **GET** /api/Trips/GetMyTrips | Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.
 
