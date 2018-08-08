@@ -29,7 +29,7 @@ setup(
     version=VERSION,
     description="ChronoSheets API",
     author_email="",
-    url="",
+    url="https://github.com/ChronoSheets/ChronoSheets-Python-Client",
     keywords=["Swagger", "ChronoSheets API"],
     install_requires=REQUIRES,
     packages=find_packages(),
