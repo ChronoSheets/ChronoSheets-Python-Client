@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **date_uploaded** | **datetime** |  | [optional] 
 **date_image_captured** | **datetime** |  | [optional] 
 **storage_allocation_bytes** | **int** |  | [optional] 
+**audio_duration_seconds** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

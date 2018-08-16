@@ -16,31 +16,23 @@ from __future__ import absolute_import
 import unittest
 
 import ChronoSheetsAPI
-from ChronoSheetsClientLibApi.file_attachments_api import FileAttachmentsApi  # noqa: E501
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_organisation_pricing_plan import CSOrganisationPricingPlan  # noqa: E501
 from ChronoSheetsAPI.rest import ApiException
 
 
-class TestFileAttachmentsApi(unittest.TestCase):
-    """FileAttachmentsApi unit test stubs"""
+class TestCSOrganisationPricingPlan(unittest.TestCase):
+    """CSOrganisationPricingPlan unit test stubs"""
 
     def setUp(self):
-        self.api = ChronoSheetsClientLibApi.file_attachments_api.FileAttachmentsApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_file_attachments_delete_timesheet_file_attachment(self):
-        """Test case for file_attachments_delete_timesheet_file_attachment
-
-        Delete a particular timesheet file attachment  # noqa: E501
-        """
-        pass
-
-    def test_file_attachments_get_my_file_attachments(self):
-        """Test case for file_attachments_get_my_file_attachments
-
-        Get my file attachments.  Get files you've attached to timesheets.  # noqa: E501
-        """
+    def testCSOrganisationPricingPlan(self):
+        """Test CSOrganisationPricingPlan"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = ChronoSheetsAPI.models.cs_organisation_pricing_plan.CSOrganisationPricingPlan()  # noqa: E501
         pass
 
 

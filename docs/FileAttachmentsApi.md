@@ -4,8 +4,57 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**file_attachments_delete_timesheet_file_attachment**](FileAttachmentsApi.md#file_attachments_delete_timesheet_file_attachment) | **DELETE** /api/FileAttachments/DeleteTimesheetFileAttachment | Delete a particular timesheet file attachment
 [**file_attachments_get_my_file_attachments**](FileAttachmentsApi.md#file_attachments_get_my_file_attachments) | **GET** /api/FileAttachments/GetMyFileAttachments | Get my file attachments.  Get files you&#39;ve attached to timesheets.
 
+
+# **file_attachments_delete_timesheet_file_attachment**
+> CSApiResponseBoolean file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
+
+Delete a particular timesheet file attachment
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ChronoSheetsAPI
+from ChronoSheetsAPI.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = ChronoSheetsAPI.FileAttachmentsApi()
+file_attachment_id = 56 # int | The Id of the file attachment to delete
+x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+
+try:
+    # Delete a particular timesheet file attachment
+    api_response = api_instance.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FileAttachmentsApi->file_attachments_delete_timesheet_file_attachment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file_attachment_id** | **int**| The Id of the file attachment to delete | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+
+### Return type
+
+[**CSApiResponseBoolean**](CSApiResponseBoolean.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **file_attachments_get_my_file_attachments**
 > CSApiResponseForPaginatedListTimesheetFileAttachment file_attachments_get_my_file_attachments(start_date, end_date, skip, take, x_chronosheets_auth)

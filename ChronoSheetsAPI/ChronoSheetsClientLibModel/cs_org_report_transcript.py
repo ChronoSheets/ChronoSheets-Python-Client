@@ -66,7 +66,8 @@ class CSOrgReportTranscript(object):
         'longitude': 'float',
         'date_uploaded': 'datetime',
         'date_image_captured': 'datetime',
-        'storage_allocation_bytes': 'int'
+        'storage_allocation_bytes': 'int',
+        'audio_duration_seconds': 'int'
     }
 
     attribute_map = {
@@ -105,10 +106,11 @@ class CSOrgReportTranscript(object):
         'longitude': 'Longitude',
         'date_uploaded': 'DateUploaded',
         'date_image_captured': 'DateImageCaptured',
-        'storage_allocation_bytes': 'StorageAllocationBytes'
+        'storage_allocation_bytes': 'StorageAllocationBytes',
+        'audio_duration_seconds': 'AudioDurationSeconds'
     }
 
-    def __init__(self, finished_job=None, completed_processing=None, created=None, started_processing=None, transcription_id=None, job_name=None, contents=None, media_type=None, transcription_status=None, username=None, email_address=None, first_name=None, last_name=None, timesheet_id=None, document_s3_signed_url=None, image_large_s3_signed_url=None, image_medium_s3_signed_url=None, image_small_s3_signed_url=None, timesheet_start=None, timesheet_end=None, file_attachment_id=None, user_id=None, org_id=None, mobile_platform=None, attachment_type=None, notes=None, non_image_file_path=None, image_large_file_path=None, image_medium_file_path=None, image_small_file_path=None, original_file_name=None, latitude=None, longitude=None, date_uploaded=None, date_image_captured=None, storage_allocation_bytes=None):  # noqa: E501
+    def __init__(self, finished_job=None, completed_processing=None, created=None, started_processing=None, transcription_id=None, job_name=None, contents=None, media_type=None, transcription_status=None, username=None, email_address=None, first_name=None, last_name=None, timesheet_id=None, document_s3_signed_url=None, image_large_s3_signed_url=None, image_medium_s3_signed_url=None, image_small_s3_signed_url=None, timesheet_start=None, timesheet_end=None, file_attachment_id=None, user_id=None, org_id=None, mobile_platform=None, attachment_type=None, notes=None, non_image_file_path=None, image_large_file_path=None, image_medium_file_path=None, image_small_file_path=None, original_file_name=None, latitude=None, longitude=None, date_uploaded=None, date_image_captured=None, storage_allocation_bytes=None, audio_duration_seconds=None):  # noqa: E501
         """CSOrgReportTranscript - a model defined in Swagger"""  # noqa: E501
 
         self._finished_job = None
@@ -147,6 +149,7 @@ class CSOrgReportTranscript(object):
         self._date_uploaded = None
         self._date_image_captured = None
         self._storage_allocation_bytes = None
+        self._audio_duration_seconds = None
         self.discriminator = None
 
         if finished_job is not None:
@@ -221,6 +224,8 @@ class CSOrgReportTranscript(object):
             self.date_image_captured = date_image_captured
         if storage_allocation_bytes is not None:
             self.storage_allocation_bytes = storage_allocation_bytes
+        if audio_duration_seconds is not None:
+            self.audio_duration_seconds = audio_duration_seconds
 
     @property
     def finished_job(self):
@@ -1001,6 +1006,27 @@ class CSOrgReportTranscript(object):
         """
 
         self._storage_allocation_bytes = storage_allocation_bytes
+
+    @property
+    def audio_duration_seconds(self):
+        """Gets the audio_duration_seconds of this CSOrgReportTranscript.  # noqa: E501
+
+
+        :return: The audio_duration_seconds of this CSOrgReportTranscript.  # noqa: E501
+        :rtype: int
+        """
+        return self._audio_duration_seconds
+
+    @audio_duration_seconds.setter
+    def audio_duration_seconds(self, audio_duration_seconds):
+        """Sets the audio_duration_seconds of this CSOrgReportTranscript.
+
+
+        :param audio_duration_seconds: The audio_duration_seconds of this CSOrgReportTranscript.  # noqa: E501
+        :type: int
+        """
+
+        self._audio_duration_seconds = audio_duration_seconds
 
     def to_dict(self):
         """Returns the model properties as a dict"""
