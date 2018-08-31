@@ -107,7 +107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fleet_get_vehicles**
-> CSApiResponseListFleetVehicle fleet_get_vehicles(include_deleted, x_chronosheets_auth)
+> CSApiResponseListFleetVehicle fleet_get_vehicles(x_chronosheets_auth, include_deleted=include_deleted)
 
 Get a collection of vehicles that are under your organisation.    Does not require any special permission.
 
@@ -121,12 +121,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.FleetApi()
-include_deleted = true # bool | Whether or not to include deleted vehicles
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+include_deleted = true # bool | Whether or not to include deleted vehicles (optional)
 
 try:
     # Get a collection of vehicles that are under your organisation.    Does not require any special permission.
-    api_response = api_instance.fleet_get_vehicles(include_deleted, x_chronosheets_auth)
+    api_response = api_instance.fleet_get_vehicles(x_chronosheets_auth, include_deleted=include_deleted)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FleetApi->fleet_get_vehicles: %s\n" % e)
@@ -136,8 +136,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include_deleted** | **bool**| Whether or not to include deleted vehicles | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **include_deleted** | **bool**| Whether or not to include deleted vehicles | [optional] 
 
 ### Return type
 

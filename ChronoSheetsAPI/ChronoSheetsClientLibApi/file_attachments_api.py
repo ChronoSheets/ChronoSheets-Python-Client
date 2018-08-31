@@ -134,51 +134,51 @@ class FileAttachmentsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def file_attachments_get_my_file_attachments(self, start_date, end_date, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def file_attachments_get_my_file_attachments(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my file attachments.  Get files you&#39;ve attached to timesheets.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.file_attachments_get_my_file_attachments(start_date, end_date, skip, take, x_chronosheets_auth, async=True)
+        >>> thread = api.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  File attachments after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  File attachments before this date will be obtained. (required)
-        :param int skip: Skip this many File attachments (required)
-        :param int take: Take this many File attachments (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many File attachments
+        :param int take: Take this many File attachments
         :return: CSApiResponseForPaginatedListTimesheetFileAttachment
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, skip, take, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, skip, take, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def file_attachments_get_my_file_attachments_with_http_info(self, start_date, end_date, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def file_attachments_get_my_file_attachments_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my file attachments.  Get files you&#39;ve attached to timesheets.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, skip, take, x_chronosheets_auth, async=True)
+        >>> thread = api.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  File attachments after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  File attachments before this date will be obtained. (required)
-        :param int skip: Skip this many File attachments (required)
-        :param int take: Take this many File attachments (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many File attachments
+        :param int take: Take this many File attachments
         :return: CSApiResponseForPaginatedListTimesheetFileAttachment
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -201,14 +201,6 @@ class FileAttachmentsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):

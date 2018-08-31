@@ -239,53 +239,53 @@ class TripsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def trips_get_my_trips(self, start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def trips_get_my_trips(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.trips_get_my_trips(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, async=True)
+        >>> thread = api.trips_get_my_trips(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  Trips after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Trips before this date will be obtained. (required)
-        :param int skip: Skip this many Trips (required)
-        :param int take: Take this many Trips (required)
-        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many Trips
+        :param int take: Take this many Trips
+        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId
         :return: CSApiResponseForPaginatedListTrip
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.trips_get_my_trips_with_http_info(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.trips_get_my_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.trips_get_my_trips_with_http_info(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.trips_get_my_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def trips_get_my_trips_with_http_info(self, start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def trips_get_my_trips_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my trips.  Get the GPS trips you&#39;ve recorded and submitted.    Requires the &#39;ViewMyTrips&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.trips_get_my_trips_with_http_info(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth, async=True)
+        >>> thread = api.trips_get_my_trips_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  Trips after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Trips before this date will be obtained. (required)
-        :param int skip: Skip this many Trips (required)
-        :param int take: Take this many Trips (required)
-        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many Trips
+        :param int take: Take this many Trips
+        :param int vehicle_id: Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId
         :return: CSApiResponseForPaginatedListTrip
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'vehicle_id', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'vehicle_id']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -308,18 +308,6 @@ class TripsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `trips_get_my_trips`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `trips_get_my_trips`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `trips_get_my_trips`")  # noqa: E501
-        # verify the required parameter 'vehicle_id' is set
-        if ('vehicle_id' not in params or
-                params['vehicle_id'] is None):
-            raise ValueError("Missing the required parameter `vehicle_id` when calling `trips_get_my_trips`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):

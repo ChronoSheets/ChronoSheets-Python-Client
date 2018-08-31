@@ -36,6 +36,7 @@ class CSProject(object):
         'organisation_id': 'int',
         'project_name': 'str',
         'cost_estimation': 'float',
+        'cost_actual': 'float',
         'start_date': 'datetime',
         'end_date': 'datetime'
     }
@@ -46,11 +47,12 @@ class CSProject(object):
         'organisation_id': 'OrganisationId',
         'project_name': 'ProjectName',
         'cost_estimation': 'CostEstimation',
+        'cost_actual': 'CostActual',
         'start_date': 'StartDate',
         'end_date': 'EndDate'
     }
 
-    def __init__(self, id=None, client_id=None, organisation_id=None, project_name=None, cost_estimation=None, start_date=None, end_date=None):  # noqa: E501
+    def __init__(self, id=None, client_id=None, organisation_id=None, project_name=None, cost_estimation=None, cost_actual=None, start_date=None, end_date=None):  # noqa: E501
         """CSProject - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -58,6 +60,7 @@ class CSProject(object):
         self._organisation_id = None
         self._project_name = None
         self._cost_estimation = None
+        self._cost_actual = None
         self._start_date = None
         self._end_date = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class CSProject(object):
             self.project_name = project_name
         if cost_estimation is not None:
             self.cost_estimation = cost_estimation
+        if cost_actual is not None:
+            self.cost_actual = cost_actual
         if start_date is not None:
             self.start_date = start_date
         if end_date is not None:
@@ -181,6 +186,27 @@ class CSProject(object):
         """
 
         self._cost_estimation = cost_estimation
+
+    @property
+    def cost_actual(self):
+        """Gets the cost_actual of this CSProject.  # noqa: E501
+
+
+        :return: The cost_actual of this CSProject.  # noqa: E501
+        :rtype: float
+        """
+        return self._cost_actual
+
+    @cost_actual.setter
+    def cost_actual(self, cost_actual):
+        """Sets the cost_actual of this CSProject.
+
+
+        :param cost_actual: The cost_actual of this CSProject.  # noqa: E501
+        :type: float
+        """
+
+        self._cost_actual = cost_actual
 
     @property
     def start_date(self):

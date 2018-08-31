@@ -33,49 +33,49 @@ class ReportsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def reports_get_all_charts_data_admin(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_all_charts_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_all_charts_data_admin_with_http_info(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_all_charts_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'user_ids', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -98,10 +98,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_all_charts_data_admin`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_all_charts_data_admin`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -259,49 +255,49 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_get_fleet_summary_admin(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_fleet_summary_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseListFleetSummaryReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_fleet_summary_admin_with_http_info(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_fleet_summary_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseListFleetSummaryReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'user_ids', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -324,10 +320,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_fleet_summary_admin`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_fleet_summary_admin`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -477,53 +469,53 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_get_organisation_timesheet_file_attachments(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_timesheet_file_attachments(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_organisation_timesheet_file_attachments_with_http_info(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_timesheet_file_attachments_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'user_ids', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -546,18 +538,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -610,55 +590,55 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_get_organisation_transcripts(self, start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
-        :param str keywords: Search the transcripts by keyword(s) (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str keywords: Search the transcripts by keyword(s)
         :return: CSApiResponseForPaginatedListOrgReportTranscript
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_organisation_transcripts_with_http_info(self, start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_transcripts_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_transcripts_with_http_info(start_date, end_date, skip, take, user_ids, keywords, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
-        :param str keywords: Search the transcripts by keyword(s) (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str keywords: Search the transcripts by keyword(s)
         :return: CSApiResponseForPaginatedListOrgReportTranscript
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'user_ids', 'keywords', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids', 'keywords']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -681,22 +661,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'keywords' is set
-        if ('keywords' not in params or
-                params['keywords'] is None):
-            raise ValueError("Missing the required parameter `keywords` when calling `reports_get_organisation_transcripts`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -751,53 +715,53 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_get_organisation_trips(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_trips(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_trips(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_trips(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_organisation_trips_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_organisation_trips_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_organisation_trips_with_http_info(self, start_date, end_date, skip, take, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_organisation_trips_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_trips_with_http_info(start_date, end_date, skip, take, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param int skip: Skip this many items (required)
-        :param int take: Take this many items (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many items
+        :param int take: Take this many items
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseForPaginatedListOrgReportTrip
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'user_ids', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -820,18 +784,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_trips`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `reports_get_organisation_trips`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `reports_get_organisation_trips`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_organisation_trips`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -884,57 +836,57 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_get_raw_data_admin(self, start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_raw_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_raw_data_admin(start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_raw_data_admin(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
-        :param str sort: Decide which column to sort on (required)
-        :param str order: Decide which direction to sort the column (required)
-        :param int skip: Skip this many rows (required)
-        :param int take: Take this many rows (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str sort: Decide which column to sort on
+        :param str order: Decide which direction to sort the column
+        :param int skip: Skip this many rows
+        :param int take: Take this many rows
         :return: CSApiResponseForPaginatedListRawReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_get_raw_data_admin_with_http_info(start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_get_raw_data_admin_with_http_info(start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_get_raw_data_admin_with_http_info(self, start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_get_raw_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_raw_data_admin_with_http_info(start_date, end_date, user_ids, sort, order, skip, take, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
-        :param str sort: Decide which column to sort on (required)
-        :param str order: Decide which direction to sort the column (required)
-        :param int skip: Skip this many rows (required)
-        :param int take: Take this many rows (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str sort: Decide which column to sort on
+        :param str order: Decide which direction to sort the column
+        :param int skip: Skip this many rows
+        :param int take: Take this many rows
         :return: CSApiResponseForPaginatedListRawReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'user_ids', 'sort', 'order', 'skip', 'take', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids', 'sort', 'order', 'skip', 'take']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -957,26 +909,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'sort' is set
-        if ('sort' not in params or
-                params['sort'] is None):
-            raise ValueError("Missing the required parameter `sort` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'order' is set
-        if ('order' not in params or
-                params['order'] is None):
-            raise ValueError("Missing the required parameter `order` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `reports_get_raw_data_admin`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):
@@ -1033,49 +965,49 @@ class ReportsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_project_costings_admin(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_project_costings_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_project_costings_admin(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_project_costings_admin(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.reports_project_costings_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.reports_project_costings_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def reports_project_costings_admin_with_http_info(self, start_date, end_date, user_ids, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def reports_project_costings_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_project_costings_admin_with_http_info(start_date, end_date, user_ids, x_chronosheets_auth, async=True)
+        >>> thread = api.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
         :return: CSApiResponseListProjectCostingReportItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'user_ids', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1098,10 +1030,6 @@ class ReportsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `reports_project_costings_admin`")  # noqa: E501
-        # verify the required parameter 'user_ids' is set
-        if ('user_ids' not in params or
-                params['user_ids'] is None):
-            raise ValueError("Missing the required parameter `user_ids` when calling `reports_project_costings_admin`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):

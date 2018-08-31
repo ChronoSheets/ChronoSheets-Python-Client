@@ -33,53 +33,53 @@ class TranscriptsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def transcripts_get_my_transcripts(self, start_date, end_date, skip, take, keyword, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def transcripts_get_my_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcripts(start_date, end_date, skip, take, keyword, x_chronosheets_auth, async=True)
+        >>> thread = api.transcripts_get_my_transcripts(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  Transcripts after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Transcripts before this date will be obtained. (required)
-        :param int skip: Skip this many transcripts (required)
-        :param int take: Take this many transcripts (required)
-        :param str keyword: Search the text content of the transcript keywords (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many transcripts
+        :param int take: Take this many transcripts
+        :param str keyword: Search the text content of the transcript keywords
         :return: CSApiResponseForPaginatedListOrgReportTranscript
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, skip, take, keyword, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, skip, take, keyword, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def transcripts_get_my_transcripts_with_http_info(self, start_date, end_date, skip, take, keyword, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def transcripts_get_my_transcripts_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcripts_with_http_info(start_date, end_date, skip, take, keyword, x_chronosheets_auth, async=True)
+        >>> thread = api.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param datetime start_date: The Start date of the date range.  Transcripts after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Transcripts before this date will be obtained. (required)
-        :param int skip: Skip this many transcripts (required)
-        :param int take: Take this many transcripts (required)
-        :param str keyword: Search the text content of the transcript keywords (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param int skip: Skip this many transcripts
+        :param int take: Take this many transcripts
+        :param str keyword: Search the text content of the transcript keywords
         :return: CSApiResponseForPaginatedListOrgReportTranscript
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'skip', 'take', 'keyword', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'keyword']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -102,18 +102,6 @@ class TranscriptsApi(object):
         if ('end_date' not in params or
                 params['end_date'] is None):
             raise ValueError("Missing the required parameter `end_date` when calling `transcripts_get_my_transcripts`")  # noqa: E501
-        # verify the required parameter 'skip' is set
-        if ('skip' not in params or
-                params['skip'] is None):
-            raise ValueError("Missing the required parameter `skip` when calling `transcripts_get_my_transcripts`")  # noqa: E501
-        # verify the required parameter 'take' is set
-        if ('take' not in params or
-                params['take'] is None):
-            raise ValueError("Missing the required parameter `take` when calling `transcripts_get_my_transcripts`")  # noqa: E501
-        # verify the required parameter 'keyword' is set
-        if ('keyword' not in params or
-                params['keyword'] is None):
-            raise ValueError("Missing the required parameter `keyword` when calling `transcripts_get_my_transcripts`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):

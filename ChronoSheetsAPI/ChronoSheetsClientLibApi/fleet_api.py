@@ -239,45 +239,45 @@ class FleetApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def fleet_get_vehicles(self, include_deleted, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def fleet_get_vehicles(self, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get a collection of vehicles that are under your organisation.    Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.fleet_get_vehicles(include_deleted, x_chronosheets_auth, async=True)
+        >>> thread = api.fleet_get_vehicles(x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param bool include_deleted: Whether or not to include deleted vehicles (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param bool include_deleted: Whether or not to include deleted vehicles
         :return: CSApiResponseListFleetVehicle
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.fleet_get_vehicles_with_http_info(include_deleted, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return self.fleet_get_vehicles_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
-            (data) = self.fleet_get_vehicles_with_http_info(include_deleted, x_chronosheets_auth, **kwargs)  # noqa: E501
+            (data) = self.fleet_get_vehicles_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
-    def fleet_get_vehicles_with_http_info(self, include_deleted, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def fleet_get_vehicles_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get a collection of vehicles that are under your organisation.    Does not require any special permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.fleet_get_vehicles_with_http_info(include_deleted, x_chronosheets_auth, async=True)
+        >>> thread = api.fleet_get_vehicles_with_http_info(x_chronosheets_auth, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param bool include_deleted: Whether or not to include deleted vehicles (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :param bool include_deleted: Whether or not to include deleted vehicles
         :return: CSApiResponseListFleetVehicle
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['include_deleted', 'x_chronosheets_auth']  # noqa: E501
+        all_params = ['x_chronosheets_auth', 'include_deleted']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -292,10 +292,6 @@ class FleetApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'include_deleted' is set
-        if ('include_deleted' not in params or
-                params['include_deleted'] is None):
-            raise ValueError("Missing the required parameter `include_deleted` when calling `fleet_get_vehicles`")  # noqa: E501
         # verify the required parameter 'x_chronosheets_auth' is set
         if ('x_chronosheets_auth' not in params or
                 params['x_chronosheets_auth'] is None):

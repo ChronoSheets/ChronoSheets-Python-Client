@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **organisation_id** | **int** |  | [optional] 
 **project_name** | **str** |  | [optional] 
 **cost_estimation** | **float** |  | [optional] 
+**cost_actual** | **float** |  | [optional] 
 **start_date** | **datetime** |  | [optional] 
 **end_date** | **datetime** |  | [optional] 
 

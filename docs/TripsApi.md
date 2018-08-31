@@ -106,7 +106,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **trips_get_my_trips**
-> CSApiResponseForPaginatedListTrip trips_get_my_trips(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth)
+> CSApiResponseForPaginatedListTrip trips_get_my_trips(start_date, end_date, x_chronosheets_auth, skip=skip, take=take, vehicle_id=vehicle_id)
 
 Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.
 
@@ -122,14 +122,14 @@ from pprint import pprint
 api_instance = ChronoSheetsAPI.TripsApi()
 start_date = '2013-10-20T19:20:30+01:00' # datetime | The Start date of the date range.  Trips after this date will be obtained.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The End date of the date range.  Trips before this date will be obtained.
-skip = 56 # int | Skip this many Trips
-take = 56 # int | Take this many Trips
-vehicle_id = 56 # int | Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+skip = 56 # int | Skip this many Trips (optional)
+take = 56 # int | Take this many Trips (optional)
+vehicle_id = 56 # int | Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (optional)
 
 try:
     # Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.
-    api_response = api_instance.trips_get_my_trips(start_date, end_date, skip, take, vehicle_id, x_chronosheets_auth)
+    api_response = api_instance.trips_get_my_trips(start_date, end_date, x_chronosheets_auth, skip=skip, take=take, vehicle_id=vehicle_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TripsApi->trips_get_my_trips: %s\n" % e)
@@ -141,10 +141,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_date** | **datetime**| The Start date of the date range.  Trips after this date will be obtained. | 
  **end_date** | **datetime**| The End date of the date range.  Trips before this date will be obtained. | 
- **skip** | **int**| Skip this many Trips | 
- **take** | **int**| Take this many Trips | 
- **vehicle_id** | **int**| Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **skip** | **int**| Skip this many Trips | [optional] 
+ **take** | **int**| Take this many Trips | [optional] 
+ **vehicle_id** | **int**| Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId | [optional] 
 
 ### Return type
 
