@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **timezone** | **str** |  | [optional] 
 **subscription_customer_id** | **str** |  | [optional] 
 **signup_token** | **str** |  | [optional] 
+**is_active** | **bool** |  | [optional] 
 **subscription_cycle_start** | **datetime** |  | [optional] 
 **subscription_cycle_end** | **datetime** |  | [optional] 
 **pricing_plans** | [**list[CSOrganisationPricingPlan]**](CSOrganisationPricingPlan.md) |  | [optional] 

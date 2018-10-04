@@ -46,6 +46,7 @@ class CSOrganisation(object):
         'timezone': 'str',
         'subscription_customer_id': 'str',
         'signup_token': 'str',
+        'is_active': 'bool',
         'subscription_cycle_start': 'datetime',
         'subscription_cycle_end': 'datetime',
         'pricing_plans': 'list[CSOrganisationPricingPlan]'
@@ -65,12 +66,13 @@ class CSOrganisation(object):
         'timezone': 'Timezone',
         'subscription_customer_id': 'SubscriptionCustomerId',
         'signup_token': 'SignupToken',
+        'is_active': 'IsActive',
         'subscription_cycle_start': 'SubscriptionCycleStart',
         'subscription_cycle_end': 'SubscriptionCycleEnd',
         'pricing_plans': 'PricingPlans'
     }
 
-    def __init__(self, id=None, name=None, address_line01=None, address_line02=None, suburb=None, state=None, postcode=None, country=None, phone=None, email_address=None, timezone=None, subscription_customer_id=None, signup_token=None, subscription_cycle_start=None, subscription_cycle_end=None, pricing_plans=None):  # noqa: E501
+    def __init__(self, id=None, name=None, address_line01=None, address_line02=None, suburb=None, state=None, postcode=None, country=None, phone=None, email_address=None, timezone=None, subscription_customer_id=None, signup_token=None, is_active=None, subscription_cycle_start=None, subscription_cycle_end=None, pricing_plans=None):  # noqa: E501
         """CSOrganisation - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -86,6 +88,7 @@ class CSOrganisation(object):
         self._timezone = None
         self._subscription_customer_id = None
         self._signup_token = None
+        self._is_active = None
         self._subscription_cycle_start = None
         self._subscription_cycle_end = None
         self._pricing_plans = None
@@ -117,6 +120,8 @@ class CSOrganisation(object):
             self.subscription_customer_id = subscription_customer_id
         if signup_token is not None:
             self.signup_token = signup_token
+        if is_active is not None:
+            self.is_active = is_active
         if subscription_cycle_start is not None:
             self.subscription_cycle_start = subscription_cycle_start
         if subscription_cycle_end is not None:
@@ -396,6 +401,27 @@ class CSOrganisation(object):
         """
 
         self._signup_token = signup_token
+
+    @property
+    def is_active(self):
+        """Gets the is_active of this CSOrganisation.  # noqa: E501
+
+
+        :return: The is_active of this CSOrganisation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_active
+
+    @is_active.setter
+    def is_active(self, is_active):
+        """Sets the is_active of this CSOrganisation.
+
+
+        :param is_active: The is_active of this CSOrganisation.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_active = is_active
 
     @property
     def subscription_cycle_start(self):

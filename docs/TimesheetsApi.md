@@ -171,7 +171,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.TimesheetsApi()
-request = ChronoSheetsAPI.CSBatchUpdateTimesheetRequest() # CSBatchUpdateTimesheetRequest | A BatchUpdateTimesheet Request object containing values for the new Timesheets to create
+request = ChronoSheetsAPI.CSBatchUpdateTimesheetRequest() # CSBatchUpdateTimesheetRequest | A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -186,7 +186,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSBatchUpdateTimesheetRequest**](CSBatchUpdateTimesheetRequest.md)| A BatchUpdateTimesheet Request object containing values for the new Timesheets to create | 
+ **request** | [**CSBatchUpdateTimesheetRequest**](CSBatchUpdateTimesheetRequest.md)| A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

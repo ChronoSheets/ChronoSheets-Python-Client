@@ -357,7 +357,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create (required)
+        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListInt32
                  If the method is called asynchronously,
@@ -379,7 +379,7 @@ class TimesheetsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create (required)
+        :param CSBatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListInt32
                  If the method is called asynchronously,

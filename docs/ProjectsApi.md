@@ -25,7 +25,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = ChronoSheetsAPI.ProjectsApi()
-request = ChronoSheetsAPI.CSInsertProjectRequest() # CSInsertProjectRequest | An Insert Project Request object containing values for the new Project to create
+request = ChronoSheetsAPI.CSInsertProjectRequest() # CSInsertProjectRequest | An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
@@ -40,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSInsertProjectRequest**](CSInsertProjectRequest.md)| An Insert Project Request object containing values for the new Project to create | 
+ **request** | [**CSInsertProjectRequest**](CSInsertProjectRequest.md)| An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
 
 ### Return type

@@ -42,7 +42,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int org_group_id: An OrganisatioGroup Id (required)
+        :param int org_group_id: An OrganisationGroup Id (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
@@ -64,7 +64,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int org_group_id: An OrganisatioGroup Id (required)
+        :param int org_group_id: An OrganisationGroup Id (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
@@ -143,7 +143,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
+        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update. CsvUserIds is a comma separated list of User Ids, e.g. 1,2,3,4 (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,
@@ -165,7 +165,7 @@ class OrganisationGroupUsersApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update (required)
+        :param CSSetOrganisationGroupUsersRequest request: A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update. CsvUserIds is a comma separated list of User Ids, e.g. 1,2,3,4 (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
                  If the method is called asynchronously,

@@ -42,7 +42,7 @@ class ProjectsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create (required)
+        :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
@@ -64,7 +64,7 @@ class ProjectsApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create (required)
+        :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
                  If the method is called asynchronously,
