@@ -61,6 +61,7 @@ class CSAggregateJobTask(object):
     def id(self):
         """Gets the id of this CSAggregateJobTask.  # noqa: E501
 
+        The Id of the task  # noqa: E501
 
         :return: The id of this CSAggregateJobTask.  # noqa: E501
         :rtype: int
@@ -71,6 +72,7 @@ class CSAggregateJobTask(object):
     def id(self, id):
         """Sets the id of this CSAggregateJobTask.
 
+        The Id of the task  # noqa: E501
 
         :param id: The id of this CSAggregateJobTask.  # noqa: E501
         :type: int
@@ -82,6 +84,7 @@ class CSAggregateJobTask(object):
     def label(self):
         """Gets the label of this CSAggregateJobTask.  # noqa: E501
 
+        The label of the task  # noqa: E501
 
         :return: The label of this CSAggregateJobTask.  # noqa: E501
         :rtype: str
@@ -92,6 +95,7 @@ class CSAggregateJobTask(object):
     def label(self, label):
         """Sets the label of this CSAggregateJobTask.
 
+        The label of the task  # noqa: E501
 
         :param label: The label of this CSAggregateJobTask.  # noqa: E501
         :type: str
@@ -103,6 +107,7 @@ class CSAggregateJobTask(object):
     def is_deleted(self):
         """Gets the is_deleted of this CSAggregateJobTask.  # noqa: E501
 
+        A flag indicating that this task has been marked as deleted  # noqa: E501
 
         :return: The is_deleted of this CSAggregateJobTask.  # noqa: E501
         :rtype: bool
@@ -113,6 +118,7 @@ class CSAggregateJobTask(object):
     def is_deleted(self, is_deleted):
         """Sets the is_deleted of this CSAggregateJobTask.
 
+        A flag indicating that this task has been marked as deleted  # noqa: E501
 
         :param is_deleted: The is_deleted of this CSAggregateJobTask.  # noqa: E501
         :type: bool

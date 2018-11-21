@@ -86,6 +86,7 @@ class CSJobCode(object):
     def id(self):
         """Gets the id of this CSJobCode.  # noqa: E501
 
+        The ID of the job code (not the code itself)  # noqa: E501
 
         :return: The id of this CSJobCode.  # noqa: E501
         :rtype: int
@@ -96,6 +97,7 @@ class CSJobCode(object):
     def id(self, id):
         """Sets the id of this CSJobCode.
 
+        The ID of the job code (not the code itself)  # noqa: E501
 
         :param id: The id of this CSJobCode.  # noqa: E501
         :type: int
@@ -107,6 +109,7 @@ class CSJobCode(object):
     def code(self):
         """Gets the code of this CSJobCode.  # noqa: E501
 
+        The job code itself  # noqa: E501
 
         :return: The code of this CSJobCode.  # noqa: E501
         :rtype: str
@@ -117,6 +120,7 @@ class CSJobCode(object):
     def code(self, code):
         """Sets the code of this CSJobCode.
 
+        The job code itself  # noqa: E501
 
         :param code: The code of this CSJobCode.  # noqa: E501
         :type: str
@@ -128,6 +132,7 @@ class CSJobCode(object):
     def client(self):
         """Gets the client of this CSJobCode.  # noqa: E501
 
+        The name of the client  # noqa: E501
 
         :return: The client of this CSJobCode.  # noqa: E501
         :rtype: str
@@ -138,6 +143,7 @@ class CSJobCode(object):
     def client(self, client):
         """Sets the client of this CSJobCode.
 
+        The name of the client  # noqa: E501
 
         :param client: The client of this CSJobCode.  # noqa: E501
         :type: str
@@ -149,6 +155,7 @@ class CSJobCode(object):
     def client_id(self):
         """Gets the client_id of this CSJobCode.  # noqa: E501
 
+        The ID of the client  # noqa: E501
 
         :return: The client_id of this CSJobCode.  # noqa: E501
         :rtype: int
@@ -159,6 +166,7 @@ class CSJobCode(object):
     def client_id(self, client_id):
         """Sets the client_id of this CSJobCode.
 
+        The ID of the client  # noqa: E501
 
         :param client_id: The client_id of this CSJobCode.  # noqa: E501
         :type: int
@@ -170,6 +178,7 @@ class CSJobCode(object):
     def project(self):
         """Gets the project of this CSJobCode.  # noqa: E501
 
+        The name of the project  # noqa: E501
 
         :return: The project of this CSJobCode.  # noqa: E501
         :rtype: str
@@ -180,6 +189,7 @@ class CSJobCode(object):
     def project(self, project):
         """Sets the project of this CSJobCode.
 
+        The name of the project  # noqa: E501
 
         :param project: The project of this CSJobCode.  # noqa: E501
         :type: str
@@ -191,6 +201,7 @@ class CSJobCode(object):
     def project_id(self):
         """Gets the project_id of this CSJobCode.  # noqa: E501
 
+        The ID of the project  # noqa: E501
 
         :return: The project_id of this CSJobCode.  # noqa: E501
         :rtype: int
@@ -201,6 +212,7 @@ class CSJobCode(object):
     def project_id(self, project_id):
         """Sets the project_id of this CSJobCode.
 
+        The ID of the project  # noqa: E501
 
         :param project_id: The project_id of this CSJobCode.  # noqa: E501
         :type: int
@@ -212,6 +224,7 @@ class CSJobCode(object):
     def organisation_id(self):
         """Gets the organisation_id of this CSJobCode.  # noqa: E501
 
+        Your organisation ID  # noqa: E501
 
         :return: The organisation_id of this CSJobCode.  # noqa: E501
         :rtype: int
@@ -222,6 +235,7 @@ class CSJobCode(object):
     def organisation_id(self, organisation_id):
         """Sets the organisation_id of this CSJobCode.
 
+        Your organisation ID  # noqa: E501
 
         :param organisation_id: The organisation_id of this CSJobCode.  # noqa: E501
         :type: int
@@ -233,6 +247,7 @@ class CSJobCode(object):
     def is_deleted(self):
         """Gets the is_deleted of this CSJobCode.  # noqa: E501
 
+        A flag indicating whether or not the job code has been marked as deleted  # noqa: E501
 
         :return: The is_deleted of this CSJobCode.  # noqa: E501
         :rtype: bool
@@ -243,6 +258,7 @@ class CSJobCode(object):
     def is_deleted(self, is_deleted):
         """Sets the is_deleted of this CSJobCode.
 
+        A flag indicating whether or not the job code has been marked as deleted  # noqa: E501
 
         :param is_deleted: The is_deleted of this CSJobCode.  # noqa: E501
         :type: bool

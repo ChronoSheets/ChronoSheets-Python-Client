@@ -81,6 +81,7 @@ class CSAggregateProject(object):
     def id(self):
         """Gets the id of this CSAggregateProject.  # noqa: E501
 
+        The ID of the project  # noqa: E501
 
         :return: The id of this CSAggregateProject.  # noqa: E501
         :rtype: int
@@ -91,6 +92,7 @@ class CSAggregateProject(object):
     def id(self, id):
         """Sets the id of this CSAggregateProject.
 
+        The ID of the project  # noqa: E501
 
         :param id: The id of this CSAggregateProject.  # noqa: E501
         :type: int
@@ -102,6 +104,7 @@ class CSAggregateProject(object):
     def client_id(self):
         """Gets the client_id of this CSAggregateProject.  # noqa: E501
 
+        The ID of the client that this project is assigned to  # noqa: E501
 
         :return: The client_id of this CSAggregateProject.  # noqa: E501
         :rtype: int
@@ -112,6 +115,7 @@ class CSAggregateProject(object):
     def client_id(self, client_id):
         """Sets the client_id of this CSAggregateProject.
 
+        The ID of the client that this project is assigned to  # noqa: E501
 
         :param client_id: The client_id of this CSAggregateProject.  # noqa: E501
         :type: int
@@ -123,6 +127,7 @@ class CSAggregateProject(object):
     def organisation_id(self):
         """Gets the organisation_id of this CSAggregateProject.  # noqa: E501
 
+        The ID of your organisation  # noqa: E501
 
         :return: The organisation_id of this CSAggregateProject.  # noqa: E501
         :rtype: int
@@ -133,6 +138,7 @@ class CSAggregateProject(object):
     def organisation_id(self, organisation_id):
         """Sets the organisation_id of this CSAggregateProject.
 
+        The ID of your organisation  # noqa: E501
 
         :param organisation_id: The organisation_id of this CSAggregateProject.  # noqa: E501
         :type: int
@@ -144,6 +150,7 @@ class CSAggregateProject(object):
     def project_name(self):
         """Gets the project_name of this CSAggregateProject.  # noqa: E501
 
+        The name of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :return: The project_name of this CSAggregateProject.  # noqa: E501
         :rtype: str
@@ -154,6 +161,7 @@ class CSAggregateProject(object):
     def project_name(self, project_name):
         """Sets the project_name of this CSAggregateProject.
 
+        The name of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :param project_name: The project_name of this CSAggregateProject.  # noqa: E501
         :type: str
@@ -165,6 +173,7 @@ class CSAggregateProject(object):
     def cost_estimation(self):
         """Gets the cost_estimation of this CSAggregateProject.  # noqa: E501
 
+        The estimated cost of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :return: The cost_estimation of this CSAggregateProject.  # noqa: E501
         :rtype: float
@@ -175,6 +184,7 @@ class CSAggregateProject(object):
     def cost_estimation(self, cost_estimation):
         """Sets the cost_estimation of this CSAggregateProject.
 
+        The estimated cost of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :param cost_estimation: The cost_estimation of this CSAggregateProject.  # noqa: E501
         :type: float
@@ -186,6 +196,7 @@ class CSAggregateProject(object):
     def start_date(self):
         """Gets the start_date of this CSAggregateProject.  # noqa: E501
 
+        The start date of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :return: The start_date of this CSAggregateProject.  # noqa: E501
         :rtype: datetime
@@ -196,6 +207,7 @@ class CSAggregateProject(object):
     def start_date(self, start_date):
         """Sets the start_date of this CSAggregateProject.
 
+        The start date of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :param start_date: The start_date of this CSAggregateProject.  # noqa: E501
         :type: datetime
@@ -207,6 +219,7 @@ class CSAggregateProject(object):
     def end_date(self):
         """Gets the end_date of this CSAggregateProject.  # noqa: E501
 
+        The end date of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :return: The end_date of this CSAggregateProject.  # noqa: E501
         :rtype: datetime
@@ -217,6 +230,7 @@ class CSAggregateProject(object):
     def end_date(self, end_date):
         """Sets the end_date of this CSAggregateProject.
 
+        The end date of the project (can be viewed in PROJECT TIMELINES)  # noqa: E501
 
         :param end_date: The end_date of this CSAggregateProject.  # noqa: E501
         :type: datetime

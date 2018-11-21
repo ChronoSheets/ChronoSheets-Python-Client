@@ -98,6 +98,7 @@ class CSAggregateJobCode(object):
     def available_tasks(self):
         """Gets the available_tasks of this CSAggregateJobCode.  # noqa: E501
 
+        The list of available tasks under this job code  # noqa: E501
 
         :return: The available_tasks of this CSAggregateJobCode.  # noqa: E501
         :rtype: list[CSAggregateJobTask]
@@ -108,6 +109,7 @@ class CSAggregateJobCode(object):
     def available_tasks(self, available_tasks):
         """Sets the available_tasks of this CSAggregateJobCode.
 
+        The list of available tasks under this job code  # noqa: E501
 
         :param available_tasks: The available_tasks of this CSAggregateJobCode.  # noqa: E501
         :type: list[CSAggregateJobTask]
@@ -119,6 +121,7 @@ class CSAggregateJobCode(object):
     def permitted_employees(self):
         """Gets the permitted_employees of this CSAggregateJobCode.  # noqa: E501
 
+        The list of employee IDs that are permitted to record timesheets with this job code (empty means everyone)  # noqa: E501
 
         :return: The permitted_employees of this CSAggregateJobCode.  # noqa: E501
         :rtype: list[int]
@@ -129,6 +132,7 @@ class CSAggregateJobCode(object):
     def permitted_employees(self, permitted_employees):
         """Sets the permitted_employees of this CSAggregateJobCode.
 
+        The list of employee IDs that are permitted to record timesheets with this job code (empty means everyone)  # noqa: E501
 
         :param permitted_employees: The permitted_employees of this CSAggregateJobCode.  # noqa: E501
         :type: list[int]
@@ -140,6 +144,7 @@ class CSAggregateJobCode(object):
     def id(self):
         """Gets the id of this CSAggregateJobCode.  # noqa: E501
 
+        The ID of the job code (not the code itself)  # noqa: E501
 
         :return: The id of this CSAggregateJobCode.  # noqa: E501
         :rtype: int
@@ -150,6 +155,7 @@ class CSAggregateJobCode(object):
     def id(self, id):
         """Sets the id of this CSAggregateJobCode.
 
+        The ID of the job code (not the code itself)  # noqa: E501
 
         :param id: The id of this CSAggregateJobCode.  # noqa: E501
         :type: int
@@ -161,6 +167,7 @@ class CSAggregateJobCode(object):
     def code(self):
         """Gets the code of this CSAggregateJobCode.  # noqa: E501
 
+        The job code itself  # noqa: E501
 
         :return: The code of this CSAggregateJobCode.  # noqa: E501
         :rtype: str
@@ -171,6 +178,7 @@ class CSAggregateJobCode(object):
     def code(self, code):
         """Sets the code of this CSAggregateJobCode.
 
+        The job code itself  # noqa: E501
 
         :param code: The code of this CSAggregateJobCode.  # noqa: E501
         :type: str
@@ -182,6 +190,7 @@ class CSAggregateJobCode(object):
     def client(self):
         """Gets the client of this CSAggregateJobCode.  # noqa: E501
 
+        The name of the client  # noqa: E501
 
         :return: The client of this CSAggregateJobCode.  # noqa: E501
         :rtype: str
@@ -192,6 +201,7 @@ class CSAggregateJobCode(object):
     def client(self, client):
         """Sets the client of this CSAggregateJobCode.
 
+        The name of the client  # noqa: E501
 
         :param client: The client of this CSAggregateJobCode.  # noqa: E501
         :type: str
@@ -203,6 +213,7 @@ class CSAggregateJobCode(object):
     def client_id(self):
         """Gets the client_id of this CSAggregateJobCode.  # noqa: E501
 
+        The ID of the client  # noqa: E501
 
         :return: The client_id of this CSAggregateJobCode.  # noqa: E501
         :rtype: int
@@ -213,6 +224,7 @@ class CSAggregateJobCode(object):
     def client_id(self, client_id):
         """Sets the client_id of this CSAggregateJobCode.
 
+        The ID of the client  # noqa: E501
 
         :param client_id: The client_id of this CSAggregateJobCode.  # noqa: E501
         :type: int
@@ -224,6 +236,7 @@ class CSAggregateJobCode(object):
     def project(self):
         """Gets the project of this CSAggregateJobCode.  # noqa: E501
 
+        The name of the project  # noqa: E501
 
         :return: The project of this CSAggregateJobCode.  # noqa: E501
         :rtype: str
@@ -234,6 +247,7 @@ class CSAggregateJobCode(object):
     def project(self, project):
         """Sets the project of this CSAggregateJobCode.
 
+        The name of the project  # noqa: E501
 
         :param project: The project of this CSAggregateJobCode.  # noqa: E501
         :type: str
@@ -245,6 +259,7 @@ class CSAggregateJobCode(object):
     def project_id(self):
         """Gets the project_id of this CSAggregateJobCode.  # noqa: E501
 
+        The ID of the project  # noqa: E501
 
         :return: The project_id of this CSAggregateJobCode.  # noqa: E501
         :rtype: int
@@ -255,6 +270,7 @@ class CSAggregateJobCode(object):
     def project_id(self, project_id):
         """Sets the project_id of this CSAggregateJobCode.
 
+        The ID of the project  # noqa: E501
 
         :param project_id: The project_id of this CSAggregateJobCode.  # noqa: E501
         :type: int
@@ -266,6 +282,7 @@ class CSAggregateJobCode(object):
     def organisation_id(self):
         """Gets the organisation_id of this CSAggregateJobCode.  # noqa: E501
 
+        Your organisation ID  # noqa: E501
 
         :return: The organisation_id of this CSAggregateJobCode.  # noqa: E501
         :rtype: int
@@ -276,6 +293,7 @@ class CSAggregateJobCode(object):
     def organisation_id(self, organisation_id):
         """Sets the organisation_id of this CSAggregateJobCode.
 
+        Your organisation ID  # noqa: E501
 
         :param organisation_id: The organisation_id of this CSAggregateJobCode.  # noqa: E501
         :type: int
@@ -287,6 +305,7 @@ class CSAggregateJobCode(object):
     def is_deleted(self):
         """Gets the is_deleted of this CSAggregateJobCode.  # noqa: E501
 
+        A flag indicating whether or not the job code has been marked as deleted  # noqa: E501
 
         :return: The is_deleted of this CSAggregateJobCode.  # noqa: E501
         :rtype: bool
@@ -297,6 +316,7 @@ class CSAggregateJobCode(object):
     def is_deleted(self, is_deleted):
         """Sets the is_deleted of this CSAggregateJobCode.
 
+        A flag indicating whether or not the job code has been marked as deleted  # noqa: E501
 
         :param is_deleted: The is_deleted of this CSAggregateJobCode.  # noqa: E501
         :type: bool

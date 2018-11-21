@@ -116,6 +116,7 @@ class CSClient(object):
     def id(self):
         """Gets the id of this CSClient.  # noqa: E501
 
+        The ID of the client  # noqa: E501
 
         :return: The id of this CSClient.  # noqa: E501
         :rtype: int
@@ -126,6 +127,7 @@ class CSClient(object):
     def id(self, id):
         """Sets the id of this CSClient.
 
+        The ID of the client  # noqa: E501
 
         :param id: The id of this CSClient.  # noqa: E501
         :type: int
@@ -137,6 +139,7 @@ class CSClient(object):
     def organisation_id(self):
         """Gets the organisation_id of this CSClient.  # noqa: E501
 
+        The ID of your organisation  # noqa: E501
 
         :return: The organisation_id of this CSClient.  # noqa: E501
         :rtype: int
@@ -147,6 +150,7 @@ class CSClient(object):
     def organisation_id(self, organisation_id):
         """Sets the organisation_id of this CSClient.
 
+        The ID of your organisation  # noqa: E501
 
         :param organisation_id: The organisation_id of this CSClient.  # noqa: E501
         :type: int
@@ -158,6 +162,7 @@ class CSClient(object):
     def client_name(self):
         """Gets the client_name of this CSClient.  # noqa: E501
 
+        The name of the client  # noqa: E501
 
         :return: The client_name of this CSClient.  # noqa: E501
         :rtype: str
@@ -168,6 +173,7 @@ class CSClient(object):
     def client_name(self, client_name):
         """Sets the client_name of this CSClient.
 
+        The name of the client  # noqa: E501
 
         :param client_name: The client_name of this CSClient.  # noqa: E501
         :type: str
@@ -179,6 +185,7 @@ class CSClient(object):
     def client_address_line1(self):
         """Gets the client_address_line1 of this CSClient.  # noqa: E501
 
+        The address line 1 of the client  # noqa: E501
 
         :return: The client_address_line1 of this CSClient.  # noqa: E501
         :rtype: str
@@ -189,6 +196,7 @@ class CSClient(object):
     def client_address_line1(self, client_address_line1):
         """Sets the client_address_line1 of this CSClient.
 
+        The address line 1 of the client  # noqa: E501
 
         :param client_address_line1: The client_address_line1 of this CSClient.  # noqa: E501
         :type: str
@@ -200,6 +208,7 @@ class CSClient(object):
     def client_address_line2(self):
         """Gets the client_address_line2 of this CSClient.  # noqa: E501
 
+        The address line 2 of the client  # noqa: E501
 
         :return: The client_address_line2 of this CSClient.  # noqa: E501
         :rtype: str
@@ -210,6 +219,7 @@ class CSClient(object):
     def client_address_line2(self, client_address_line2):
         """Sets the client_address_line2 of this CSClient.
 
+        The address line 2 of the client  # noqa: E501
 
         :param client_address_line2: The client_address_line2 of this CSClient.  # noqa: E501
         :type: str
@@ -221,6 +231,7 @@ class CSClient(object):
     def client_suburb(self):
         """Gets the client_suburb of this CSClient.  # noqa: E501
 
+        The address suburb of the client  # noqa: E501
 
         :return: The client_suburb of this CSClient.  # noqa: E501
         :rtype: str
@@ -231,6 +242,7 @@ class CSClient(object):
     def client_suburb(self, client_suburb):
         """Sets the client_suburb of this CSClient.
 
+        The address suburb of the client  # noqa: E501
 
         :param client_suburb: The client_suburb of this CSClient.  # noqa: E501
         :type: str
@@ -242,6 +254,7 @@ class CSClient(object):
     def client_state(self):
         """Gets the client_state of this CSClient.  # noqa: E501
 
+        The address state of the client  # noqa: E501
 
         :return: The client_state of this CSClient.  # noqa: E501
         :rtype: str
@@ -252,6 +265,7 @@ class CSClient(object):
     def client_state(self, client_state):
         """Sets the client_state of this CSClient.
 
+        The address state of the client  # noqa: E501
 
         :param client_state: The client_state of this CSClient.  # noqa: E501
         :type: str
@@ -263,6 +277,7 @@ class CSClient(object):
     def client_post_code(self):
         """Gets the client_post_code of this CSClient.  # noqa: E501
 
+        The postcode of the client  # noqa: E501
 
         :return: The client_post_code of this CSClient.  # noqa: E501
         :rtype: str
@@ -273,6 +288,7 @@ class CSClient(object):
     def client_post_code(self, client_post_code):
         """Sets the client_post_code of this CSClient.
 
+        The postcode of the client  # noqa: E501
 
         :param client_post_code: The client_post_code of this CSClient.  # noqa: E501
         :type: str
@@ -284,6 +300,7 @@ class CSClient(object):
     def person_of_contact(self):
         """Gets the person_of_contact of this CSClient.  # noqa: E501
 
+        The contact person working under the client  # noqa: E501
 
         :return: The person_of_contact of this CSClient.  # noqa: E501
         :rtype: str
@@ -294,6 +311,7 @@ class CSClient(object):
     def person_of_contact(self, person_of_contact):
         """Sets the person_of_contact of this CSClient.
 
+        The contact person working under the client  # noqa: E501
 
         :param person_of_contact: The person_of_contact of this CSClient.  # noqa: E501
         :type: str
@@ -305,6 +323,7 @@ class CSClient(object):
     def client_phone_number(self):
         """Gets the client_phone_number of this CSClient.  # noqa: E501
 
+        The phone number of the client  # noqa: E501
 
         :return: The client_phone_number of this CSClient.  # noqa: E501
         :rtype: str
@@ -315,6 +334,7 @@ class CSClient(object):
     def client_phone_number(self, client_phone_number):
         """Sets the client_phone_number of this CSClient.
 
+        The phone number of the client  # noqa: E501
 
         :param client_phone_number: The client_phone_number of this CSClient.  # noqa: E501
         :type: str
@@ -326,6 +346,7 @@ class CSClient(object):
     def client_mobile_number(self):
         """Gets the client_mobile_number of this CSClient.  # noqa: E501
 
+        The mobile phone number of the client  # noqa: E501
 
         :return: The client_mobile_number of this CSClient.  # noqa: E501
         :rtype: str
@@ -336,6 +357,7 @@ class CSClient(object):
     def client_mobile_number(self, client_mobile_number):
         """Sets the client_mobile_number of this CSClient.
 
+        The mobile phone number of the client  # noqa: E501
 
         :param client_mobile_number: The client_mobile_number of this CSClient.  # noqa: E501
         :type: str
@@ -347,6 +369,7 @@ class CSClient(object):
     def client_email_address(self):
         """Gets the client_email_address of this CSClient.  # noqa: E501
 
+        The email address of the client  # noqa: E501
 
         :return: The client_email_address of this CSClient.  # noqa: E501
         :rtype: str
@@ -357,6 +380,7 @@ class CSClient(object):
     def client_email_address(self, client_email_address):
         """Sets the client_email_address of this CSClient.
 
+        The email address of the client  # noqa: E501
 
         :param client_email_address: The client_email_address of this CSClient.  # noqa: E501
         :type: str
@@ -368,6 +392,7 @@ class CSClient(object):
     def client_web_url(self):
         """Gets the client_web_url of this CSClient.  # noqa: E501
 
+        The website URL of the client  # noqa: E501
 
         :return: The client_web_url of this CSClient.  # noqa: E501
         :rtype: str
@@ -378,6 +403,7 @@ class CSClient(object):
     def client_web_url(self, client_web_url):
         """Sets the client_web_url of this CSClient.
 
+        The website URL of the client  # noqa: E501
 
         :param client_web_url: The client_web_url of this CSClient.  # noqa: E501
         :type: str
@@ -389,6 +415,7 @@ class CSClient(object):
     def project_count(self):
         """Gets the project_count of this CSClient.  # noqa: E501
 
+        The number of projects under the client  # noqa: E501
 
         :return: The project_count of this CSClient.  # noqa: E501
         :rtype: int
@@ -399,6 +426,7 @@ class CSClient(object):
     def project_count(self, project_count):
         """Sets the project_count of this CSClient.
 
+        The number of projects under the client  # noqa: E501
 
         :param project_count: The project_count of this CSClient.  # noqa: E501
         :type: int

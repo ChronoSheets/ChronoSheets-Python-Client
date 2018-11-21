@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **reports_get_all_charts_data_admin**
-> CSApiResponseCombinedReportsData reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, user_ids=user_ids)
+> CSApiResponseCombinedReportsData reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, user_ids=user_ids, force_only_this_chart=force_only_this_chart)
 
 Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
 
@@ -35,10 +35,11 @@ start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date for the dat
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date for the date range.  Report data in the response is before this date
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 user_ids = 'user_ids_example' # str | A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+force_only_this_chart = 'force_only_this_chart_example' # str | A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option. (optional)
 
 try:
     # Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
-    api_response = api_instance.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, user_ids=user_ids)
+    api_response = api_instance.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, user_ids=user_ids, force_only_this_chart=force_only_this_chart)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReportsApi->reports_get_all_charts_data_admin: %s\n" % e)
@@ -52,6 +53,7 @@ Name | Type | Description  | Notes
  **end_date** | **datetime**| The end date for the date range.  Report data in the response is before this date | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
  **user_ids** | **str**| A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. | [optional] 
+ **force_only_this_chart** | **str**| A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the &#39;NotForced&#39; option. | [optional] 
 
 ### Return type
 

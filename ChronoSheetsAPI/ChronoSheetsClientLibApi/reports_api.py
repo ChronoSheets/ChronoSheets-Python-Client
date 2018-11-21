@@ -46,6 +46,7 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str force_only_this_chart: A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option.
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
                  returns the request thread.
@@ -70,12 +71,13 @@ class ReportsApi(object):
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
+        :param str force_only_this_chart: A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option.
         :return: CSApiResponseCombinedReportsData
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
+        all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids', 'force_only_this_chart']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -114,6 +116,8 @@ class ReportsApi(object):
             query_params.append(('EndDate', params['end_date']))  # noqa: E501
         if 'user_ids' in params:
             query_params.append(('UserIds', params['user_ids']))  # noqa: E501
+        if 'force_only_this_chart' in params:
+            query_params.append(('ForceOnlyThisChart', params['force_only_this_chart']))  # noqa: E501
 
         header_params = {}
         if 'x_chronosheets_auth' in params:
