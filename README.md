@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
 *TimesheetsApi* | [**timesheets_delete_timesheet**](docs/TimesheetsApi.md#timesheets_delete_timesheet) | **DELETE** /api/Timesheets/DeleteTimesheet | Delete a timesheet.    Requires the &#39;SubmitTimesheets&#39; permission.
 *TimesheetsApi* | [**timesheets_get_timesheets**](docs/TimesheetsApi.md#timesheets_get_timesheets) | **GET** /api/Timesheets/GetTimesheets | Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the &#39;SubmitTimesheets&#39; permission.
 *TimesheetsApi* | [**timesheets_update_timesheets**](docs/TimesheetsApi.md#timesheets_update_timesheets) | **PUT** /api/Timesheets/UpdateTimesheets | Batch update timesheets.    Requires the &#39;SubmitTimesheets&#39; permission.
+*TranscriptsApi* | [**transcripts_get_my_transcript**](docs/TranscriptsApi.md#transcripts_get_my_transcript) | **GET** /api/Transcripts/GetMyTranscript | Get an audio to text transcript for a particular audio file attachment
 *TranscriptsApi* | [**transcripts_get_my_transcripts**](docs/TranscriptsApi.md#transcripts_get_my_transcripts) | **GET** /api/Transcripts/GetMyTranscripts | Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.
 *TripsApi* | [**trips_create_trip**](docs/TripsApi.md#trips_create_trip) | **POST** /api/Trips/CreateTrip | Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the &#39;SubmitTimesheets&#39; permission.
 *TripsApi* | [**trips_get_my_trip_by_id**](docs/TripsApi.md#trips_get_my_trip_by_id) | **GET** /api/Trips/GetMyTripById | Get trip by Id.    Requires the &#39;ViewMyTrips&#39; permission.
@@ -159,6 +160,7 @@ Class | Method | HTTP request | Description
  - [CSApiResponseForPaginatedListRawReportItem](docs/CSApiResponseForPaginatedListRawReportItem.md)
  - [CSApiResponseForPaginatedListTimesheetFileAttachment](docs/CSApiResponseForPaginatedListTimesheetFileAttachment.md)
  - [CSApiResponseForPaginatedListTrip](docs/CSApiResponseForPaginatedListTrip.md)
+ - [CSApiResponseForPaginatedTranscription](docs/CSApiResponseForPaginatedTranscription.md)
  - [CSApiResponseInsertUserResponse](docs/CSApiResponseInsertUserResponse.md)
  - [CSApiResponseInt32](docs/CSApiResponseInt32.md)
  - [CSApiResponseJobCode](docs/CSApiResponseJobCode.md)
@@ -235,6 +237,7 @@ Class | Method | HTTP request | Description
  - [CSTimesheet](docs/CSTimesheet.md)
  - [CSTimesheetFileAttachment](docs/CSTimesheetFileAttachment.md)
  - [CSTimesheetTask](docs/CSTimesheetTask.md)
+ - [CSTranscription](docs/CSTranscription.md)
  - [CSTrip](docs/CSTrip.md)
  - [CSTripCoordinate](docs/CSTripCoordinate.md)
  - [CSUpdateJobCodeRequest](docs/CSUpdateJobCodeRequest.md)

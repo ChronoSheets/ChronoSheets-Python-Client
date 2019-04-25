@@ -33,6 +33,107 @@ class TranscriptsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def transcripts_get_my_transcript(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
+        """Get an audio to text transcript for a particular audio file attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.transcripts_get_my_transcript(file_attachment_id, x_chronosheets_auth, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
+        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :return: CSApiResponseForPaginatedTranscription
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
+        else:
+            (data) = self.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
+            return data
+
+    def transcripts_get_my_transcript_with_http_info(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
+        """Get an audio to text transcript for a particular audio file attachment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
+        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
+        :return: CSApiResponseForPaginatedTranscription
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['file_attachment_id', 'x_chronosheets_auth']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method transcripts_get_my_transcript" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'file_attachment_id' is set
+        if ('file_attachment_id' not in params or
+                params['file_attachment_id'] is None):
+            raise ValueError("Missing the required parameter `file_attachment_id` when calling `transcripts_get_my_transcript`")  # noqa: E501
+        # verify the required parameter 'x_chronosheets_auth' is set
+        if ('x_chronosheets_auth' not in params or
+                params['x_chronosheets_auth'] is None):
+            raise ValueError("Missing the required parameter `x_chronosheets_auth` when calling `transcripts_get_my_transcript`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'file_attachment_id' in params:
+            query_params.append(('FileAttachmentId', params['file_attachment_id']))  # noqa: E501
+
+        header_params = {}
+        if 'x_chronosheets_auth' in params:
+            header_params['x-chronosheets-auth'] = params['x_chronosheets_auth']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/Transcripts/GetMyTranscript', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CSApiResponseForPaginatedTranscription',  # noqa: E501
+            auth_settings=auth_settings,
+            async=params.get('async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def transcripts_get_my_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.  # noqa: E501
 

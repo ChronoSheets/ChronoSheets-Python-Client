@@ -43,7 +43,8 @@ class CSClientSideUser(object):
         'alert_settings': 'int',
         'setup_wizard_required': 'bool',
         'is_subscribed_to_newsletter': 'bool',
-        'organisation': 'CSOrganisation'
+        'organisation': 'CSOrganisation',
+        'is_primary_account': 'bool'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class CSClientSideUser(object):
         'alert_settings': 'AlertSettings',
         'setup_wizard_required': 'SetupWizardRequired',
         'is_subscribed_to_newsletter': 'IsSubscribedToNewsletter',
-        'organisation': 'Organisation'
+        'organisation': 'Organisation',
+        'is_primary_account': 'IsPrimaryAccount'
     }
 
-    def __init__(self, id=None, organisation_id=None, user_name=None, first_name=None, last_name=None, email_address=None, roles=None, alert_settings=None, setup_wizard_required=None, is_subscribed_to_newsletter=None, organisation=None):  # noqa: E501
+    def __init__(self, id=None, organisation_id=None, user_name=None, first_name=None, last_name=None, email_address=None, roles=None, alert_settings=None, setup_wizard_required=None, is_subscribed_to_newsletter=None, organisation=None, is_primary_account=None):  # noqa: E501
         """CSClientSideUser - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -74,6 +76,7 @@ class CSClientSideUser(object):
         self._setup_wizard_required = None
         self._is_subscribed_to_newsletter = None
         self._organisation = None
+        self._is_primary_account = None
         self.discriminator = None
 
         if id is not None:
@@ -98,6 +101,8 @@ class CSClientSideUser(object):
             self.is_subscribed_to_newsletter = is_subscribed_to_newsletter
         if organisation is not None:
             self.organisation = organisation
+        if is_primary_account is not None:
+            self.is_primary_account = is_primary_account
 
     @property
     def id(self):
@@ -329,6 +334,27 @@ class CSClientSideUser(object):
         """
 
         self._organisation = organisation
+
+    @property
+    def is_primary_account(self):
+        """Gets the is_primary_account of this CSClientSideUser.  # noqa: E501
+
+
+        :return: The is_primary_account of this CSClientSideUser.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_primary_account
+
+    @is_primary_account.setter
+    def is_primary_account(self, is_primary_account):
+        """Sets the is_primary_account of this CSClientSideUser.
+
+
+        :param is_primary_account: The is_primary_account of this CSClientSideUser.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_primary_account = is_primary_account
 
     def to_dict(self):
         """Returns the model properties as a dict"""

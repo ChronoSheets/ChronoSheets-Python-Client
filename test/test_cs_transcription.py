@@ -16,31 +16,23 @@ from __future__ import absolute_import
 import unittest
 
 import ChronoSheetsAPI
-from ChronoSheetsClientLibApi.transcripts_api import TranscriptsApi  # noqa: E501
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_transcription import CSTranscription  # noqa: E501
 from ChronoSheetsAPI.rest import ApiException
 
 
-class TestTranscriptsApi(unittest.TestCase):
-    """TranscriptsApi unit test stubs"""
+class TestCSTranscription(unittest.TestCase):
+    """CSTranscription unit test stubs"""
 
     def setUp(self):
-        self.api = ChronoSheetsClientLibApi.transcripts_api.TranscriptsApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_transcripts_get_my_transcript(self):
-        """Test case for transcripts_get_my_transcript
-
-        Get an audio to text transcript for a particular audio file attachment  # noqa: E501
-        """
-        pass
-
-    def test_transcripts_get_my_transcripts(self):
-        """Test case for transcripts_get_my_transcripts
-
-        Get my file transcripts.  Get audio to text transcripts that you've created.  # noqa: E501
-        """
+    def testCSTranscription(self):
+        """Test CSTranscription"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = ChronoSheetsAPI.models.cs_transcription.CSTranscription()  # noqa: E501
         pass
 
 

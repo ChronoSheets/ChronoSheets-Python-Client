@@ -47,6 +47,10 @@ class CSOrganisation(object):
         'subscription_customer_id': 'str',
         'signup_token': 'str',
         'is_active': 'bool',
+        'stripe_coupon_code': 'str',
+        'subscription_source': 'str',
+        'sign_up_source': 'str',
+        'mobile_sign_up_code': 'str',
         'subscription_cycle_start': 'datetime',
         'subscription_cycle_end': 'datetime',
         'pricing_plans': 'list[CSOrganisationPricingPlan]'
@@ -67,12 +71,16 @@ class CSOrganisation(object):
         'subscription_customer_id': 'SubscriptionCustomerId',
         'signup_token': 'SignupToken',
         'is_active': 'IsActive',
+        'stripe_coupon_code': 'StripeCouponCode',
+        'subscription_source': 'SubscriptionSource',
+        'sign_up_source': 'SignUpSource',
+        'mobile_sign_up_code': 'MobileSignUpCode',
         'subscription_cycle_start': 'SubscriptionCycleStart',
         'subscription_cycle_end': 'SubscriptionCycleEnd',
         'pricing_plans': 'PricingPlans'
     }
 
-    def __init__(self, id=None, name=None, address_line01=None, address_line02=None, suburb=None, state=None, postcode=None, country=None, phone=None, email_address=None, timezone=None, subscription_customer_id=None, signup_token=None, is_active=None, subscription_cycle_start=None, subscription_cycle_end=None, pricing_plans=None):  # noqa: E501
+    def __init__(self, id=None, name=None, address_line01=None, address_line02=None, suburb=None, state=None, postcode=None, country=None, phone=None, email_address=None, timezone=None, subscription_customer_id=None, signup_token=None, is_active=None, stripe_coupon_code=None, subscription_source=None, sign_up_source=None, mobile_sign_up_code=None, subscription_cycle_start=None, subscription_cycle_end=None, pricing_plans=None):  # noqa: E501
         """CSOrganisation - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -89,6 +97,10 @@ class CSOrganisation(object):
         self._subscription_customer_id = None
         self._signup_token = None
         self._is_active = None
+        self._stripe_coupon_code = None
+        self._subscription_source = None
+        self._sign_up_source = None
+        self._mobile_sign_up_code = None
         self._subscription_cycle_start = None
         self._subscription_cycle_end = None
         self._pricing_plans = None
@@ -122,6 +134,14 @@ class CSOrganisation(object):
             self.signup_token = signup_token
         if is_active is not None:
             self.is_active = is_active
+        if stripe_coupon_code is not None:
+            self.stripe_coupon_code = stripe_coupon_code
+        if subscription_source is not None:
+            self.subscription_source = subscription_source
+        if sign_up_source is not None:
+            self.sign_up_source = sign_up_source
+        if mobile_sign_up_code is not None:
+            self.mobile_sign_up_code = mobile_sign_up_code
         if subscription_cycle_start is not None:
             self.subscription_cycle_start = subscription_cycle_start
         if subscription_cycle_end is not None:
@@ -422,6 +442,102 @@ class CSOrganisation(object):
         """
 
         self._is_active = is_active
+
+    @property
+    def stripe_coupon_code(self):
+        """Gets the stripe_coupon_code of this CSOrganisation.  # noqa: E501
+
+
+        :return: The stripe_coupon_code of this CSOrganisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._stripe_coupon_code
+
+    @stripe_coupon_code.setter
+    def stripe_coupon_code(self, stripe_coupon_code):
+        """Sets the stripe_coupon_code of this CSOrganisation.
+
+
+        :param stripe_coupon_code: The stripe_coupon_code of this CSOrganisation.  # noqa: E501
+        :type: str
+        """
+
+        self._stripe_coupon_code = stripe_coupon_code
+
+    @property
+    def subscription_source(self):
+        """Gets the subscription_source of this CSOrganisation.  # noqa: E501
+
+
+        :return: The subscription_source of this CSOrganisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._subscription_source
+
+    @subscription_source.setter
+    def subscription_source(self, subscription_source):
+        """Sets the subscription_source of this CSOrganisation.
+
+
+        :param subscription_source: The subscription_source of this CSOrganisation.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["None", "Stripe", "AppleInApp", "GoogleInApp"]  # noqa: E501
+        if subscription_source not in allowed_values:
+            raise ValueError(
+                "Invalid value for `subscription_source` ({0}), must be one of {1}"  # noqa: E501
+                .format(subscription_source, allowed_values)
+            )
+
+        self._subscription_source = subscription_source
+
+    @property
+    def sign_up_source(self):
+        """Gets the sign_up_source of this CSOrganisation.  # noqa: E501
+
+
+        :return: The sign_up_source of this CSOrganisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._sign_up_source
+
+    @sign_up_source.setter
+    def sign_up_source(self, sign_up_source):
+        """Sets the sign_up_source of this CSOrganisation.
+
+
+        :param sign_up_source: The sign_up_source of this CSOrganisation.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Desktop", "MobileiOS", "MobileAndroid"]  # noqa: E501
+        if sign_up_source not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sign_up_source` ({0}), must be one of {1}"  # noqa: E501
+                .format(sign_up_source, allowed_values)
+            )
+
+        self._sign_up_source = sign_up_source
+
+    @property
+    def mobile_sign_up_code(self):
+        """Gets the mobile_sign_up_code of this CSOrganisation.  # noqa: E501
+
+
+        :return: The mobile_sign_up_code of this CSOrganisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._mobile_sign_up_code
+
+    @mobile_sign_up_code.setter
+    def mobile_sign_up_code(self, mobile_sign_up_code):
+        """Sets the mobile_sign_up_code of this CSOrganisation.
+
+
+        :param mobile_sign_up_code: The mobile_sign_up_code of this CSOrganisation.  # noqa: E501
+        :type: str
+        """
+
+        self._mobile_sign_up_code = mobile_sign_up_code
 
     @property
     def subscription_cycle_start(self):
