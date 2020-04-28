@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -46,7 +46,9 @@ class CSRawReportItem(object):
         'pay_amount': 'float',
         'pay_overtime_amount': 'float',
         'trip_cost': 'float',
-        'trip_distance_meters': 'float'
+        'trip_distance_meters': 'float',
+        'span_seconds_normal_time': 'int',
+        'span_seconds_overtime': 'int'
     }
 
     attribute_map = {
@@ -65,10 +67,12 @@ class CSRawReportItem(object):
         'pay_amount': 'PayAmount',
         'pay_overtime_amount': 'PayOvertimeAmount',
         'trip_cost': 'TripCost',
-        'trip_distance_meters': 'TripDistanceMeters'
+        'trip_distance_meters': 'TripDistanceMeters',
+        'span_seconds_normal_time': 'SpanSecondsNormalTime',
+        'span_seconds_overtime': 'SpanSecondsOvertime'
     }
 
-    def __init__(self, organisation_id=None, user_id=None, username=None, email_address=None, job_code=None, task_name=None, client_name=None, project_name=None, start_date=None, end_date=None, span_seconds=None, description=None, pay_amount=None, pay_overtime_amount=None, trip_cost=None, trip_distance_meters=None):  # noqa: E501
+    def __init__(self, organisation_id=None, user_id=None, username=None, email_address=None, job_code=None, task_name=None, client_name=None, project_name=None, start_date=None, end_date=None, span_seconds=None, description=None, pay_amount=None, pay_overtime_amount=None, trip_cost=None, trip_distance_meters=None, span_seconds_normal_time=None, span_seconds_overtime=None):  # noqa: E501
         """CSRawReportItem - a model defined in Swagger"""  # noqa: E501
 
         self._organisation_id = None
@@ -87,6 +91,8 @@ class CSRawReportItem(object):
         self._pay_overtime_amount = None
         self._trip_cost = None
         self._trip_distance_meters = None
+        self._span_seconds_normal_time = None
+        self._span_seconds_overtime = None
         self.discriminator = None
 
         if organisation_id is not None:
@@ -121,6 +127,10 @@ class CSRawReportItem(object):
             self.trip_cost = trip_cost
         if trip_distance_meters is not None:
             self.trip_distance_meters = trip_distance_meters
+        if span_seconds_normal_time is not None:
+            self.span_seconds_normal_time = span_seconds_normal_time
+        if span_seconds_overtime is not None:
+            self.span_seconds_overtime = span_seconds_overtime
 
     @property
     def organisation_id(self):
@@ -458,6 +468,48 @@ class CSRawReportItem(object):
 
         self._trip_distance_meters = trip_distance_meters
 
+    @property
+    def span_seconds_normal_time(self):
+        """Gets the span_seconds_normal_time of this CSRawReportItem.  # noqa: E501
+
+
+        :return: The span_seconds_normal_time of this CSRawReportItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._span_seconds_normal_time
+
+    @span_seconds_normal_time.setter
+    def span_seconds_normal_time(self, span_seconds_normal_time):
+        """Sets the span_seconds_normal_time of this CSRawReportItem.
+
+
+        :param span_seconds_normal_time: The span_seconds_normal_time of this CSRawReportItem.  # noqa: E501
+        :type: int
+        """
+
+        self._span_seconds_normal_time = span_seconds_normal_time
+
+    @property
+    def span_seconds_overtime(self):
+        """Gets the span_seconds_overtime of this CSRawReportItem.  # noqa: E501
+
+
+        :return: The span_seconds_overtime of this CSRawReportItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._span_seconds_overtime
+
+    @span_seconds_overtime.setter
+    def span_seconds_overtime(self, span_seconds_overtime):
+        """Sets the span_seconds_overtime of this CSRawReportItem.
+
+
+        :param span_seconds_overtime: The span_seconds_overtime of this CSRawReportItem.  # noqa: E501
+        :type: int
+        """
+
+        self._span_seconds_overtime = span_seconds_overtime
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -479,6 +531,9 @@ class CSRawReportItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CSRawReportItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

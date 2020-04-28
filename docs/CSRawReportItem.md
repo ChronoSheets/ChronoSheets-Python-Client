@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **pay_overtime_amount** | **float** |  | [optional] 
 **trip_cost** | **float** |  | [optional] 
 **trip_distance_meters** | **float** |  | [optional] 
+**span_seconds_normal_time** | **int** |  | [optional] 
+**span_seconds_overtime** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

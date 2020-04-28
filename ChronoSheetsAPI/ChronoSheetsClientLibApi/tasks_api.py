@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class TasksApi(object):
         self.api_client = api_client
 
     def tasks_create_task(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_create_task(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_create_task(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertTaskRequest request: An Insert Task Request object containing values for the new Task to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -49,21 +49,21 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_create_task_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_create_task_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_create_task_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_create_task_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_create_task_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertTaskRequest request: An Insert Task Request object containing values for the new Task to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -72,7 +72,7 @@ class TasksApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -132,21 +132,21 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseInt32',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def tasks_delete_task(self, task_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_delete_task(task_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_delete_task(task_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int task_id: The ID of the Task you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -154,21 +154,21 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_delete_task_with_http_info(task_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_delete_task_with_http_info(task_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_delete_task_with_http_info(self, task_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_delete_task_with_http_info(task_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_delete_task_with_http_info(task_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int task_id: The ID of the Task you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -177,7 +177,7 @@ class TasksApi(object):
         """
 
         all_params = ['task_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,21 +233,21 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def tasks_get_task_by_id(self, task_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular task by Id.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_task_by_id(task_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_task_by_id(task_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int task_id: The ID of the TimesheetTask you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTimesheetTask
@@ -255,21 +255,21 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_get_task_by_id_with_http_info(task_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_get_task_by_id_with_http_info(task_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_get_task_by_id_with_http_info(self, task_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular task by Id.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_task_by_id_with_http_info(task_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_task_by_id_with_http_info(task_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int task_id: The ID of the TimesheetTask you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTimesheetTask
@@ -278,7 +278,7 @@ class TasksApi(object):
         """
 
         all_params = ['task_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -334,42 +334,42 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseTimesheetTask',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def tasks_get_tasks(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get tasks in your organisation.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_tasks(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_tasks(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListTimesheetTask
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_get_tasks_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_get_tasks_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_get_tasks_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get tasks in your organisation.   Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_tasks_with_http_info(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_tasks_with_http_info(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListTimesheetTask
                  If the method is called asynchronously,
@@ -377,7 +377,7 @@ class TasksApi(object):
         """
 
         all_params = ['x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -427,21 +427,21 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseListTimesheetTask',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def tasks_get_tasks_for_job(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of tasks for a particular Job, specified by JobId.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_tasks_for_job(job_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_tasks_for_job(job_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_id: The ID of the job (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListTimesheetTask
@@ -449,21 +449,21 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_get_tasks_for_job_with_http_info(job_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_get_tasks_for_job_with_http_info(job_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_get_tasks_for_job_with_http_info(self, job_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a collection of tasks for a particular Job, specified by JobId.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_get_tasks_for_job_with_http_info(job_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_get_tasks_for_job_with_http_info(job_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_id: The ID of the job (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListTimesheetTask
@@ -472,7 +472,7 @@ class TasksApi(object):
         """
 
         all_params = ['job_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -528,21 +528,21 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseListTimesheetTask',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def tasks_update_task(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_update_task(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_update_task(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateTaskRequest request: An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -550,21 +550,21 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.tasks_update_task_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.tasks_update_task_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def tasks_update_task_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a task.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a task.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.tasks_update_task_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.tasks_update_task_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateTaskRequest request: An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -573,7 +573,7 @@ class TasksApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -633,7 +633,7 @@ class TasksApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

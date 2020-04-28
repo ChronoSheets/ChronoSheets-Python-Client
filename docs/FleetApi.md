@@ -5,6 +5,7 @@ All URIs are relative to *https://www.chronosheets.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**fleet_create_vehicle**](FleetApi.md#fleet_create_vehicle) | **POST** /api/Fleet/CreateVehicle | Create a vehicle.    Requires the &#39;ManageFleet&#39; permission.
+[**fleet_delete_vehicle**](FleetApi.md#fleet_delete_vehicle) | **DELETE** /api/Fleet/DeleteVehicle | Delete a vehicle from the fleet.  Requires the &#39;ManageFleet&#39; permission.
 [**fleet_get_vehicle_by_id**](FleetApi.md#fleet_get_vehicle_by_id) | **GET** /api/Fleet/GetVehicleById | Get a particular vehicle.  Does not require any special permission.
 [**fleet_get_vehicles**](FleetApi.md#fleet_get_vehicles) | **GET** /api/Fleet/GetVehicles | Get a collection of vehicles that are under your organisation.    Does not require any special permission.
 [**fleet_update_vehicle**](FleetApi.md#fleet_update_vehicle) | **PUT** /api/Fleet/UpdateVehicle | Update a vehicle.    Requires the &#39;ManageFleet&#39; permission.
@@ -54,6 +55,54 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fleet_delete_vehicle**
+> CSApiResponseBoolean fleet_delete_vehicle(vehicle_id, x_chronosheets_auth)
+
+Delete a vehicle from the fleet.  Requires the 'ManageFleet' permission.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ChronoSheetsAPI
+from ChronoSheetsAPI.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = ChronoSheetsAPI.FleetApi()
+vehicle_id = 56 # int | The unique ID of the vehicle you wish to delete
+x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+
+try:
+    # Delete a vehicle from the fleet.  Requires the 'ManageFleet' permission.
+    api_response = api_instance.fleet_delete_vehicle(vehicle_id, x_chronosheets_auth)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FleetApi->fleet_delete_vehicle: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **vehicle_id** | **int**| The unique ID of the vehicle you wish to delete | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+
+### Return type
+
+[**CSApiResponseBoolean**](CSApiResponseBoolean.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

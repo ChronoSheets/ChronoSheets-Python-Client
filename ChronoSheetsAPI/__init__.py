@@ -5,7 +5,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -80,6 +80,7 @@ from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_list_usual_hours
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_organisation import CSApiResponseOrganisation
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_organisation_group import CSApiResponseOrganisationGroup
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_project import CSApiResponseProject
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_timesheet_file_attachment import CSApiResponseTimesheetFileAttachment
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_timesheet_task import CSApiResponseTimesheetTask
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_trip import CSApiResponseTrip
 from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_update_organisation_response import CSApiResponseUpdateOrganisationResponse

@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class ProjectsApi(object):
         self.api_client = api_client
 
     def projects_create_project(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Create a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_create_project(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_create_project(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -49,21 +49,21 @@ class ProjectsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.projects_create_project_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.projects_create_project_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def projects_create_project_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Create a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_create_project_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_create_project_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertProjectRequest request: An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -72,7 +72,7 @@ class ProjectsApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -132,21 +132,21 @@ class ProjectsApi(object):
             files=local_var_files,
             response_type='CSApiResponseInt32',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def projects_get_project_by_id(self, project_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a project by its Id.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_get_project_by_id(project_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_get_project_by_id(project_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int project_id: The ID of the Project you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseProject
@@ -154,21 +154,21 @@ class ProjectsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.projects_get_project_by_id_with_http_info(project_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.projects_get_project_by_id_with_http_info(project_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def projects_get_project_by_id_with_http_info(self, project_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a project by its Id.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_get_project_by_id_with_http_info(project_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_get_project_by_id_with_http_info(project_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int project_id: The ID of the Project you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseProject
@@ -177,7 +177,7 @@ class ProjectsApi(object):
         """
 
         all_params = ['project_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,21 +233,21 @@ class ProjectsApi(object):
             files=local_var_files,
             response_type='CSApiResponseProject',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def projects_get_projects_for_client(self, client_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get projects for a particular client.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get projects for a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_get_projects_for_client(client_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_get_projects_for_client(client_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int client_id: The ID of the client (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProject
@@ -255,21 +255,21 @@ class ProjectsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.projects_get_projects_for_client_with_http_info(client_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.projects_get_projects_for_client_with_http_info(client_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def projects_get_projects_for_client_with_http_info(self, client_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get projects for a particular client.    Requires the &#39;ManageClientsAndProjects&#39; or &#39;ManageJobsAndTask&#39; permissions.  # noqa: E501
+        """Get projects for a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_get_projects_for_client_with_http_info(client_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_get_projects_for_client_with_http_info(client_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int client_id: The ID of the client (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListProject
@@ -278,7 +278,7 @@ class ProjectsApi(object):
         """
 
         all_params = ['client_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -334,21 +334,21 @@ class ProjectsApi(object):
             files=local_var_files,
             response_type='CSApiResponseListProject',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def projects_update_project(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Update a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_update_project(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_update_project(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateProjectRequest request: An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -356,21 +356,21 @@ class ProjectsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.projects_update_project_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.projects_update_project_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def projects_update_project_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a project.    Requires the &#39;ManageClientsAndProjects&#39; permission.  # noqa: E501
+        """Update a project.    Requires the 'ManageClientsAndProjects' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_update_project_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.projects_update_project_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateProjectRequest request: An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -379,7 +379,7 @@ class ProjectsApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -439,7 +439,7 @@ class ProjectsApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class UsualHoursApi(object):
         self.api_client = api_client
 
     def usual_hours_get_usual_hours(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.usual_hours_get_usual_hours(user_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.usual_hours_get_usual_hours(user_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int user_id: The ID of the User for which you want to get UsualHours for (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUsualHoursDay
@@ -49,21 +49,21 @@ class UsualHoursApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.usual_hours_get_usual_hours_with_http_info(user_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.usual_hours_get_usual_hours_with_http_info(user_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def usual_hours_get_usual_hours_with_http_info(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.usual_hours_get_usual_hours_with_http_info(user_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.usual_hours_get_usual_hours_with_http_info(user_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int user_id: The ID of the User for which you want to get UsualHours for (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUsualHoursDay
@@ -72,7 +72,7 @@ class UsualHoursApi(object):
         """
 
         all_params = ['user_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -128,21 +128,21 @@ class UsualHoursApi(object):
             files=local_var_files,
             response_type='CSApiResponseListUsualHoursDay',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def usual_hours_set_usual_hours(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.usual_hours_set_usual_hours(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.usual_hours_set_usual_hours(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSSetUsualHoursRequest request: A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -150,21 +150,21 @@ class UsualHoursApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.usual_hours_set_usual_hours_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.usual_hours_set_usual_hours_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def usual_hours_set_usual_hours_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.  # noqa: E501
+        """Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.usual_hours_set_usual_hours_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.usual_hours_set_usual_hours_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSSetUsualHoursRequest request: A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -173,7 +173,7 @@ class UsualHoursApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,7 +233,7 @@ class UsualHoursApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

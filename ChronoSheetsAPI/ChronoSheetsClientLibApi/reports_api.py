@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class ReportsApi(object):
         self.api_client = api_client
 
     def reports_get_all_charts_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -52,21 +52,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_all_charts_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -78,7 +78,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids', 'force_only_this_chart']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -144,21 +144,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseCombinedReportsData',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_all_charts_data_user(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.    Requires the &#39;ViewOwnReports&#39; permission.  # noqa: E501
+        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_user(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_all_charts_data_user(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -167,21 +167,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_all_charts_data_user_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user&#39;s own reports.    Requires the &#39;ViewOwnReports&#39; permission.  # noqa: E501
+        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -191,7 +191,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -253,21 +253,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseCombinedReportsData',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_fleet_summary_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -277,21 +277,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_fleet_summary_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -302,7 +302,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -366,21 +366,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseListFleetSummaryReportItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_org_trip_by_id(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_org_trip_by_id(trip_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_org_trip_by_id(trip_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
@@ -388,21 +388,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_org_trip_by_id_with_http_info(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int trip_id: The ID of the Trip you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseTrip
@@ -411,7 +411,7 @@ class ReportsApi(object):
         """
 
         all_params = ['trip_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -467,21 +467,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseTrip',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_organisation_timesheet_file_attachments(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -493,21 +493,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_organisation_timesheet_file_attachments_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -520,7 +520,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -588,21 +588,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_organisation_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -615,21 +615,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_organisation_transcripts_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -643,7 +643,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids', 'keywords']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -713,21 +713,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedListOrgReportTranscript',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_organisation_trips(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_trips(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_trips(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -739,21 +739,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_organisation_trips_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -766,7 +766,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'user_ids']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -834,21 +834,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedListOrgReportTrip',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_get_raw_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_raw_data_admin(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_raw_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -862,21 +862,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_get_raw_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -891,7 +891,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids', 'sort', 'order', 'skip', 'take']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -963,21 +963,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedListRawReportItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_project_costings_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_project_costings_admin(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_project_costings_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -987,21 +987,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_project_costings_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users.    Requires the &#39;ReportAdmin&#39; permission.  # noqa: E501
+        """Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -1012,7 +1012,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'user_ids']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1076,21 +1076,21 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseListProjectCostingReportItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def reports_user_jobs_over_time(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user.    Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.  # noqa: E501
+        """Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_user_jobs_over_time(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_user_jobs_over_time(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -1099,21 +1099,21 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def reports_user_jobs_over_time_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user.    Requires the &#39;ViewOwnReports&#39; or &#39;SubmitTimesheets&#39;.  # noqa: E501
+        """Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
         :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -1123,7 +1123,7 @@ class ReportsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1185,7 +1185,7 @@ class ReportsApi(object):
             files=local_var_files,
             response_type='CSApiResponseListJobSeriesReportItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

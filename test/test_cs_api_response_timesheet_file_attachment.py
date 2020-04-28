@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import ChronoSheetsAPI
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_client_side_user import CSClientSideUser  # noqa: E501
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_timesheet_file_attachment import CSApiResponseTimesheetFileAttachment  # noqa: E501
 from ChronoSheetsAPI.rest import ApiException
 
 
-class TestCSClientSideUser(unittest.TestCase):
-    """CSClientSideUser unit test stubs"""
+class TestCSApiResponseTimesheetFileAttachment(unittest.TestCase):
+    """CSApiResponseTimesheetFileAttachment unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestCSClientSideUser(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCSClientSideUser(self):
-        """Test CSClientSideUser"""
+    def testCSApiResponseTimesheetFileAttachment(self):
+        """Test CSApiResponseTimesheetFileAttachment"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ChronoSheetsAPI.models.cs_client_side_user.CSClientSideUser()  # noqa: E501
+        # model = ChronoSheetsAPI.models.cs_api_response_timesheet_file_attachment.CSApiResponseTimesheetFileAttachment()  # noqa: E501
         pass
 
 

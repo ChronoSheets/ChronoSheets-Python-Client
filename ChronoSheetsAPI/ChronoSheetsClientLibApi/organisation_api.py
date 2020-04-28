@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,35 +34,35 @@ class OrganisationApi(object):
         self.api_client = api_client
 
     def organisation_get_organisation(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.organisation_get_organisation(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisation_get_organisation(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseOrganisation
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.organisation_get_organisation_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.organisation_get_organisation_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def organisation_get_organisation_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.organisation_get_organisation_with_http_info(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisation_get_organisation_with_http_info(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseOrganisation
                  If the method is called asynchronously,
@@ -70,7 +70,7 @@ class OrganisationApi(object):
         """
 
         all_params = ['x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -120,21 +120,21 @@ class OrganisationApi(object):
             files=local_var_files,
             response_type='CSApiResponseOrganisation',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def organisation_update_organisation(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.organisation_update_organisation(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisation_update_organisation(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateOrganisationResponse
@@ -142,21 +142,21 @@ class OrganisationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.organisation_update_organisation_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.organisation_update_organisation_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def organisation_update_organisation_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update an organisation.    Requires &#39;OrganisationAdmin&#39; permission.  # noqa: E501
+        """Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.organisation_update_organisation_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisation_update_organisation_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateOrganisationResponse
@@ -165,7 +165,7 @@ class OrganisationApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -225,7 +225,7 @@ class OrganisationApi(object):
             files=local_var_files,
             response_type='CSApiResponseUpdateOrganisationResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class UsersApi(object):
         self.api_client = api_client
 
     def users_create_timesheet_user(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a user account in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
+        """Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_create_timesheet_user(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_create_timesheet_user(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertUserRequest request: An Insert User Request object containing values for the new User to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInsertUserResponse
@@ -49,21 +49,21 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.users_create_timesheet_user_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.users_create_timesheet_user_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def users_create_timesheet_user_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a user account in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
+        """Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_create_timesheet_user_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_create_timesheet_user_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertUserRequest request: An Insert User Request object containing values for the new User to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInsertUserResponse
@@ -72,7 +72,7 @@ class UsersApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -132,21 +132,21 @@ class UsersApi(object):
             files=local_var_files,
             response_type='CSApiResponseInsertUserResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def users_get_timesheet_user(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular user in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_get_timesheet_user(user_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_get_timesheet_user(user_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int user_id: The User ID of the UserForManagement you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUserForManagement
@@ -154,21 +154,21 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.users_get_timesheet_user_with_http_info(user_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.users_get_timesheet_user_with_http_info(user_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def users_get_timesheet_user_with_http_info(self, user_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular user in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_get_timesheet_user_with_http_info(user_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_get_timesheet_user_with_http_info(user_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int user_id: The User ID of the UserForManagement you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUserForManagement
@@ -177,7 +177,7 @@ class UsersApi(object):
         """
 
         all_params = ['user_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,42 +233,42 @@ class UsersApi(object):
             files=local_var_files,
             response_type='CSApiResponseUserForManagement',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def users_get_timesheet_users(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get users accounts in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_get_timesheet_users(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_get_timesheet_users(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.users_get_timesheet_users_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.users_get_timesheet_users_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def users_get_timesheet_users_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get users accounts in your organisation.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationGroups&#39; permissions.  # noqa: E501
+        """Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_get_timesheet_users_with_http_info(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_get_timesheet_users_with_http_info(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListUserForManagement
                  If the method is called asynchronously,
@@ -276,7 +276,7 @@ class UsersApi(object):
         """
 
         all_params = ['x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -326,21 +326,21 @@ class UsersApi(object):
             files=local_var_files,
             response_type='CSApiResponseListUserForManagement',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def users_update_timesheet_user(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a user account.  Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
+        """Update a user account.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_update_timesheet_user(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_update_timesheet_user(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateUserRequest request: A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateUserResponse
@@ -348,21 +348,21 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.users_update_timesheet_user_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.users_update_timesheet_user_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def users_update_timesheet_user_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a user account.  Requires the &#39;ManageOrganisationUsers&#39; permission.  # noqa: E501
+        """Update a user account.  Requires the 'ManageOrganisationUsers' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_update_timesheet_user_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.users_update_timesheet_user_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateUserRequest request: A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseUpdateUserResponse
@@ -371,7 +371,7 @@ class UsersApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -431,7 +431,7 @@ class UsersApi(object):
             files=local_var_files,
             response_type='CSApiResponseUpdateUserResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

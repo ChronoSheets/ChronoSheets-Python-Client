@@ -4,14 +4,14 @@ All URIs are relative to *https://www.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**usual_hours_get_usual_hours**](UsualHoursApi.md#usual_hours_get_usual_hours) | **GET** /api/UsualHours/GetUsualHours | Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.
-[**usual_hours_set_usual_hours**](UsualHoursApi.md#usual_hours_set_usual_hours) | **PUT** /api/UsualHours/SetUsualHours | Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; or &#39;ManageOrganisationUsers&#39; permissions.
+[**usual_hours_get_usual_hours**](UsualHoursApi.md#usual_hours_get_usual_hours) | **GET** /api/UsualHours/GetUsualHours | Get usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; permission.
+[**usual_hours_set_usual_hours**](UsualHoursApi.md#usual_hours_set_usual_hours) | **PUT** /api/UsualHours/SetUsualHours | Set usual hours (rostered hours) for an employee.  Requires the &#39;ManageOrganisationUsers&#39; permission.
 
 
 # **usual_hours_get_usual_hours**
 > CSApiResponseListUsualHoursDay usual_hours_get_usual_hours(user_id, x_chronosheets_auth)
 
-Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
 
 ### Example
 ```python
@@ -27,7 +27,7 @@ user_id = 56 # int | The ID of the User for which you want to get UsualHours for
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+    # Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
     api_response = api_instance.usual_hours_get_usual_hours(user_id, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:
@@ -59,7 +59,7 @@ No authorization required
 # **usual_hours_set_usual_hours**
 > CSApiResponseBoolean usual_hours_set_usual_hours(request, x_chronosheets_auth)
 
-Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
 
 ### Example
 ```python
@@ -75,7 +75,7 @@ request = ChronoSheetsAPI.CSSetUsualHoursRequest() # CSSetUsualHoursRequest | A 
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
 try:
-    # Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+    # Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
     api_response = api_instance.usual_hours_set_usual_hours(request, x_chronosheets_auth)
     pprint(api_response)
 except ApiException as e:

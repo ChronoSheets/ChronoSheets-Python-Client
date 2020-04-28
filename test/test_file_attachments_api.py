@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -32,7 +32,14 @@ class TestFileAttachmentsApi(unittest.TestCase):
     def test_file_attachments_delete_timesheet_file_attachment(self):
         """Test case for file_attachments_delete_timesheet_file_attachment
 
-        Delete a particular timesheet file attachment  # noqa: E501
+        Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.  # noqa: E501
+        """
+        pass
+
+    def test_file_attachments_get_file_attachment_by_id(self):
+        """Test case for file_attachments_get_file_attachment_by_id
+
+        Get a particular file attachment by ID.  User must own the file attachment for access.  # noqa: E501
         """
         pass
 

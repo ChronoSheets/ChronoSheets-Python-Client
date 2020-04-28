@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -22,7 +22,13 @@ VERSION = "1.0.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = [
+    "certifi>=2017.4.17",
+    "python-dateutil>=2.1",
+    "six>=1.10",
+    "urllib3>=1.23"
+]
+    
 
 setup(
     name=NAME,
@@ -35,6 +41,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    &lt;div style&#x3D;&#39;font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;&#39;&gt;&lt;p&gt;      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at &lt;a target&#x3D;&#39;_BLANK&#39; href&#x3D;&#39;http://tsheets.xyz/signup&#39;&gt;http://tsheets.xyz/signup&lt;/a&gt;.  &lt;/p&gt;&lt;/div&gt;&lt;div id&#x3D;&#39;cs-extra-info&#39;&gt;&lt;/div&gt;  # noqa: E501
+    &lt;div style&#x3D;&#39;font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;&#39;&gt;&lt;p&gt;      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at &lt;a target&#x3D;&#39;_BLANK&#39; href&#x3D;&#39;http://tsheets.xyz/signup&#39;&gt;http://tsheets.xyz/signup&lt;/a&gt;.  &lt;/p&gt;&lt;/div&gt;&lt;div id&#x3D;&#39;cs-extra-info&#39;&gt;&lt;/div&gt;  # noqa: E501
     """
 )

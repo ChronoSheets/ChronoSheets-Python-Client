@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -37,11 +37,11 @@ class TranscriptsApi(object):
         """Get an audio to text transcript for a particular audio file attachment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcript(file_attachment_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.transcripts_get_my_transcript(file_attachment_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedTranscription
@@ -49,7 +49,7 @@ class TranscriptsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
@@ -59,11 +59,11 @@ class TranscriptsApi(object):
         """Get an audio to text transcript for a particular audio file attachment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.transcripts_get_my_transcript_with_http_info(file_attachment_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseForPaginatedTranscription
@@ -72,7 +72,7 @@ class TranscriptsApi(object):
         """
 
         all_params = ['file_attachment_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -128,21 +128,21 @@ class TranscriptsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedTranscription',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def transcripts_get_my_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.  # noqa: E501
+        """Get my file transcripts.  Get audio to text transcripts that you've created.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcripts(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.transcripts_get_my_transcripts(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The Start date of the date range.  Transcripts after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Transcripts before this date will be obtained. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -154,21 +154,21 @@ class TranscriptsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def transcripts_get_my_transcripts_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.  # noqa: E501
+        """Get my file transcripts.  Get audio to text transcripts that you've created.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.transcripts_get_my_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param datetime start_date: The Start date of the date range.  Transcripts after this date will be obtained. (required)
         :param datetime end_date: The End date of the date range.  Transcripts before this date will be obtained. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
@@ -181,7 +181,7 @@ class TranscriptsApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'x_chronosheets_auth', 'skip', 'take', 'keyword']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -249,7 +249,7 @@ class TranscriptsApi(object):
             files=local_var_files,
             response_type='CSApiResponseForPaginatedListOrgReportTranscript',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

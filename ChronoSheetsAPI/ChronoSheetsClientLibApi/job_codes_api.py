@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,14 +34,14 @@ class JobCodesApi(object):
         self.api_client = api_client
 
     def job_codes_create_job_code(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_create_job_code(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_create_job_code(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertJobCodeRequest request: An Insert JobCode Request object containing values for the new JobCode to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -49,21 +49,21 @@ class JobCodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.job_codes_create_job_code_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.job_codes_create_job_code_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def job_codes_create_job_code_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Create a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Create a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_create_job_code_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_create_job_code_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSInsertJobCodeRequest request: An Insert JobCode Request object containing values for the new JobCode to create (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseInt32
@@ -72,7 +72,7 @@ class JobCodesApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -132,21 +132,21 @@ class JobCodesApi(object):
             files=local_var_files,
             response_type='CSApiResponseInt32',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def job_codes_delete_job_code(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_delete_job_code(job_code_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_delete_job_code(job_code_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_code_id: The ID of the job code you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -154,21 +154,21 @@ class JobCodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.job_codes_delete_job_code_with_http_info(job_code_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.job_codes_delete_job_code_with_http_info(job_code_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def job_codes_delete_job_code_with_http_info(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Delete a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_delete_job_code_with_http_info(job_code_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_delete_job_code_with_http_info(job_code_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_code_id: The ID of the job code you want to delete (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -177,7 +177,7 @@ class JobCodesApi(object):
         """
 
         all_params = ['job_code_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,21 +233,21 @@ class JobCodesApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def job_codes_get_job_code_by_id(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular job code by job code id.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_get_job_code_by_id(job_code_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_get_job_code_by_id(job_code_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_code_id: The ID of the JobCode you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseJobCode
@@ -255,21 +255,21 @@ class JobCodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.job_codes_get_job_code_by_id_with_http_info(job_code_id, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.job_codes_get_job_code_by_id_with_http_info(job_code_id, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def job_codes_get_job_code_by_id_with_http_info(self, job_code_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular job code by job code id.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_get_job_code_by_id_with_http_info(job_code_id, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_get_job_code_by_id_with_http_info(job_code_id, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int job_code_id: The ID of the JobCode you want to get (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseJobCode
@@ -278,7 +278,7 @@ class JobCodesApi(object):
         """
 
         all_params = ['job_code_id', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -334,42 +334,42 @@ class JobCodesApi(object):
             files=local_var_files,
             response_type='CSApiResponseJobCode',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def job_codes_get_job_codes(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get job codes for your organisation.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_get_job_codes(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_get_job_codes(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListJobCode
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.job_codes_get_job_codes_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.job_codes_get_job_codes_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def job_codes_get_job_codes_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get job codes for your organisation.    Requires &#39;SubmitTimesheets&#39; or &#39;ManageJobsAndTasks&#39; permissions.  # noqa: E501
+        """Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_get_job_codes_with_http_info(x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_get_job_codes_with_http_info(x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseListJobCode
                  If the method is called asynchronously,
@@ -377,7 +377,7 @@ class JobCodesApi(object):
         """
 
         all_params = ['x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -427,21 +427,21 @@ class JobCodesApi(object):
             files=local_var_files,
             response_type='CSApiResponseListJobCode',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def job_codes_update_job_code(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_update_job_code(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_update_job_code(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateJobCodeRequest request: A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -449,21 +449,21 @@ class JobCodesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.job_codes_update_job_code_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
         else:
             (data) = self.job_codes_update_job_code_with_http_info(request, x_chronosheets_auth, **kwargs)  # noqa: E501
             return data
 
     def job_codes_update_job_code_with_http_info(self, request, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Update a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.  # noqa: E501
+        """Update a job code.    Requires the 'ManageJobsAndTask' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.job_codes_update_job_code_with_http_info(request, x_chronosheets_auth, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.job_codes_update_job_code_with_http_info(request, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param CSUpdateJobCodeRequest request: A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
         :return: CSApiResponseBoolean
@@ -472,7 +472,7 @@ class JobCodesApi(object):
         """
 
         all_params = ['request', 'x_chronosheets_auth']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -532,7 +532,7 @@ class JobCodesApi(object):
             files=local_var_files,
             response_type='CSApiResponseBoolean',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

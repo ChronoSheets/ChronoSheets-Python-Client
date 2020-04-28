@@ -3,7 +3,7 @@
 """
     ChronoSheets API
 
-    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
+    <div style='font-size: 14px!important;font-family: Open Sans,sans-serif!important;color: #3b4151!important;'><p>      ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 3 and there are iOS and Android apps available.  Use the ChronoSheets API to create your own custom integrations.  Before starting, sign up for a ChronoSheets account at <a target='_BLANK' href='http://tsheets.xyz/signup'>http://tsheets.xyz/signup</a>.  </p></div><div id='cs-extra-info'></div>  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -15,15 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_client_series_report_item import CSClientSeriesReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_client_totals_report_item import CSClientTotalsReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_job_series_report_item import CSJobSeriesReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_job_totals_report_item import CSJobTotalsReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_project_series_report_item import CSProjectSeriesReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_project_totals_report_item import CSProjectTotalsReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_task_series_report_item import CSTaskSeriesReportItem  # noqa: F401,E501
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_cs_task_totals_report_item import CSTaskTotalsReportItem  # noqa: F401,E501
 
 
 class CSCombinedReportsData(object):
@@ -280,6 +271,9 @@ class CSCombinedReportsData(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CSCombinedReportsData, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
