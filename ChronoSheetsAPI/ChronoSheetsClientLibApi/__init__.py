@@ -8,6 +8,7 @@ from ChronoSheetsClientLibApi.aggregate_job_tasks_api import AggregateJobTasksAp
 from ChronoSheetsClientLibApi.clients_api import ClientsApi
 from ChronoSheetsClientLibApi.file_attachments_api import FileAttachmentsApi
 from ChronoSheetsClientLibApi.fleet_api import FleetApi
+from ChronoSheetsClientLibApi.geo_fencing_api import GeoFencingApi
 from ChronoSheetsClientLibApi.job_codes_api import JobCodesApi
 from ChronoSheetsClientLibApi.organisation_api import OrganisationApi
 from ChronoSheetsClientLibApi.organisation_group_users_api import OrganisationGroupUsersApi
@@ -15,6 +16,7 @@ from ChronoSheetsClientLibApi.organisation_groups_api import OrganisationGroupsA
 from ChronoSheetsClientLibApi.projects_api import ProjectsApi
 from ChronoSheetsClientLibApi.reports_api import ReportsApi
 from ChronoSheetsClientLibApi.tasks_api import TasksApi
+from ChronoSheetsClientLibApi.timesheet_automation_api import TimesheetAutomationApi
 from ChronoSheetsClientLibApi.timesheets_api import TimesheetsApi
 from ChronoSheetsClientLibApi.transcripts_api import TranscriptsApi
 from ChronoSheetsClientLibApi.trips_api import TripsApi

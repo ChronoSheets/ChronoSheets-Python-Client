@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import ChronoSheetsAPI
-from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_for_paginated_transcription import CSApiResponseForPaginatedTranscription  # noqa: E501
+from ChronoSheetsAPI.ChronoSheetsClientLibModel.cs_api_response_transcription import CSApiResponseTranscription  # noqa: E501
 from ChronoSheetsAPI.rest import ApiException
 
 
-class TestCSApiResponseForPaginatedTranscription(unittest.TestCase):
-    """CSApiResponseForPaginatedTranscription unit test stubs"""
+class TestCSApiResponseTranscription(unittest.TestCase):
+    """CSApiResponseTranscription unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestCSApiResponseForPaginatedTranscription(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCSApiResponseForPaginatedTranscription(self):
-        """Test CSApiResponseForPaginatedTranscription"""
+    def testCSApiResponseTranscription(self):
+        """Test CSApiResponseTranscription"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ChronoSheetsAPI.models.cs_api_response_for_paginated_transcription.CSApiResponseForPaginatedTranscription()  # noqa: E501
+        # model = ChronoSheetsAPI.models.cs_api_response_transcription.CSApiResponseTranscription()  # noqa: E501
         pass
 
 

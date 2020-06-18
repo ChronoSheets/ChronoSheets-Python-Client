@@ -66,6 +66,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def total_set_count(self):
         """Gets the total_set_count of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
 
+        The count of total records that are being paginated  # noqa: E501
 
         :return: The total_set_count of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :rtype: int
@@ -76,6 +77,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def total_set_count(self, total_set_count):
         """Sets the total_set_count of this CSApiResponseForPaginatedListRawReportItem.
 
+        The count of total records that are being paginated  # noqa: E501
 
         :param total_set_count: The total_set_count of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :type: int
@@ -87,6 +89,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def data(self):
         """Gets the data of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
 
+        The main Data of the response  # noqa: E501
 
         :return: The data of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :rtype: list[CSRawReportItem]
@@ -97,6 +100,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def data(self, data):
         """Sets the data of this CSApiResponseForPaginatedListRawReportItem.
 
+        The main Data of the response  # noqa: E501
 
         :param data: The data of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :type: list[CSRawReportItem]
@@ -108,6 +112,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def status(self):
         """Gets the status of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
 
+        The API response status. Indicates if the request was successful, failed or was unauthorised.  # noqa: E501
 
         :return: The status of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :rtype: str
@@ -118,6 +123,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def status(self, status):
         """Sets the status of this CSApiResponseForPaginatedListRawReportItem.
 
+        The API response status. Indicates if the request was successful, failed or was unauthorised.  # noqa: E501
 
         :param status: The status of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :type: str
@@ -135,6 +141,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def message(self):
         """Gets the message of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
 
+        A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.  # noqa: E501
 
         :return: The message of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :rtype: str
@@ -145,6 +152,7 @@ class CSApiResponseForPaginatedListRawReportItem(object):
     def message(self, message):
         """Sets the message of this CSApiResponseForPaginatedListRawReportItem.
 
+        A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.  # noqa: E501
 
         :param message: The message of this CSApiResponseForPaginatedListRawReportItem.  # noqa: E501
         :type: str

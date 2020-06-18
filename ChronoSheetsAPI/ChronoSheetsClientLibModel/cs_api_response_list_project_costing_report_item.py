@@ -61,6 +61,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def data(self):
         """Gets the data of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
 
+        The main Data of the response  # noqa: E501
 
         :return: The data of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :rtype: list[CSProjectCostingReportItem]
@@ -71,6 +72,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def data(self, data):
         """Sets the data of this CSApiResponseListProjectCostingReportItem.
 
+        The main Data of the response  # noqa: E501
 
         :param data: The data of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :type: list[CSProjectCostingReportItem]
@@ -82,6 +84,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def status(self):
         """Gets the status of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
 
+        The API response status. Indicates if the request was successful, failed or was unauthorised.  # noqa: E501
 
         :return: The status of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :rtype: str
@@ -92,6 +95,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def status(self, status):
         """Sets the status of this CSApiResponseListProjectCostingReportItem.
 
+        The API response status. Indicates if the request was successful, failed or was unauthorised.  # noqa: E501
 
         :param status: The status of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :type: str
@@ -109,6 +113,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def message(self):
         """Gets the message of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
 
+        A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.  # noqa: E501
 
         :return: The message of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :rtype: str
@@ -119,6 +124,7 @@ class CSApiResponseListProjectCostingReportItem(object):
     def message(self, message):
         """Sets the message of this CSApiResponseListProjectCostingReportItem.
 
+        A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do.  # noqa: E501
 
         :param message: The message of this CSApiResponseListProjectCostingReportItem.  # noqa: E501
         :type: str

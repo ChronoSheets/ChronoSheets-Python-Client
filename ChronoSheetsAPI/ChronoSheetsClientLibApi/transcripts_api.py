@@ -44,7 +44,7 @@ class TranscriptsApi(object):
         :param async_req bool
         :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :return: CSApiResponseForPaginatedTranscription
+        :return: CSApiResponseTranscription
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,7 +66,7 @@ class TranscriptsApi(object):
         :param async_req bool
         :param int file_attachment_id: The ID of the file attachment that has a transcript.  It should be an audio file attachment. (required)
         :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :return: CSApiResponseForPaginatedTranscription
+        :return: CSApiResponseTranscription
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -126,7 +126,7 @@ class TranscriptsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CSApiResponseForPaginatedTranscription',  # noqa: E501
+            response_type='CSApiResponseTranscription',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
