@@ -115,7 +115,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/DoLogin', 'PUT',
+            '/UserProfile/DoLogin', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -208,7 +208,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/DoLogout', 'DELETE',
+            '/UserProfile/DoLogout', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -301,7 +301,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/GetMyProfile', 'GET',
+            '/UserProfile/GetMyProfile', 'GET',
             path_params,
             query_params,
             header_params,
@@ -394,7 +394,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/KeepSessionAlive', 'GET',
+            '/UserProfile/KeepSessionAlive', 'GET',
             path_params,
             query_params,
             header_params,
@@ -499,7 +499,7 @@ class UserProfileApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserProfile/UpdateMyProfile', 'PUT',
+            '/UserProfile/UpdateMyProfile', 'PUT',
             path_params,
             query_params,
             header_params,

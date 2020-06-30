@@ -135,7 +135,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetAllChartsDataAdmin', 'GET',
+            '/Reports/GetAllChartsDataAdmin', 'GET',
             path_params,
             query_params,
             header_params,
@@ -244,7 +244,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetAllChartsDataUser', 'GET',
+            '/Reports/GetAllChartsDataUser', 'GET',
             path_params,
             query_params,
             header_params,
@@ -357,7 +357,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetFleetSummaryAdmin', 'GET',
+            '/Reports/GetFleetSummaryAdmin', 'GET',
             path_params,
             query_params,
             header_params,
@@ -458,7 +458,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetOrgTripById', 'GET',
+            '/Reports/GetOrgTripById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -579,7 +579,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetOrganisationTimesheetFileAttachments', 'GET',
+            '/Reports/GetOrganisationTimesheetFileAttachments', 'GET',
             path_params,
             query_params,
             header_params,
@@ -704,7 +704,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetOrganisationTranscripts', 'GET',
+            '/Reports/GetOrganisationTranscripts', 'GET',
             path_params,
             query_params,
             header_params,
@@ -825,7 +825,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetOrganisationTrips', 'GET',
+            '/Reports/GetOrganisationTrips', 'GET',
             path_params,
             query_params,
             header_params,
@@ -954,7 +954,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/GetRawDataAdmin', 'GET',
+            '/Reports/GetRawDataAdmin', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1067,7 +1067,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/ProjectCostingsAdmin', 'GET',
+            '/Reports/ProjectCostingsAdmin', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1176,7 +1176,7 @@ class ReportsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Reports/UserJobsOverTime', 'GET',
+            '/Reports/UserJobsOverTime', 'GET',
             path_params,
             query_params,
             header_params,

@@ -123,7 +123,7 @@ class ClientsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Clients/CreateClient', 'POST',
+            '/Clients/CreateClient', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class ClientsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Clients/GetClient', 'GET',
+            '/Clients/GetClient', 'GET',
             path_params,
             query_params,
             header_params,
@@ -317,7 +317,7 @@ class ClientsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Clients/GetClients', 'GET',
+            '/Clients/GetClients', 'GET',
             path_params,
             query_params,
             header_params,
@@ -422,7 +422,7 @@ class ClientsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Clients/UpdateClient', 'PUT',
+            '/Clients/UpdateClient', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -1,10 +1,10 @@
 # ChronoSheetsAPI.AggregateClientProjectsApi
 
-All URIs are relative to *https://www.chronosheets.com*
+All URIs are relative to *https://api.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**aggregate_client_projects_get_aggregate_client_projects**](AggregateClientProjectsApi.md#aggregate_client_projects_get_aggregate_client_projects) | **GET** /api/AggregateClientProjects/GetAggregateClientProjects | Get client and project information, aggregated.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageClientsAndProjects&#39; permissions.
+[**aggregate_client_projects_get_aggregate_client_projects**](AggregateClientProjectsApi.md#aggregate_client_projects_get_aggregate_client_projects) | **GET** /AggregateClientProjects/GetAggregateClientProjects | Get client and project information, aggregated.    Requires the &#39;SubmitTimesheets&#39; or &#39;ManageClientsAndProjects&#39; permissions.
 
 
 # **aggregate_client_projects_get_aggregate_client_projects**

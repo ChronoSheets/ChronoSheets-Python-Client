@@ -123,7 +123,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/CreateOrganisationGroup', 'POST',
+            '/OrganisationGroups/CreateOrganisationGroup', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/DeleteOrganisationGroup', 'DELETE',
+            '/OrganisationGroups/DeleteOrganisationGroup', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/GetOrganisationGroup', 'GET',
+            '/OrganisationGroups/GetOrganisationGroup', 'GET',
             path_params,
             query_params,
             header_params,
@@ -418,7 +418,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/GetOrganisationGroups', 'GET',
+            '/OrganisationGroups/GetOrganisationGroups', 'GET',
             path_params,
             query_params,
             header_params,
@@ -519,7 +519,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/GetOrganisationGroupsForJob', 'GET',
+            '/OrganisationGroups/GetOrganisationGroupsForJob', 'GET',
             path_params,
             query_params,
             header_params,
@@ -620,7 +620,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/GetOrganisationGroupsForVehicle', 'GET',
+            '/OrganisationGroups/GetOrganisationGroupsForVehicle', 'GET',
             path_params,
             query_params,
             header_params,
@@ -725,7 +725,7 @@ class OrganisationGroupsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/OrganisationGroups/UpdateOrganisationGroup', 'PUT',
+            '/OrganisationGroups/UpdateOrganisationGroup', 'PUT',
             path_params,
             query_params,
             header_params,

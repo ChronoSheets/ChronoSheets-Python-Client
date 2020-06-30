@@ -123,7 +123,7 @@ class UserJobFavouritesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserJobFavourites/CreateJobFavourite', 'POST',
+            '/UserJobFavourites/CreateJobFavourite', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class UserJobFavouritesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserJobFavourites/DeleteJobFavourite', 'DELETE',
+            '/UserJobFavourites/DeleteJobFavourite', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -317,7 +317,7 @@ class UserJobFavouritesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserJobFavourites/GetJobFavourites', 'GET',
+            '/UserJobFavourites/GetJobFavourites', 'GET',
             path_params,
             query_params,
             header_params,

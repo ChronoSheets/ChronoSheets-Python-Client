@@ -123,7 +123,7 @@ class ProjectsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Projects/CreateProject', 'POST',
+            '/Projects/CreateProject', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class ProjectsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Projects/GetProjectById', 'GET',
+            '/Projects/GetProjectById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class ProjectsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Projects/GetProjectsForClient', 'GET',
+            '/Projects/GetProjectsForClient', 'GET',
             path_params,
             query_params,
             header_params,
@@ -430,7 +430,7 @@ class ProjectsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Projects/UpdateProject', 'PUT',
+            '/Projects/UpdateProject', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -36,6 +36,13 @@ class TestTimesheetAutomationApi(unittest.TestCase):
         """
         pass
 
+    def test_timesheet_automation_get_timesheet_automation_audit_trail(self):
+        """Test case for timesheet_automation_get_timesheet_automation_audit_trail
+
+        Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

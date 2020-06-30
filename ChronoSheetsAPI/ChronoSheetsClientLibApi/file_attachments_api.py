@@ -119,7 +119,7 @@ class FileAttachmentsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/FileAttachments/DeleteTimesheetFileAttachment', 'DELETE',
+            '/FileAttachments/DeleteTimesheetFileAttachment', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -220,7 +220,7 @@ class FileAttachmentsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/FileAttachments/GetFileAttachmentById', 'GET',
+            '/FileAttachments/GetFileAttachmentById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -337,7 +337,7 @@ class FileAttachmentsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/FileAttachments/GetMyFileAttachments', 'GET',
+            '/FileAttachments/GetMyFileAttachments', 'GET',
             path_params,
             query_params,
             header_params,

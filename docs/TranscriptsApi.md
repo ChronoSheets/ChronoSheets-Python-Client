@@ -1,11 +1,11 @@
 # ChronoSheetsAPI.TranscriptsApi
 
-All URIs are relative to *https://www.chronosheets.com*
+All URIs are relative to *https://api.chronosheets.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**transcripts_get_my_transcript**](TranscriptsApi.md#transcripts_get_my_transcript) | **GET** /api/Transcripts/GetMyTranscript | Get an audio to text transcript for a particular audio file attachment
-[**transcripts_get_my_transcripts**](TranscriptsApi.md#transcripts_get_my_transcripts) | **GET** /api/Transcripts/GetMyTranscripts | Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.
+[**transcripts_get_my_transcript**](TranscriptsApi.md#transcripts_get_my_transcript) | **GET** /Transcripts/GetMyTranscript | Get an audio to text transcript for a particular audio file attachment
+[**transcripts_get_my_transcripts**](TranscriptsApi.md#transcripts_get_my_transcripts) | **GET** /Transcripts/GetMyTranscripts | Get my file transcripts.  Get audio to text transcripts that you&#39;ve created.
 
 
 # **transcripts_get_my_transcript**

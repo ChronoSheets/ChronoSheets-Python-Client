@@ -123,7 +123,7 @@ class TimesheetsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Timesheets/CreateSingleTimesheet', 'POST',
+            '/Timesheets/CreateSingleTimesheet', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class TimesheetsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Timesheets/DeleteTimesheet', 'DELETE',
+            '/Timesheets/DeleteTimesheet', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -333,7 +333,7 @@ class TimesheetsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Timesheets/GetTimesheets', 'GET',
+            '/Timesheets/GetTimesheets', 'GET',
             path_params,
             query_params,
             header_params,
@@ -438,7 +438,7 @@ class TimesheetsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Timesheets/UpdateTimesheets', 'PUT',
+            '/Timesheets/UpdateTimesheets', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -119,7 +119,7 @@ class TranscriptsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Transcripts/GetMyTranscript', 'GET',
+            '/Transcripts/GetMyTranscript', 'GET',
             path_params,
             query_params,
             header_params,
@@ -240,7 +240,7 @@ class TranscriptsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Transcripts/GetMyTranscripts', 'GET',
+            '/Transcripts/GetMyTranscripts', 'GET',
             path_params,
             query_params,
             header_params,

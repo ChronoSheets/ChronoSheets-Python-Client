@@ -35,7 +35,8 @@ class CSCreateAutomationStepRequest(object):
         'nfc_id': 'int',
         'automation_action_type': 'str',
         'latitude': 'float',
-        'longitude': 'float'
+        'longitude': 'float',
+        'client_time': 'datetime'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class CSCreateAutomationStepRequest(object):
         'nfc_id': 'NfcId',
         'automation_action_type': 'AutomationActionType',
         'latitude': 'Latitude',
-        'longitude': 'Longitude'
+        'longitude': 'Longitude',
+        'client_time': 'ClientTime'
     }
 
-    def __init__(self, geofencing_id=None, nfc_id=None, automation_action_type=None, latitude=None, longitude=None):  # noqa: E501
+    def __init__(self, geofencing_id=None, nfc_id=None, automation_action_type=None, latitude=None, longitude=None, client_time=None):  # noqa: E501
         """CSCreateAutomationStepRequest - a model defined in Swagger"""  # noqa: E501
 
         self._geofencing_id = None
@@ -54,6 +56,7 @@ class CSCreateAutomationStepRequest(object):
         self._automation_action_type = None
         self._latitude = None
         self._longitude = None
+        self._client_time = None
         self.discriminator = None
 
         if geofencing_id is not None:
@@ -66,6 +69,8 @@ class CSCreateAutomationStepRequest(object):
             self.latitude = latitude
         if longitude is not None:
             self.longitude = longitude
+        if client_time is not None:
+            self.client_time = client_time
 
     @property
     def geofencing_id(self):
@@ -177,6 +182,27 @@ class CSCreateAutomationStepRequest(object):
         """
 
         self._longitude = longitude
+
+    @property
+    def client_time(self):
+        """Gets the client_time of this CSCreateAutomationStepRequest.  # noqa: E501
+
+
+        :return: The client_time of this CSCreateAutomationStepRequest.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._client_time
+
+    @client_time.setter
+    def client_time(self, client_time):
+        """Sets the client_time of this CSCreateAutomationStepRequest.
+
+
+        :param client_time: The client_time of this CSCreateAutomationStepRequest.  # noqa: E501
+        :type: datetime
+        """
+
+        self._client_time = client_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

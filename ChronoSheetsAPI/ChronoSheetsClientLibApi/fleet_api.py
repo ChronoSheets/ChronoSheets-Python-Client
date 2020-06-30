@@ -123,7 +123,7 @@ class FleetApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Fleet/CreateVehicle', 'POST',
+            '/Fleet/CreateVehicle', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class FleetApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Fleet/DeleteVehicle', 'DELETE',
+            '/Fleet/DeleteVehicle', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class FleetApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Fleet/GetVehicleById', 'GET',
+            '/Fleet/GetVehicleById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -422,7 +422,7 @@ class FleetApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Fleet/GetVehicles', 'GET',
+            '/Fleet/GetVehicles', 'GET',
             path_params,
             query_params,
             header_params,
@@ -527,7 +527,7 @@ class FleetApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Fleet/UpdateVehicle', 'PUT',
+            '/Fleet/UpdateVehicle', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -123,7 +123,7 @@ class GeoFencingApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/GeoFencing/CreateGeofence', 'POST',
+            '/GeoFencing/CreateGeofence', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class GeoFencingApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/GeoFencing/DeleteGeofence', 'DELETE',
+            '/GeoFencing/DeleteGeofence', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class GeoFencingApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/GeoFencing/GetGeofenceById', 'GET',
+            '/GeoFencing/GetGeofenceById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -426,7 +426,7 @@ class GeoFencingApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/GeoFencing/GetGeofences', 'GET',
+            '/GeoFencing/GetGeofences', 'GET',
             path_params,
             query_params,
             header_params,
@@ -531,7 +531,7 @@ class GeoFencingApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/GeoFencing/UpdateGeofence', 'PUT',
+            '/GeoFencing/UpdateGeofence', 'PUT',
             path_params,
             query_params,
             header_params,

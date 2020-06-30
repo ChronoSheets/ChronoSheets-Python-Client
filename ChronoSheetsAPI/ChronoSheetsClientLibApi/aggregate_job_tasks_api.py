@@ -111,7 +111,7 @@ class AggregateJobTasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/AggregateJobTasks/GetAggregateJobTasks', 'GET',
+            '/AggregateJobTasks/GetAggregateJobTasks', 'GET',
             path_params,
             query_params,
             header_params,

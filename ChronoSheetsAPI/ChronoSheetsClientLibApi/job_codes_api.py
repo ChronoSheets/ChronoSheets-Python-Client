@@ -123,7 +123,7 @@ class JobCodesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/JobCodes/CreateJobCode', 'POST',
+            '/JobCodes/CreateJobCode', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class JobCodesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/JobCodes/DeleteJobCode', 'DELETE',
+            '/JobCodes/DeleteJobCode', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class JobCodesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/JobCodes/GetJobCodeById', 'GET',
+            '/JobCodes/GetJobCodeById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -418,7 +418,7 @@ class JobCodesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/JobCodes/GetJobCodes', 'GET',
+            '/JobCodes/GetJobCodes', 'GET',
             path_params,
             query_params,
             header_params,
@@ -523,7 +523,7 @@ class JobCodesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/JobCodes/UpdateJobCode', 'PUT',
+            '/JobCodes/UpdateJobCode', 'PUT',
             path_params,
             query_params,
             header_params,

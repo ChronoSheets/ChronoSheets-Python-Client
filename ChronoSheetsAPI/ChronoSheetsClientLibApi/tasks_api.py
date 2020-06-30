@@ -123,7 +123,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/CreateTask', 'POST',
+            '/Tasks/CreateTask', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/DeleteTask', 'DELETE',
+            '/Tasks/DeleteTask', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -325,7 +325,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/GetTaskById', 'GET',
+            '/Tasks/GetTaskById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -418,7 +418,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/GetTasks', 'GET',
+            '/Tasks/GetTasks', 'GET',
             path_params,
             query_params,
             header_params,
@@ -519,7 +519,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/GetTasksForJob', 'GET',
+            '/Tasks/GetTasksForJob', 'GET',
             path_params,
             query_params,
             header_params,
@@ -624,7 +624,7 @@ class TasksApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Tasks/UpdateTask', 'PUT',
+            '/Tasks/UpdateTask', 'PUT',
             path_params,
             query_params,
             header_params,

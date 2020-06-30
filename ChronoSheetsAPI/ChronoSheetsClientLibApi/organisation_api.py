@@ -111,7 +111,7 @@ class OrganisationApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Organisation/GetOrganisation', 'GET',
+            '/Organisation/GetOrganisation', 'GET',
             path_params,
             query_params,
             header_params,
@@ -216,7 +216,7 @@ class OrganisationApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Organisation/UpdateOrganisation', 'PUT',
+            '/Organisation/UpdateOrganisation', 'PUT',
             path_params,
             query_params,
             header_params,

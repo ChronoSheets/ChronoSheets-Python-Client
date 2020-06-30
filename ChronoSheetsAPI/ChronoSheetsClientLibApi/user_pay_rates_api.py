@@ -123,7 +123,7 @@ class UserPayRatesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserPayRates/CreatePayRate', 'POST',
+            '/UserPayRates/CreatePayRate', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class UserPayRatesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/UserPayRates/GetPayRates', 'GET',
+            '/UserPayRates/GetPayRates', 'GET',
             path_params,
             query_params,
             header_params,

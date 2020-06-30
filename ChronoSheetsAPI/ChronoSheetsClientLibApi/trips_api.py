@@ -123,7 +123,7 @@ class TripsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Trips/CreateTrip', 'POST',
+            '/Trips/CreateTrip', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class TripsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Trips/GetMyTripById', 'GET',
+            '/Trips/GetMyTripById', 'GET',
             path_params,
             query_params,
             header_params,
@@ -345,7 +345,7 @@ class TripsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/Trips/GetMyTrips', 'GET',
+            '/Trips/GetMyTrips', 'GET',
             path_params,
             query_params,
             header_params,
