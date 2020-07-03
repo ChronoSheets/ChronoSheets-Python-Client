@@ -161,16 +161,17 @@ class TimesheetAutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def timesheet_automation_get_timesheet_automation_audit_trail(self, geofence_id, user_id, sort, order, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def timesheet_automation_get_timesheet_automation_audit_trail(self, geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, async_req=True)
+        >>> thread = api.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int geofence_id: The ID of the Geofence (required)
+        :param int nfc_id: (required)
         :param int user_id: (required)
         :param str sort: (required)
         :param str order: (required)
@@ -189,18 +190,19 @@ class TimesheetAutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(geofence_id, user_id, sort, order, x_chronosheets_auth, **kwargs)  # noqa: E501
+        return self.timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, **kwargs)  # noqa: E501
 
-    def timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(self, geofence_id, user_id, sort, order, x_chronosheets_auth, **kwargs):  # noqa: E501
+    def timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(self, geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, **kwargs):  # noqa: E501
         """Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(geofence_id, user_id, sort, order, x_chronosheets_auth, async_req=True)
+        >>> thread = api.timesheet_automation_get_timesheet_automation_audit_trail_with_http_info(geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int geofence_id: The ID of the Geofence (required)
+        :param int nfc_id: (required)
         :param int user_id: (required)
         :param str sort: (required)
         :param str order: (required)
@@ -225,6 +227,7 @@ class TimesheetAutomationApi(object):
 
         all_params = [
             'geofence_id',
+            'nfc_id',
             'user_id',
             'sort',
             'order',
@@ -253,6 +256,10 @@ class TimesheetAutomationApi(object):
         if self.api_client.client_side_validation and ('geofence_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['geofence_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `geofence_id` when calling `timesheet_automation_get_timesheet_automation_audit_trail`")  # noqa: E501
+        # verify the required parameter 'nfc_id' is set
+        if self.api_client.client_side_validation and ('nfc_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['nfc_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `nfc_id` when calling `timesheet_automation_get_timesheet_automation_audit_trail`")  # noqa: E501
         # verify the required parameter 'user_id' is set
         if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_id'] is None):  # noqa: E501
@@ -277,6 +284,8 @@ class TimesheetAutomationApi(object):
         query_params = []
         if 'geofence_id' in local_var_params and local_var_params['geofence_id'] is not None:  # noqa: E501
             query_params.append(('GeofenceId', local_var_params['geofence_id']))  # noqa: E501
+        if 'nfc_id' in local_var_params and local_var_params['nfc_id'] is not None:  # noqa: E501
+            query_params.append(('NfcId', local_var_params['nfc_id']))  # noqa: E501
         if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('UserId', local_var_params['user_id']))  # noqa: E501
         if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501

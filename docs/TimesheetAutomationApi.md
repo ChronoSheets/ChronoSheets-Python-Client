@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **timesheet_automation_get_timesheet_automation_audit_trail**
-> ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
+> ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
 
 Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
 
@@ -95,6 +95,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = ChronoSheetsAPI.TimesheetAutomationApi(api_client)
     geofence_id = 56 # int | The ID of the Geofence
+nfc_id = 56 # int | 
 user_id = 56 # int | 
 sort = 'sort_example' # str | 
 order = 'order_example' # str | 
@@ -104,7 +105,7 @@ take = 56 # int | Take this many records (optional)
 
     try:
         # Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
-        api_response = api_instance.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
+        api_response = api_instance.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, nfc_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TimesheetAutomationApi->timesheet_automation_get_timesheet_automation_audit_trail: %s\n" % e)
@@ -115,6 +116,7 @@ take = 56 # int | Take this many records (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **geofence_id** | **int**| The ID of the Geofence | 
+ **nfc_id** | **int**|  | 
  **user_id** | **int**|  | 
  **sort** | **str**|  | 
  **order** | **str**|  | 
