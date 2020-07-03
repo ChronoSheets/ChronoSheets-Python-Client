@@ -10,29 +10,38 @@ Method | HTTP request | Description
 
 
 # **file_attachments_delete_timesheet_file_attachment**
-> CSApiResponseBoolean file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
+> ApiResponseBoolean file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
 
 Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
 import ChronoSheetsAPI
 from ChronoSheetsAPI.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
 
-# create an instance of the API class
-api_instance = ChronoSheetsAPI.FileAttachmentsApi()
-file_attachment_id = 56 # int | The Id of the file attachment to delete
+
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
+    file_attachment_id = 56 # int | The Id of the file attachment to delete
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
-try:
-    # Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
-    api_response = api_instance.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling FileAttachmentsApi->file_attachments_delete_timesheet_file_attachment: %s\n" % e)
+    try:
+        # Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
+        api_response = api_instance.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FileAttachmentsApi->file_attachments_delete_timesheet_file_attachment: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CSApiResponseBoolean**](CSApiResponseBoolean.md)
+[**ApiResponseBoolean**](ApiResponseBoolean.md)
 
 ### Authorization
 
@@ -55,32 +64,46 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **file_attachments_get_file_attachment_by_id**
-> CSApiResponseTimesheetFileAttachment file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth)
+> ApiResponseTimesheetFileAttachment file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth)
 
 Get a particular file attachment by ID.  User must own the file attachment for access.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
 import ChronoSheetsAPI
 from ChronoSheetsAPI.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
 
-# create an instance of the API class
-api_instance = ChronoSheetsAPI.FileAttachmentsApi()
-file_attachment_id = 56 # int | The ID of the file attachment
+
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
+    file_attachment_id = 56 # int | The ID of the file attachment
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
-try:
-    # Get a particular file attachment by ID.  User must own the file attachment for access.
-    api_response = api_instance.file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling FileAttachmentsApi->file_attachments_get_file_attachment_by_id: %s\n" % e)
+    try:
+        # Get a particular file attachment by ID.  User must own the file attachment for access.
+        api_response = api_instance.file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FileAttachmentsApi->file_attachments_get_file_attachment_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -92,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CSApiResponseTimesheetFileAttachment**](CSApiResponseTimesheetFileAttachment.md)
+[**ApiResponseTimesheetFileAttachment**](ApiResponseTimesheetFileAttachment.md)
 
 ### Authorization
 
@@ -103,35 +126,49 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **file_attachments_get_my_file_attachments**
-> CSApiResponseForPaginatedListTimesheetFileAttachment file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
+> ApiResponseForPaginatedListTimesheetFileAttachment file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
 
 Get my file attachments.  Get files you've attached to timesheets.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
 import ChronoSheetsAPI
 from ChronoSheetsAPI.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
 
-# create an instance of the API class
-api_instance = ChronoSheetsAPI.FileAttachmentsApi()
-start_date = '2013-10-20T19:20:30+01:00' # datetime | The Start date of the date range.  File attachments after this date will be obtained.
+
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
+    start_date = '2013-10-20T19:20:30+01:00' # datetime | The Start date of the date range.  File attachments after this date will be obtained.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | The End date of the date range.  File attachments before this date will be obtained.
 x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 skip = 56 # int | Skip this many File attachments (optional)
 take = 56 # int | Take this many File attachments (optional)
 
-try:
-    # Get my file attachments.  Get files you've attached to timesheets.
-    api_response = api_instance.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling FileAttachmentsApi->file_attachments_get_my_file_attachments: %s\n" % e)
+    try:
+        # Get my file attachments.  Get files you've attached to timesheets.
+        api_response = api_instance.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FileAttachmentsApi->file_attachments_get_my_file_attachments: %s\n" % e)
 ```
 
 ### Parameters
@@ -146,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CSApiResponseForPaginatedListTimesheetFileAttachment**](CSApiResponseForPaginatedListTimesheetFileAttachment.md)
+[**ApiResponseForPaginatedListTimesheetFileAttachment**](ApiResponseForPaginatedListTimesheetFileAttachment.md)
 
 ### Authorization
 
@@ -156,6 +193,11 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -9,41 +9,50 @@ Method | HTTP request | Description
 
 
 # **timesheet_automation_create_automation_step**
-> CSApiResponseInt32 timesheet_automation_create_automation_step(request, x_chronosheets_auth)
+> ApiResponseInt32 timesheet_automation_create_automation_step(x_chronosheets_auth, request)
 
 Creates an automation step.  Timesheet automation is determined by looking at steps taken by the user.  Create a step to log some automation action, such as entering a geofence or tapping on an NFC badge.  Requires the 'SubmitTimesheets' permission.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
 import ChronoSheetsAPI
 from ChronoSheetsAPI.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
 
-# create an instance of the API class
-api_instance = ChronoSheetsAPI.TimesheetAutomationApi()
-request = ChronoSheetsAPI.CSCreateAutomationStepRequest() # CSCreateAutomationStepRequest | 
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
 
-try:
-    # Creates an automation step.  Timesheet automation is determined by looking at steps taken by the user.  Create a step to log some automation action, such as entering a geofence or tapping on an NFC badge.  Requires the 'SubmitTimesheets' permission.
-    api_response = api_instance.timesheet_automation_create_automation_step(request, x_chronosheets_auth)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TimesheetAutomationApi->timesheet_automation_create_automation_step: %s\n" % e)
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.TimesheetAutomationApi(api_client)
+    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+request = ChronoSheetsAPI.CreateAutomationStepRequest() # CreateAutomationStepRequest | 
+
+    try:
+        # Creates an automation step.  Timesheet automation is determined by looking at steps taken by the user.  Create a step to log some automation action, such as entering a geofence or tapping on an NFC badge.  Requires the 'SubmitTimesheets' permission.
+        api_response = api_instance.timesheet_automation_create_automation_step(x_chronosheets_auth, request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TimesheetAutomationApi->timesheet_automation_create_automation_step: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**CSCreateAutomationStepRequest**](CSCreateAutomationStepRequest.md)|  | 
  **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **request** | [**CreateAutomationStepRequest**](CreateAutomationStepRequest.md)|  | 
 
 ### Return type
 
-[**CSApiResponseInt32**](CSApiResponseInt32.md)
+[**ApiResponseInt32**](ApiResponseInt32.md)
 
 ### Authorization
 
@@ -54,24 +63,38 @@ No authorization required
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **timesheet_automation_get_timesheet_automation_audit_trail**
-> CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
+> ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
 
 Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
 import ChronoSheetsAPI
 from ChronoSheetsAPI.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
 
-# create an instance of the API class
-api_instance = ChronoSheetsAPI.TimesheetAutomationApi()
-geofence_id = 56 # int | The ID of the Geofence
+
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.TimesheetAutomationApi(api_client)
+    geofence_id = 56 # int | The ID of the Geofence
 user_id = 56 # int | 
 sort = 'sort_example' # str | 
 order = 'order_example' # str | 
@@ -79,12 +102,12 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 skip = 56 # int | Skip this many records (optional)
 take = 56 # int | Take this many records (optional)
 
-try:
-    # Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
-    api_response = api_instance.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TimesheetAutomationApi->timesheet_automation_get_timesheet_automation_audit_trail: %s\n" % e)
+    try:
+        # Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
+        api_response = api_instance.timesheet_automation_get_timesheet_automation_audit_trail(geofence_id, user_id, sort, order, x_chronosheets_auth, skip=skip, take=take)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TimesheetAutomationApi->timesheet_automation_get_timesheet_automation_audit_trail: %s\n" % e)
 ```
 
 ### Parameters
@@ -101,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence**](CSApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence.md)
+[**ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence**](ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence.md)
 
 ### Authorization
 
@@ -111,6 +134,11 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
