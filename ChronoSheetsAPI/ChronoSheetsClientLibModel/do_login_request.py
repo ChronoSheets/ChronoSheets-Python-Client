@@ -34,15 +34,17 @@ class DoLoginRequest(object):
     """
     openapi_types = {
         'username_or_email': 'str',
-        'password': 'str'
+        'password': 'str',
+        'remember_me': 'bool'
     }
 
     attribute_map = {
         'username_or_email': 'UsernameOrEmail',
-        'password': 'Password'
+        'password': 'Password',
+        'remember_me': 'RememberMe'
     }
 
-    def __init__(self, username_or_email=None, password=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, username_or_email=None, password=None, remember_me=None, local_vars_configuration=None):  # noqa: E501
         """DoLoginRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,12 +52,15 @@ class DoLoginRequest(object):
 
         self._username_or_email = None
         self._password = None
+        self._remember_me = None
         self.discriminator = None
 
         if username_or_email is not None:
             self.username_or_email = username_or_email
         if password is not None:
             self.password = password
+        if remember_me is not None:
+            self.remember_me = remember_me
 
     @property
     def username_or_email(self):
@@ -102,6 +107,29 @@ class DoLoginRequest(object):
         """
 
         self._password = password
+
+    @property
+    def remember_me(self):
+        """Gets the remember_me of this DoLoginRequest.  # noqa: E501
+
+        Increase session expiry beyond default of 1 hour  # noqa: E501
+
+        :return: The remember_me of this DoLoginRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._remember_me
+
+    @remember_me.setter
+    def remember_me(self, remember_me):
+        """Sets the remember_me of this DoLoginRequest.
+
+        Increase session expiry beyond default of 1 hour  # noqa: E501
+
+        :param remember_me: The remember_me of this DoLoginRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._remember_me = remember_me
 
     def to_dict(self):
         """Returns the model properties as a dict"""
