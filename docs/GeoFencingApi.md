@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**geo_fencing_delete_geofence**](GeoFencingApi.md#geo_fencing_delete_geofence) | **DELETE** /GeoFencing/DeleteGeofence | Deletes a geofence.  Requires the &#39;ManageGeofencing&#39; permission.
 [**geo_fencing_get_geofence_by_id**](GeoFencingApi.md#geo_fencing_get_geofence_by_id) | **GET** /GeoFencing/GetGeofenceById | Get a geofence by ID  Requires the &#39;SubmitTimesheets&#39; permission.
 [**geo_fencing_get_geofences**](GeoFencingApi.md#geo_fencing_get_geofences) | **GET** /GeoFencing/GetGeofences | Get geofences belonging to your organisation  Requires the &#39;SubmitTimesheets&#39; permission.
+[**geo_fencing_get_geofences_basic_info**](GeoFencingApi.md#geo_fencing_get_geofences_basic_info) | **GET** /GeoFencing/GetGeofencesBasicInfo | Gets a list of all geofences in your organisation, including just the name and ID.
 [**geo_fencing_update_geofence**](GeoFencingApi.md#geo_fencing_update_geofence) | **PUT** /GeoFencing/UpdateGeofence | Updates a geofencing with rules to be used for clock on/off automation.  Requires the &#39;ManageGeofencing&#39; permission.
 
 
@@ -244,6 +245,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApiResponseForPaginatedListExtendedGeofence**](ApiResponseForPaginatedListExtendedGeofence.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **geo_fencing_get_geofences_basic_info**
+> ApiResponseForPaginatedListBasicGeofence geo_fencing_get_geofences_basic_info(x_chronosheets_auth)
+
+Gets a list of all geofences in your organisation, including just the name and ID.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import ChronoSheetsAPI
+from ChronoSheetsAPI.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.chronosheets.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ChronoSheetsAPI.Configuration(
+    host = "https://api.chronosheets.com"
+)
+
+
+# Enter a context with an instance of the API client
+with ChronoSheetsAPI.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
+    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+
+    try:
+        # Gets a list of all geofences in your organisation, including just the name and ID.
+        api_response = api_instance.geo_fencing_get_geofences_basic_info(x_chronosheets_auth)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GeoFencingApi->geo_fencing_get_geofences_basic_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+
+### Return type
+
+[**ApiResponseForPaginatedListBasicGeofence**](ApiResponseForPaginatedListBasicGeofence.md)
 
 ### Authorization
 
