@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **model** | **str** | The model of the Vehicle | [optional] 
 **year** | **str** | The year the Vehicle was made | [optional] 
 **licence_plate_number** | **str** | The Licence Plate Number of the Vehicle | [optional] 
-**linked_org_group_ids** | **list[int]** | Optionally restrict this Vehicle to only be available to employees within these Organisation Groups | [optional] 
+**linked_org_group_ids** | **[int]** | Optionally restrict this Vehicle to only be available to employees within these Organisation Groups | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

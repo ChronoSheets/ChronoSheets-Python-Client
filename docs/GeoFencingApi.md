@@ -20,10 +20,11 @@ Create a geofencing with rules to be used for clock on/off automation.  Requires
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.create_geo_fence_request import CreateGeoFenceRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -35,15 +36,33 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.CreateGeoFenceRequest() # CreateGeoFenceRequest | 
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = CreateGeoFenceRequest(
+        name="name_example",
+        fence_coordinates=[
+            BasicCoordinate(
+                latitude=3.14,
+                longitude=3.14,
+            ),
+        ],
+        trigger_job_code_id=1,
+        trigger_task_id=1,
+        send_alert_to_org_group_id=1,
+        alert_settings="None",
+        trigger_settings="None",
+        start_time_hour=1,
+        start_time_minute=1,
+        end_time_hour=1,
+        end_time_minute=1,
+    ) # CreateGeoFenceRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a geofencing with rules to be used for clock on/off automation.  Requires the 'ManageGeofencing' permission.
         api_response = api_instance.geo_fencing_create_geofence(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_create_geofence: %s\n" % e)
 ```
 
@@ -51,8 +70,8 @@ request = ChronoSheetsAPI.CreateGeoFenceRequest() # CreateGeoFenceRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**CreateGeoFenceRequest**](CreateGeoFenceRequest.md)|  | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**CreateGeoFenceRequest**](CreateGeoFenceRequest.md)|  |
 
 ### Return type
 
@@ -82,10 +101,10 @@ Deletes a geofence.  Requires the 'ManageGeofencing' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_geofence import ApiResponseGeofence
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -97,15 +116,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    geofence_id = 56 # int | Specify the geofence you want to delete with the geofence ID.
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    geofence_id = 1 # int | Specify the geofence you want to delete with the geofence ID.
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Deletes a geofence.  Requires the 'ManageGeofencing' permission.
         api_response = api_instance.geo_fencing_delete_geofence(geofence_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_delete_geofence: %s\n" % e)
 ```
 
@@ -113,8 +133,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **geofence_id** | **int**| Specify the geofence you want to delete with the geofence ID. | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **geofence_id** | **int**| Specify the geofence you want to delete with the geofence ID. |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -144,10 +164,10 @@ Get a geofence by ID  Requires the 'SubmitTimesheets' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_geofence import ApiResponseGeofence
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,15 +179,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    geofence_id = 56 # int | The ID of the geofence you want to obtain
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    geofence_id = 1 # int | The ID of the geofence you want to obtain
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a geofence by ID  Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.geo_fencing_get_geofence_by_id(geofence_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_get_geofence_by_id: %s\n" % e)
 ```
 
@@ -175,8 +196,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **geofence_id** | **int**| The ID of the geofence you want to obtain | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **geofence_id** | **int**| The ID of the geofence you want to obtain |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -199,17 +220,17 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geo_fencing_get_geofences**
-> ApiResponseForPaginatedListExtendedGeofence geo_fencing_get_geofences(x_chronosheets_auth, skip=skip, take=take)
+> ApiResponseForPaginatedListExtendedGeofence geo_fencing_get_geofences(x_chronosheets_auth)
 
 Get geofences belonging to your organisation  Requires the 'SubmitTimesheets' permission.
 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_for_paginated_list_extended_geofence import ApiResponseForPaginatedListExtendedGeofence
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -221,16 +242,26 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-skip = 56 # int | Number of records to skip (optional)
-take = 56 # int | Number of records to take (optional)
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    skip = 1 # int | Number of records to skip (optional)
+    take = 1 # int | Number of records to take (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Get geofences belonging to your organisation  Requires the 'SubmitTimesheets' permission.
+        api_response = api_instance.geo_fencing_get_geofences(x_chronosheets_auth)
+        pprint(api_response)
+    except ChronoSheetsAPI.ApiException as e:
+        print("Exception when calling GeoFencingApi->geo_fencing_get_geofences: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get geofences belonging to your organisation  Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.geo_fencing_get_geofences(x_chronosheets_auth, skip=skip, take=take)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_get_geofences: %s\n" % e)
 ```
 
@@ -238,9 +269,9 @@ take = 56 # int | Number of records to take (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **skip** | **int**| Number of records to skip | [optional] 
- **take** | **int**| Number of records to take | [optional] 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **skip** | **int**| Number of records to skip | [optional]
+ **take** | **int**| Number of records to take | [optional]
 
 ### Return type
 
@@ -270,10 +301,10 @@ Gets a list of all geofences in your organisation, including just the name and I
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_for_paginated_list_basic_geofence import ApiResponseForPaginatedListBasicGeofence
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,14 +316,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Gets a list of all geofences in your organisation, including just the name and ID.
         api_response = api_instance.geo_fencing_get_geofences_basic_info(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_get_geofences_basic_info: %s\n" % e)
 ```
 
@@ -300,7 +332,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -330,10 +362,11 @@ Updates a geofencing with rules to be used for clock on/off automation.  Require
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import geo_fencing_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.update_geo_fence_request import UpdateGeoFenceRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -345,15 +378,34 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.GeoFencingApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateGeoFenceRequest() # UpdateGeoFenceRequest | 
+    api_instance = geo_fencing_api.GeoFencingApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateGeoFenceRequest(
+        geofence_id=1,
+        name="name_example",
+        fence_coordinates=[
+            BasicCoordinate(
+                latitude=3.14,
+                longitude=3.14,
+            ),
+        ],
+        trigger_job_code_id=1,
+        trigger_task_id=1,
+        send_alert_to_org_group_id=1,
+        alert_settings="None",
+        trigger_settings="None",
+        start_time_hour=1,
+        start_time_minute=1,
+        end_time_hour=1,
+        end_time_minute=1,
+    ) # UpdateGeoFenceRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Updates a geofencing with rules to be used for clock on/off automation.  Requires the 'ManageGeofencing' permission.
         api_response = api_instance.geo_fencing_update_geofence(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling GeoFencingApi->geo_fencing_update_geofence: %s\n" % e)
 ```
 
@@ -361,8 +413,8 @@ request = ChronoSheetsAPI.UpdateGeoFenceRequest() # UpdateGeoFenceRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateGeoFenceRequest**](UpdateGeoFenceRequest.md)|  | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateGeoFenceRequest**](UpdateGeoFenceRequest.md)|  |
 
 ### Return type
 

@@ -18,10 +18,11 @@ Create a user account in your organisation.  Requires the 'ManageOrganisationUse
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import users_api
+from ChronoSheetsAPI.model.api_response_insert_user_response import ApiResponseInsertUserResponse
+from ChronoSheetsAPI.model.insert_user_request import InsertUserRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,15 +34,27 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsersApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertUserRequest() # InsertUserRequest | An Insert User Request object containing values for the new User to create
+    api_instance = users_api.UsersApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertUserRequest(
+        email_address="email_address_example",
+        first_name="first_name_example",
+        last_name="last_name_example",
+        is_subscribed_to_newsletter=True,
+        roles=1,
+        alert_settings=1,
+        user_name="user_name_example",
+        hourly_pay_rate=3.14,
+        hourly_overtime_pay_rate=3.14,
+        current_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+    ) # InsertUserRequest | An Insert User Request object containing values for the new User to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.users_create_timesheet_user(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsersApi->users_create_timesheet_user: %s\n" % e)
 ```
 
@@ -49,8 +62,8 @@ request = ChronoSheetsAPI.InsertUserRequest() # InsertUserRequest | An Insert Us
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertUserRequest**](InsertUserRequest.md)| An Insert User Request object containing values for the new User to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertUserRequest**](InsertUserRequest.md)| An Insert User Request object containing values for the new User to create |
 
 ### Return type
 
@@ -80,10 +93,10 @@ Get a particular user in your organisation.  Requires the 'ManageOrganisationUse
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import users_api
+from ChronoSheetsAPI.model.api_response_user_for_management import ApiResponseUserForManagement
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -95,15 +108,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsersApi(api_client)
-    user_id = 56 # int | The User ID of the UserForManagement you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = users_api.UsersApi(api_client)
+    user_id = 1 # int | The User ID of the UserForManagement you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
         api_response = api_instance.users_get_timesheet_user(user_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsersApi->users_get_timesheet_user: %s\n" % e)
 ```
 
@@ -111,8 +125,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The User ID of the UserForManagement you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **user_id** | **int**| The User ID of the UserForManagement you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -142,10 +156,10 @@ Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers'
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import users_api
+from ChronoSheetsAPI.model.api_response_list_user_for_management import ApiResponseListUserForManagement
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,14 +171,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsersApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = users_api.UsersApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
         api_response = api_instance.users_get_timesheet_users(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsersApi->users_get_timesheet_users: %s\n" % e)
 ```
 
@@ -172,7 +187,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -202,10 +217,11 @@ Update a user account.  Requires the 'ManageOrganisationUsers' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import users_api
+from ChronoSheetsAPI.model.update_user_request import UpdateUserRequest
+from ChronoSheetsAPI.model.api_response_update_user_response import ApiResponseUpdateUserResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -217,15 +233,25 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsersApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateUserRequest() # UpdateUserRequest | A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update
+    api_instance = users_api.UsersApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateUserRequest(
+        user_id=1,
+        email_address="email_address_example",
+        first_name="first_name_example",
+        last_name="last_name_example",
+        is_subscribed_to_newsletter=True,
+        is_account_active=True,
+        roles=1,
+        alert_settings=1,
+    ) # UpdateUserRequest | A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update a user account.  Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.users_update_timesheet_user(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsersApi->users_update_timesheet_user: %s\n" % e)
 ```
 
@@ -233,8 +259,8 @@ request = ChronoSheetsAPI.UpdateUserRequest() # UpdateUserRequest | A Update Use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateUserRequest**](UpdateUserRequest.md)| A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateUserRequest**](UpdateUserRequest.md)| A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update |
 
 ### Return type
 

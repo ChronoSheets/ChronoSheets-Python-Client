@@ -16,10 +16,11 @@ Create a new pay rate for a particular user, archiving the previous pay rate.   
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_pay_rates_api
+from ChronoSheetsAPI.model.insert_user_hourly_rate_request import InsertUserHourlyRateRequest
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -31,15 +32,21 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserPayRatesApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertUserHourlyRateRequest() # InsertUserHourlyRateRequest | An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create
+    api_instance = user_pay_rates_api.UserPayRatesApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertUserHourlyRateRequest(
+        user_id=1,
+        hourly_rate=3.14,
+        hourly_overtime_rate=3.14,
+        current_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+    ) # InsertUserHourlyRateRequest | An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.user_pay_rates_create_pay_rate(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserPayRatesApi->user_pay_rates_create_pay_rate: %s\n" % e)
 ```
 
@@ -47,8 +54,8 @@ request = ChronoSheetsAPI.InsertUserHourlyRateRequest() # InsertUserHourlyRateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertUserHourlyRateRequest**](InsertUserHourlyRateRequest.md)| An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertUserHourlyRateRequest**](InsertUserHourlyRateRequest.md)| An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create |
 
 ### Return type
 
@@ -78,10 +85,10 @@ Get a collection of pay rates for a particular user, specified by user id.    Re
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_pay_rates_api
+from ChronoSheetsAPI.model.api_response_list_user_hourly_rate import ApiResponseListUserHourlyRate
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -93,15 +100,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserPayRatesApi(api_client)
-    user_id = 56 # int | The ID of the User for which you want to get UserHourlyRate objects
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = user_pay_rates_api.UserPayRatesApi(api_client)
+    user_id = 1 # int | The ID of the User for which you want to get UserHourlyRate objects
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a collection of pay rates for a particular user, specified by user id.    Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.user_pay_rates_get_pay_rates(user_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserPayRatesApi->user_pay_rates_get_pay_rates: %s\n" % e)
 ```
 
@@ -109,8 +117,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the User for which you want to get UserHourlyRate objects | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **user_id** | **int**| The ID of the User for which you want to get UserHourlyRate objects |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 

@@ -20,10 +20,11 @@ Create a task.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.insert_task_request import InsertTaskRequest
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -35,15 +36,19 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertTaskRequest() # InsertTaskRequest | An Insert Task Request object containing values for the new Task to create
+    api_instance = tasks_api.TasksApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertTaskRequest(
+        task_name="task_name_example",
+        trip_enabled=True,
+    ) # InsertTaskRequest | An Insert Task Request object containing values for the new Task to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a task.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.tasks_create_task(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_create_task: %s\n" % e)
 ```
 
@@ -51,8 +56,8 @@ request = ChronoSheetsAPI.InsertTaskRequest() # InsertTaskRequest | An Insert Ta
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertTaskRequest**](InsertTaskRequest.md)| An Insert Task Request object containing values for the new Task to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertTaskRequest**](InsertTaskRequest.md)| An Insert Task Request object containing values for the new Task to create |
 
 ### Return type
 
@@ -82,10 +87,10 @@ Delete a task.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -97,15 +102,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    task_id = 56 # int | The ID of the Task you want to delete
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = tasks_api.TasksApi(api_client)
+    task_id = 1 # int | The ID of the Task you want to delete
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a task.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.tasks_delete_task(task_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_delete_task: %s\n" % e)
 ```
 
@@ -113,8 +119,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | **int**| The ID of the Task you want to delete | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **task_id** | **int**| The ID of the Task you want to delete |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -144,10 +150,10 @@ Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAnd
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.api_response_timesheet_task import ApiResponseTimesheetTask
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,15 +165,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    task_id = 56 # int | The ID of the TimesheetTask you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = tasks_api.TasksApi(api_client)
+    task_id = 1 # int | The ID of the TimesheetTask you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.tasks_get_task_by_id(task_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_get_task_by_id: %s\n" % e)
 ```
 
@@ -175,8 +182,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | **int**| The ID of the TimesheetTask you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **task_id** | **int**| The ID of the TimesheetTask you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -206,10 +213,10 @@ Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobs
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.api_response_list_timesheet_task import ApiResponseListTimesheetTask
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -221,14 +228,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = tasks_api.TasksApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.tasks_get_tasks(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_get_tasks: %s\n" % e)
 ```
 
@@ -236,7 +244,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -266,10 +274,10 @@ Get a collection of tasks for a particular Job, specified by JobId.    Requires 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.api_response_list_timesheet_task import ApiResponseListTimesheetTask
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -281,15 +289,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    job_id = 56 # int | The ID of the job
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = tasks_api.TasksApi(api_client)
+    job_id = 1 # int | The ID of the job
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.tasks_get_tasks_for_job(job_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_get_tasks_for_job: %s\n" % e)
 ```
 
@@ -297,8 +306,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **int**| The ID of the job | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **job_id** | **int**| The ID of the job |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -328,10 +337,11 @@ Update a task.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import tasks_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
+from ChronoSheetsAPI.model.update_task_request import UpdateTaskRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,15 +353,21 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TasksApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateTaskRequest() # UpdateTaskRequest | An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update
+    api_instance = tasks_api.TasksApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateTaskRequest(
+        id=1,
+        task_name="task_name_example",
+        is_deleted=True,
+        trip_enabled=True,
+    ) # UpdateTaskRequest | An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update a task.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.tasks_update_task(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TasksApi->tasks_update_task: %s\n" % e)
 ```
 
@@ -359,8 +375,8 @@ request = ChronoSheetsAPI.UpdateTaskRequest() # UpdateTaskRequest | An Update Ta
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateTaskRequest**](UpdateTaskRequest.md)| An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateTaskRequest**](UpdateTaskRequest.md)| An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update |
 
 ### Return type
 

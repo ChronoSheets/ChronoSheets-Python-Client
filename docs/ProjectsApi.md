@@ -18,10 +18,11 @@ Create a project.    Requires the 'ManageClientsAndProjects' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import projects_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.insert_project_request import InsertProjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,15 +34,22 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ProjectsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertProjectRequest() # InsertProjectRequest | An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client.
+    api_instance = projects_api.ProjectsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertProjectRequest(
+        client_id=1,
+        project_name="project_name_example",
+        cost_estimation=3.14,
+        start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        end_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+    ) # InsertProjectRequest | An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client.
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a project.    Requires the 'ManageClientsAndProjects' permission.
         api_response = api_instance.projects_create_project(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ProjectsApi->projects_create_project: %s\n" % e)
 ```
 
@@ -49,8 +57,8 @@ request = ChronoSheetsAPI.InsertProjectRequest() # InsertProjectRequest | An Ins
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertProjectRequest**](InsertProjectRequest.md)| An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertProjectRequest**](InsertProjectRequest.md)| An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. |
 
 ### Return type
 
@@ -80,10 +88,10 @@ Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJo
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import projects_api
+from ChronoSheetsAPI.model.api_response_project import ApiResponseProject
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -95,15 +103,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ProjectsApi(api_client)
-    project_id = 56 # int | The ID of the Project you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = projects_api.ProjectsApi(api_client)
+    project_id = 1 # int | The ID of the Project you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.projects_get_project_by_id(project_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ProjectsApi->projects_get_project_by_id: %s\n" % e)
 ```
 
@@ -111,8 +120,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **int**| The ID of the Project you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **project_id** | **int**| The ID of the Project you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -142,10 +151,10 @@ Get projects for a particular client.    Requires the 'ManageClientsAndProjects'
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import projects_api
+from ChronoSheetsAPI.model.api_response_list_project import ApiResponseListProject
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,15 +166,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ProjectsApi(api_client)
-    client_id = 56 # int | The ID of the client
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = projects_api.ProjectsApi(api_client)
+    client_id = 1 # int | The ID of the client
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get projects for a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.projects_get_projects_for_client(client_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ProjectsApi->projects_get_projects_for_client: %s\n" % e)
 ```
 
@@ -173,8 +183,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_id** | **int**| The ID of the client | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **client_id** | **int**| The ID of the client |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -204,10 +214,11 @@ Update a project.    Requires the 'ManageClientsAndProjects' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import projects_api
+from ChronoSheetsAPI.model.update_project_request import UpdateProjectRequest
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -219,15 +230,22 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ProjectsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateProjectRequest() # UpdateProjectRequest | An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update
+    api_instance = projects_api.ProjectsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateProjectRequest(
+        project_id=1,
+        project_name="project_name_example",
+        cost_estimation=3.14,
+        start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        end_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+    ) # UpdateProjectRequest | An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update a project.    Requires the 'ManageClientsAndProjects' permission.
         api_response = api_instance.projects_update_project(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ProjectsApi->projects_update_project: %s\n" % e)
 ```
 
@@ -235,8 +253,8 @@ request = ChronoSheetsAPI.UpdateProjectRequest() # UpdateProjectRequest | An Upd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateProjectRequest**](UpdateProjectRequest.md)| An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateProjectRequest**](UpdateProjectRequest.md)| An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update |
 
 ### Return type
 

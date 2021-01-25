@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     ChronoSheets API
 
@@ -10,18 +8,28 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from ChronoSheetsAPI.api_client import ApiClient
-from ChronoSheetsAPI.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from ChronoSheetsAPI.api_client import ApiClient, Endpoint
+from ChronoSheetsAPI.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from ChronoSheetsAPI.model.api_response_combined_reports_data import ApiResponseCombinedReportsData
+from ChronoSheetsAPI.model.api_response_for_paginated_list_org_report_timesheet_file_attachment import ApiResponseForPaginatedListOrgReportTimesheetFileAttachment
+from ChronoSheetsAPI.model.api_response_for_paginated_list_org_report_transcript import ApiResponseForPaginatedListOrgReportTranscript
+from ChronoSheetsAPI.model.api_response_for_paginated_list_org_report_trip import ApiResponseForPaginatedListOrgReportTrip
+from ChronoSheetsAPI.model.api_response_for_paginated_list_raw_report_item import ApiResponseForPaginatedListRawReportItem
+from ChronoSheetsAPI.model.api_response_list_fleet_summary_report_item import ApiResponseListFleetSummaryReportItem
+from ChronoSheetsAPI.model.api_response_list_job_series_report_item import ApiResponseListJobSeriesReportItem
+from ChronoSheetsAPI.model.api_response_list_project_costing_report_item import ApiResponseListProjectCostingReportItem
+from ChronoSheetsAPI.model.api_response_trip import ApiResponseTrip
 
 
 class ReportsApi(object):
@@ -36,1388 +44,1543 @@ class ReportsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def reports_get_all_charts_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
+        def __reports_get_all_charts_data_admin(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str force_only_this_chart: A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseCombinedReportsData
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
+            >>> thread = api.reports_get_all_charts_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-    def reports_get_all_charts_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_all_charts_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                force_only_this_chart (str): A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str force_only_this_chart: A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the 'NotForced' option.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseCombinedReportsData, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                ApiResponseCombinedReportsData
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
+        self.reports_get_all_charts_data_admin = Endpoint(
+            settings={
+                'response_type': (ApiResponseCombinedReportsData,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetAllChartsDataAdmin',
+                'operation_id': 'reports_get_all_charts_data_admin',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'user_ids',
+                    'force_only_this_chart',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'force_only_this_chart',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('force_only_this_chart',): {
 
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'user_ids',
-            'force_only_this_chart'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "NOTFORCED": "NotForced",
+                        "SERIESJOBCODES": "SeriesJobCodes",
+                        "SERIESCLIENTS": "SeriesClients",
+                        "SERIESPROJECTS": "SeriesProjects",
+                        "SERIESTASKS": "SeriesTasks",
+                        "TOTALSCLIENTS": "TotalsClients",
+                        "TOTALSJOBCODES": "TotalsJobCodes",
+                        "TOTALSPROJECTS": "TotalsProjects",
+                        "TOTALSTASKS": "TotalsTasks"
+                    },
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'user_ids':
+                        (str,),
+                    'force_only_this_chart':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'user_ids': 'UserIds',
+                    'force_only_this_chart': 'ForceOnlyThisChart',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'user_ids': 'query',
+                    'force_only_this_chart': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_all_charts_data_admin
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_all_charts_data_admin" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_all_charts_data_admin`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_all_charts_data_admin`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_all_charts_data_admin`")  # noqa: E501
+        def __reports_get_all_charts_data_user(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_all_charts_data_user(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
-        if 'force_only_this_chart' in local_var_params and local_var_params['force_only_this_chart'] is not None:  # noqa: E501
-            query_params.append(('ForceOnlyThisChart', local_var_params['force_only_this_chart']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseCombinedReportsData
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetAllChartsDataAdmin', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseCombinedReportsData',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_all_charts_data_user(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_all_charts_data_user(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseCombinedReportsData
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_all_charts_data_user_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_all_charts_data_user_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseCombinedReportsData, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_all_charts_data_user = Endpoint(
+            settings={
+                'response_type': (ApiResponseCombinedReportsData,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetAllChartsDataUser',
+                'operation_id': 'reports_get_all_charts_data_user',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_all_charts_data_user
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_all_charts_data_user" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_all_charts_data_user`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_all_charts_data_user`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_all_charts_data_user`")  # noqa: E501
+        def __reports_get_fleet_summary_admin(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseListFleetSummaryReportItem
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetAllChartsDataUser', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseCombinedReportsData',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_fleet_summary_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_fleet_summary_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseListFleetSummaryReportItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_fleet_summary_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_fleet_summary_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseListFleetSummaryReportItem, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'user_ids'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_fleet_summary_admin = Endpoint(
+            settings={
+                'response_type': (ApiResponseListFleetSummaryReportItem,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetFleetSummaryAdmin',
+                'operation_id': 'reports_get_fleet_summary_admin',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'user_ids',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'user_ids':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'user_ids': 'UserIds',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'user_ids': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_fleet_summary_admin
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_fleet_summary_admin" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_fleet_summary_admin`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_fleet_summary_admin`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_fleet_summary_admin`")  # noqa: E501
+        def __reports_get_org_trip_by_id(
+            self,
+            trip_id,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_org_trip_by_id(trip_id, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
+            Args:
+                trip_id (int): The ID of the Trip you want to get
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseTrip
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['trip_id'] = \
+                trip_id
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetFleetSummaryAdmin', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseListFleetSummaryReportItem',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_org_trip_by_id(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_org_trip_by_id(trip_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int trip_id: The ID of the Trip you want to get (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseTrip
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_org_trip_by_id_with_http_info(self, trip_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_org_trip_by_id_with_http_info(trip_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int trip_id: The ID of the Trip you want to get (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseTrip, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'trip_id',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_org_trip_by_id = Endpoint(
+            settings={
+                'response_type': (ApiResponseTrip,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetOrgTripById',
+                'operation_id': 'reports_get_org_trip_by_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'trip_id',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'trip_id',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'trip_id':
+                        (int,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'trip_id': 'TripId',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'trip_id': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_org_trip_by_id
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_org_trip_by_id" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'trip_id' is set
-        if self.api_client.client_side_validation and ('trip_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['trip_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `trip_id` when calling `reports_get_org_trip_by_id`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_org_trip_by_id`")  # noqa: E501
+        def __reports_get_organisation_timesheet_file_attachments(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'trip_id' in local_var_params and local_var_params['trip_id'] is not None:  # noqa: E501
-            query_params.append(('TripId', local_var_params['trip_id']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                skip (int): Skip this many items. [optional]
+                take (int): Take this many items. [optional]
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseForPaginatedListOrgReportTimesheetFileAttachment
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetOrgTripById', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseTrip',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_organisation_timesheet_file_attachments(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseForPaginatedListOrgReportTimesheetFileAttachment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_organisation_timesheet_file_attachments_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_timesheet_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseForPaginatedListOrgReportTimesheetFileAttachment, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'skip',
-            'take',
-            'user_ids'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_organisation_timesheet_file_attachments = Endpoint(
+            settings={
+                'response_type': (ApiResponseForPaginatedListOrgReportTimesheetFileAttachment,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetOrganisationTimesheetFileAttachments',
+                'operation_id': 'reports_get_organisation_timesheet_file_attachments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'skip',
+                    'take',
+                    'user_ids',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'user_ids':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'user_ids': 'UserIds',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'skip': 'query',
+                    'take': 'query',
+                    'user_ids': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_organisation_timesheet_file_attachments
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_organisation_timesheet_file_attachments" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_organisation_timesheet_file_attachments`")  # noqa: E501
+        def __reports_get_organisation_transcripts(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('Skip', local_var_params['skip']))  # noqa: E501
-        if 'take' in local_var_params and local_var_params['take'] is not None:  # noqa: E501
-            query_params.append(('Take', local_var_params['take']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                skip (int): Skip this many items. [optional]
+                take (int): Take this many items. [optional]
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                keywords (str): Search the transcripts by keyword(s). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseForPaginatedListOrgReportTranscript
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetOrganisationTimesheetFileAttachments', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseForPaginatedListOrgReportTimesheetFileAttachment',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_organisation_transcripts(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_transcripts(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str keywords: Search the transcripts by keyword(s)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseForPaginatedListOrgReportTranscript
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_organisation_transcripts_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_transcripts_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str keywords: Search the transcripts by keyword(s)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseForPaginatedListOrgReportTranscript, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'skip',
-            'take',
-            'user_ids',
-            'keywords'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_organisation_transcripts = Endpoint(
+            settings={
+                'response_type': (ApiResponseForPaginatedListOrgReportTranscript,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetOrganisationTranscripts',
+                'operation_id': 'reports_get_organisation_transcripts',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'skip',
+                    'take',
+                    'user_ids',
+                    'keywords',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'user_ids':
+                        (str,),
+                    'keywords':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'user_ids': 'UserIds',
+                    'keywords': 'Keywords',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'skip': 'query',
+                    'take': 'query',
+                    'user_ids': 'query',
+                    'keywords': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_organisation_transcripts
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_organisation_transcripts" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_transcripts`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_organisation_transcripts`")  # noqa: E501
+        def __reports_get_organisation_trips(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_organisation_trips(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('Skip', local_var_params['skip']))  # noqa: E501
-        if 'take' in local_var_params and local_var_params['take'] is not None:  # noqa: E501
-            query_params.append(('Take', local_var_params['take']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
-        if 'keywords' in local_var_params and local_var_params['keywords'] is not None:  # noqa: E501
-            query_params.append(('Keywords', local_var_params['keywords']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                skip (int): Skip this many items. [optional]
+                take (int): Take this many items. [optional]
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseForPaginatedListOrgReportTrip
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetOrganisationTranscripts', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseForPaginatedListOrgReportTranscript',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_organisation_trips(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_trips(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseForPaginatedListOrgReportTrip
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_organisation_trips_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_organisation_trips_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many items
-        :param int take: Take this many items
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseForPaginatedListOrgReportTrip, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'skip',
-            'take',
-            'user_ids'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_get_organisation_trips = Endpoint(
+            settings={
+                'response_type': (ApiResponseForPaginatedListOrgReportTrip,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetOrganisationTrips',
+                'operation_id': 'reports_get_organisation_trips',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'skip',
+                    'take',
+                    'user_ids',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'user_ids':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'user_ids': 'UserIds',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'skip': 'query',
+                    'take': 'query',
+                    'user_ids': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_organisation_trips
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_organisation_trips" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_organisation_trips`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_organisation_trips`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_organisation_trips`")  # noqa: E501
+        def __reports_get_raw_data_admin(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_get_raw_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('Skip', local_var_params['skip']))  # noqa: E501
-        if 'take' in local_var_params and local_var_params['take'] is not None:  # noqa: E501
-            query_params.append(('Take', local_var_params['take']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                sort (str): Decide which column to sort on. [optional]
+                order (str): Decide which direction to sort the column. [optional]
+                skip (int): Skip this many rows. [optional]
+                take (int): Take this many rows. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseForPaginatedListRawReportItem
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
+        self.reports_get_raw_data_admin = Endpoint(
+            settings={
+                'response_type': (ApiResponseForPaginatedListRawReportItem,),
+                'auth': [],
+                'endpoint_path': '/Reports/GetRawDataAdmin',
+                'operation_id': 'reports_get_raw_data_admin',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'user_ids',
+                    'sort',
+                    'order',
+                    'skip',
+                    'take',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'sort',
+                    'order',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('sort',): {
 
-        # Authentication setting
-        auth_settings = []  # noqa: E501
+                        "EMAILADDRESS": "EmailAddress",
+                        "JOBCODE": "JobCode",
+                        "TASKNAME": "TaskName",
+                        "CLIENTNAME": "ClientName",
+                        "PROJECTNAME": "ProjectName",
+                        "STARTDATE": "StartDate",
+                        "ENDDATE": "EndDate",
+                        "SPANSECONDS": "SpanSeconds",
+                        "DESCRIPTION": "Description",
+                        "PAYAMOUNT": "PayAmount",
+                        "PAYOVERTIMEAMOUNT": "PayOvertimeAmount",
+                        "TRIPCOST": "TripCost",
+                        "TRIPDISTANCEMETERS": "TripDistanceMeters",
+                        "USERNAME": "Username"
+                    },
+                    ('order',): {
 
-        return self.api_client.call_api(
-            '/Reports/GetOrganisationTrips', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseForPaginatedListOrgReportTrip',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_get_raw_data_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_raw_data_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str sort: Decide which column to sort on
-        :param str order: Decide which direction to sort the column
-        :param int skip: Skip this many rows
-        :param int take: Take this many rows
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseForPaginatedListRawReportItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_get_raw_data_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_get_raw_data_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param str sort: Decide which column to sort on
-        :param str order: Decide which direction to sort the column
-        :param int skip: Skip this many rows
-        :param int take: Take this many rows
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseForPaginatedListRawReportItem, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'user_ids',
-            'sort',
-            'order',
-            'skip',
-            'take'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "ASCENDING": "Ascending",
+                        "DESCENDING": "Descending"
+                    },
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'user_ids':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'order':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'user_ids': 'UserIds',
+                    'sort': 'Sort',
+                    'order': 'Order',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'user_ids': 'query',
+                    'sort': 'query',
+                    'order': 'query',
+                    'skip': 'query',
+                    'take': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_get_raw_data_admin
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_get_raw_data_admin" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_get_raw_data_admin`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_get_raw_data_admin`")  # noqa: E501
+        def __reports_project_costings_admin(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_project_costings_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('Sort', local_var_params['sort']))  # noqa: E501
-        if 'order' in local_var_params and local_var_params['order'] is not None:  # noqa: E501
-            query_params.append(('Order', local_var_params['order']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('Skip', local_var_params['skip']))  # noqa: E501
-        if 'take' in local_var_params and local_var_params['take'] is not None:  # noqa: E501
-            query_params.append(('Take', local_var_params['take']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                user_ids (str): A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseListProjectCostingReportItem
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/GetRawDataAdmin', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseForPaginatedListRawReportItem',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_project_costings_admin(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_project_costings_admin(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseListProjectCostingReportItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_project_costings_admin_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_project_costings_admin_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param str user_ids: A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseListProjectCostingReportItem, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'user_ids'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_project_costings_admin = Endpoint(
+            settings={
+                'response_type': (ApiResponseListProjectCostingReportItem,),
+                'auth': [],
+                'endpoint_path': '/Reports/ProjectCostingsAdmin',
+                'operation_id': 'reports_project_costings_admin',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'user_ids',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'user_ids':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'user_ids': 'UserIds',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'user_ids': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_project_costings_admin
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_project_costings_admin" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_project_costings_admin`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_project_costings_admin`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_project_costings_admin`")  # noqa: E501
+        def __reports_user_jobs_over_time(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.reports_user_jobs_over_time(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
-            query_params.append(('UserIds', local_var_params['user_ids']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date for the date range.  Report data in the response is after this date
+                end_date (datetime): The end date for the date range.  Report data in the response is before this date
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseListJobSeriesReportItem
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/ProjectCostingsAdmin', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseListProjectCostingReportItem',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def reports_user_jobs_over_time(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_user_jobs_over_time(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseListJobSeriesReportItem
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def reports_user_jobs_over_time_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_user_jobs_over_time_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date for the date range.  Report data in the response is after this date (required)
-        :param datetime end_date: The end date for the date range.  Report data in the response is before this date (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseListJobSeriesReportItem, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.reports_user_jobs_over_time = Endpoint(
+            settings={
+                'response_type': (ApiResponseListJobSeriesReportItem,),
+                'auth': [],
+                'endpoint_path': '/Reports/UserJobsOverTime',
+                'operation_id': 'reports_user_jobs_over_time',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__reports_user_jobs_over_time
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method reports_user_jobs_over_time" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `reports_user_jobs_over_time`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `reports_user_jobs_over_time`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `reports_user_jobs_over_time`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Reports/UserJobsOverTime', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseListJobSeriesReportItem',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

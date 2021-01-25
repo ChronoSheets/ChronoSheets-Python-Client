@@ -4,7 +4,7 @@ A standard API response
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**list[AggregateJobCode]**](AggregateJobCode.md) | The main Data of the response | [optional] 
+**data** | [**[AggregateJobCode]**](AggregateJobCode.md) | The main Data of the response | [optional] 
 **status** | **str** | The API response status. Indicates if the request was successful, failed or was unauthorised. | [optional] 
 **message** | **str** | A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do. | [optional] 
 

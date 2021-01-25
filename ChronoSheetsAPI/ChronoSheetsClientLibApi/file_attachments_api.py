@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     ChronoSheets API
 
@@ -10,18 +8,22 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from ChronoSheetsAPI.api_client import ApiClient
-from ChronoSheetsAPI.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from ChronoSheetsAPI.api_client import ApiClient, Endpoint
+from ChronoSheetsAPI.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
+from ChronoSheetsAPI.model.api_response_for_paginated_list_timesheet_file_attachment import ApiResponseForPaginatedListTimesheetFileAttachment
+from ChronoSheetsAPI.model.api_response_timesheet_file_attachment import ApiResponseTimesheetFileAttachment
 
 
 class FileAttachmentsApi(object):
@@ -36,384 +38,414 @@ class FileAttachmentsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def file_attachments_delete_timesheet_file_attachment(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.  # noqa: E501
+        def __file_attachments_delete_timesheet_file_attachment(
+            self,
+            file_attachment_id,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param int file_attachment_id: The Id of the file attachment to delete (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseBoolean
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.file_attachments_delete_timesheet_file_attachment_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
+            >>> thread = api.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-    def file_attachments_delete_timesheet_file_attachment_with_http_info(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.  # noqa: E501
+            Args:
+                file_attachment_id (int): The Id of the file attachment to delete
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_delete_timesheet_file_attachment_with_http_info(file_attachment_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param int file_attachment_id: The Id of the file attachment to delete (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseBoolean, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                ApiResponseBoolean
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['file_attachment_id'] = \
+                file_attachment_id
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'file_attachment_id',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.file_attachments_delete_timesheet_file_attachment = Endpoint(
+            settings={
+                'response_type': (ApiResponseBoolean,),
+                'auth': [],
+                'endpoint_path': '/FileAttachments/DeleteTimesheetFileAttachment',
+                'operation_id': 'file_attachments_delete_timesheet_file_attachment',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'file_attachment_id',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'file_attachment_id',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'file_attachment_id':
+                        (int,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'file_attachment_id': 'FileAttachmentId',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'file_attachment_id': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__file_attachments_delete_timesheet_file_attachment
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method file_attachments_delete_timesheet_file_attachment" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'file_attachment_id' is set
-        if self.api_client.client_side_validation and ('file_attachment_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['file_attachment_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `file_attachment_id` when calling `file_attachments_delete_timesheet_file_attachment`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `file_attachments_delete_timesheet_file_attachment`")  # noqa: E501
+        def __file_attachments_get_file_attachment_by_id(
+            self,
+            file_attachment_id,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get a particular file attachment by ID.  User must own the file attachment for access.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'file_attachment_id' in local_var_params and local_var_params['file_attachment_id'] is not None:  # noqa: E501
-            query_params.append(('FileAttachmentId', local_var_params['file_attachment_id']))  # noqa: E501
+            Args:
+                file_attachment_id (int): The ID of the file attachment
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseTimesheetFileAttachment
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['file_attachment_id'] = \
+                file_attachment_id
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/FileAttachments/DeleteTimesheetFileAttachment', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseBoolean',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def file_attachments_get_file_attachment_by_id(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular file attachment by ID.  User must own the file attachment for access.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int file_attachment_id: The ID of the file attachment (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseTimesheetFileAttachment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.file_attachments_get_file_attachment_by_id_with_http_info(file_attachment_id, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def file_attachments_get_file_attachment_by_id_with_http_info(self, file_attachment_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get a particular file attachment by ID.  User must own the file attachment for access.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_get_file_attachment_by_id_with_http_info(file_attachment_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int file_attachment_id: The ID of the file attachment (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseTimesheetFileAttachment, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'file_attachment_id',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.file_attachments_get_file_attachment_by_id = Endpoint(
+            settings={
+                'response_type': (ApiResponseTimesheetFileAttachment,),
+                'auth': [],
+                'endpoint_path': '/FileAttachments/GetFileAttachmentById',
+                'operation_id': 'file_attachments_get_file_attachment_by_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'file_attachment_id',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'file_attachment_id',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'file_attachment_id':
+                        (int,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'file_attachment_id': 'FileAttachmentId',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'file_attachment_id': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__file_attachments_get_file_attachment_by_id
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method file_attachments_get_file_attachment_by_id" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'file_attachment_id' is set
-        if self.api_client.client_side_validation and ('file_attachment_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['file_attachment_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `file_attachment_id` when calling `file_attachments_get_file_attachment_by_id`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `file_attachments_get_file_attachment_by_id`")  # noqa: E501
+        def __file_attachments_get_my_file_attachments(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get my file attachments.  Get files you've attached to timesheets.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'file_attachment_id' in local_var_params and local_var_params['file_attachment_id'] is not None:  # noqa: E501
-            query_params.append(('FileAttachmentId', local_var_params['file_attachment_id']))  # noqa: E501
+            Args:
+                start_date (datetime): The Start date of the date range.  File attachments after this date will be obtained.
+                end_date (datetime): The End date of the date range.  File attachments before this date will be obtained.
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                skip (int): Skip this many File attachments. [optional]
+                take (int): Take this many File attachments. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseForPaginatedListTimesheetFileAttachment
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/FileAttachments/GetFileAttachmentById', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseTimesheetFileAttachment',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def file_attachments_get_my_file_attachments(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my file attachments.  Get files you've attached to timesheets.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The Start date of the date range.  File attachments after this date will be obtained. (required)
-        :param datetime end_date: The End date of the date range.  File attachments before this date will be obtained. (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many File attachments
-        :param int take: Take this many File attachments
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseForPaginatedListTimesheetFileAttachment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def file_attachments_get_my_file_attachments_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get my file attachments.  Get files you've attached to timesheets.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.file_attachments_get_my_file_attachments_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The Start date of the date range.  File attachments after this date will be obtained. (required)
-        :param datetime end_date: The End date of the date range.  File attachments before this date will be obtained. (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param int skip: Skip this many File attachments
-        :param int take: Take this many File attachments
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseForPaginatedListTimesheetFileAttachment, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth',
-            'skip',
-            'take'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.file_attachments_get_my_file_attachments = Endpoint(
+            settings={
+                'response_type': (ApiResponseForPaginatedListTimesheetFileAttachment,),
+                'auth': [],
+                'endpoint_path': '/FileAttachments/GetMyFileAttachments',
+                'operation_id': 'file_attachments_get_my_file_attachments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                    'skip',
+                    'take',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                    'skip': 'query',
+                    'take': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__file_attachments_get_my_file_attachments
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method file_attachments_get_my_file_attachments" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `file_attachments_get_my_file_attachments`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('Skip', local_var_params['skip']))  # noqa: E501
-        if 'take' in local_var_params and local_var_params['take'] is not None:  # noqa: E501
-            query_params.append(('Take', local_var_params['take']))  # noqa: E501
-
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/FileAttachments/GetMyFileAttachments', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseForPaginatedListTimesheetFileAttachment',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

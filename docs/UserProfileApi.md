@@ -19,10 +19,11 @@ Login to your ChronoSheets account and obtain an Auth Token which you can use fo
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_profile_api
+from ChronoSheetsAPI.model.api_response_do_login_response import ApiResponseDoLoginResponse
+from ChronoSheetsAPI.model.do_login_request import DoLoginRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -34,14 +35,19 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserProfileApi(api_client)
-    request = ChronoSheetsAPI.DoLoginRequest() # DoLoginRequest | A request object containing your username/email and password.
+    api_instance = user_profile_api.UserProfileApi(api_client)
+    request = DoLoginRequest(
+        username_or_email="username_or_email_example",
+        password="password_example",
+        remember_me=True,
+    ) # DoLoginRequest | A request object containing your username/email and password.
 
+    # example passing only required values which don't have defaults set
     try:
         # Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
         api_response = api_instance.user_profile_do_login(request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserProfileApi->user_profile_do_login: %s\n" % e)
 ```
 
@@ -49,7 +55,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DoLoginRequest**](DoLoginRequest.md)| A request object containing your username/email and password. | 
+ **request** | [**DoLoginRequest**](DoLoginRequest.md)| A request object containing your username/email and password. |
 
 ### Return type
 
@@ -79,10 +85,10 @@ Logout of your ChronoSheets account.  This method ends and deletes your active s
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_profile_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -94,14 +100,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserProfileApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = user_profile_api.UserProfileApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Logout of your ChronoSheets account.  This method ends and deletes your active session.    Does not require any special permissions.
         api_response = api_instance.user_profile_do_logout(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserProfileApi->user_profile_do_logout: %s\n" % e)
 ```
 
@@ -109,7 +116,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -139,10 +146,10 @@ Get your own profile.  Use this method to obtain detailed information about your
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_profile_api
+from ChronoSheetsAPI.model.api_response_user_profile import ApiResponseUserProfile
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,14 +161,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserProfileApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = user_profile_api.UserProfileApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get your own profile.  Use this method to obtain detailed information about your ChronoSheets user profile.    Does not require any special permissions.
         api_response = api_instance.user_profile_get_my_profile(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserProfileApi->user_profile_get_my_profile: %s\n" % e)
 ```
 
@@ -169,7 +177,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -199,10 +207,10 @@ Keep a session alive.  Use this method to keep a session active.  You could use 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_profile_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -214,14 +222,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserProfileApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = user_profile_api.UserProfileApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Keep a session alive.  Use this method to keep a session active.  You could use this to 'ping' ChronoSheets every 'x' minutes to make sure your Auth Token will keep working.    Does not require any special permissions.
         api_response = api_instance.user_profile_keep_session_alive(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserProfileApi->user_profile_keep_session_alive: %s\n" % e)
 ```
 
@@ -229,7 +238,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -259,10 +268,11 @@ Update your own profile.  Use this method to update your profile information or 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import user_profile_api
+from ChronoSheetsAPI.model.update_my_profile_request import UpdateMyProfileRequest
+from ChronoSheetsAPI.model.api_response_update_profile_response import ApiResponseUpdateProfileResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -274,15 +284,25 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UserProfileApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateMyProfileRequest() # UpdateMyProfileRequest | An Update MyProfile Request object containing updated fields.
+    api_instance = user_profile_api.UserProfileApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateMyProfileRequest(
+        email_address="email_address_example",
+        first_name="first_name_example",
+        last_name="last_name_example",
+        old_password="old_password_example",
+        new_password="new_password_example",
+        confirm_new_password="confirm_new_password_example",
+        is_subscribed_to_newsletter=True,
+        wants_to_change_password=True,
+    ) # UpdateMyProfileRequest | An Update MyProfile Request object containing updated fields.
 
+    # example passing only required values which don't have defaults set
     try:
         # Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.
         api_response = api_instance.user_profile_update_my_profile(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UserProfileApi->user_profile_update_my_profile: %s\n" % e)
 ```
 
@@ -290,8 +310,8 @@ request = ChronoSheetsAPI.UpdateMyProfileRequest() # UpdateMyProfileRequest | An
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateMyProfileRequest**](UpdateMyProfileRequest.md)| An Update MyProfile Request object containing updated fields. | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateMyProfileRequest**](UpdateMyProfileRequest.md)| An Update MyProfile Request object containing updated fields. |
 
 ### Return type
 

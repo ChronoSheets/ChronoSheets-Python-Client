@@ -19,10 +19,11 @@ Create a job code.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import job_codes_api
+from ChronoSheetsAPI.model.insert_job_code_request import InsertJobCodeRequest
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -34,15 +35,26 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.JobCodesApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertJobCodeRequest() # InsertJobCodeRequest | An Insert JobCode Request object containing values for the new JobCode to create
+    api_instance = job_codes_api.JobCodesApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertJobCodeRequest(
+        code="code_example",
+        project_id=1,
+        client_id=1,
+        linked_task_ids=[
+            1,
+        ],
+        linked_org_group_ids=[
+            1,
+        ],
+    ) # InsertJobCodeRequest | An Insert JobCode Request object containing values for the new JobCode to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a job code.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.job_codes_create_job_code(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling JobCodesApi->job_codes_create_job_code: %s\n" % e)
 ```
 
@@ -50,8 +62,8 @@ request = ChronoSheetsAPI.InsertJobCodeRequest() # InsertJobCodeRequest | An Ins
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertJobCodeRequest**](InsertJobCodeRequest.md)| An Insert JobCode Request object containing values for the new JobCode to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertJobCodeRequest**](InsertJobCodeRequest.md)| An Insert JobCode Request object containing values for the new JobCode to create |
 
 ### Return type
 
@@ -81,10 +93,10 @@ Delete a job code.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import job_codes_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -96,15 +108,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.JobCodesApi(api_client)
-    job_code_id = 56 # int | The ID of the job code you want to delete
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = job_codes_api.JobCodesApi(api_client)
+    job_code_id = 1 # int | The ID of the job code you want to delete
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a job code.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.job_codes_delete_job_code(job_code_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling JobCodesApi->job_codes_delete_job_code: %s\n" % e)
 ```
 
@@ -112,8 +125,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_code_id** | **int**| The ID of the job code you want to delete | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **job_code_id** | **int**| The ID of the job code you want to delete |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -143,10 +156,10 @@ Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'Man
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import job_codes_api
+from ChronoSheetsAPI.model.api_response_job_code import ApiResponseJobCode
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -158,15 +171,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.JobCodesApi(api_client)
-    job_code_id = 56 # int | The ID of the JobCode you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = job_codes_api.JobCodesApi(api_client)
+    job_code_id = 1 # int | The ID of the JobCode you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
         api_response = api_instance.job_codes_get_job_code_by_id(job_code_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling JobCodesApi->job_codes_get_job_code_by_id: %s\n" % e)
 ```
 
@@ -174,8 +188,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_code_id** | **int**| The ID of the JobCode you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **job_code_id** | **int**| The ID of the JobCode you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -205,10 +219,10 @@ Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJo
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import job_codes_api
+from ChronoSheetsAPI.model.api_response_list_job_code import ApiResponseListJobCode
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -220,14 +234,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.JobCodesApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = job_codes_api.JobCodesApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
         api_response = api_instance.job_codes_get_job_codes(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling JobCodesApi->job_codes_get_job_codes: %s\n" % e)
 ```
 
@@ -235,7 +250,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -265,10 +280,11 @@ Update a job code.    Requires the 'ManageJobsAndTask' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import job_codes_api
+from ChronoSheetsAPI.model.update_job_code_request import UpdateJobCodeRequest
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -280,15 +296,28 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.JobCodesApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.UpdateJobCodeRequest() # UpdateJobCodeRequest | A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update
+    api_instance = job_codes_api.JobCodesApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = UpdateJobCodeRequest(
+        id=1,
+        code="code_example",
+        project_id=1,
+        client_id=1,
+        linked_task_ids=[
+            1,
+        ],
+        linked_org_group_ids=[
+            1,
+        ],
+        is_deleted=True,
+    ) # UpdateJobCodeRequest | A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update a job code.    Requires the 'ManageJobsAndTask' permission.
         api_response = api_instance.job_codes_update_job_code(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling JobCodesApi->job_codes_update_job_code: %s\n" % e)
 ```
 
@@ -296,8 +325,8 @@ request = ChronoSheetsAPI.UpdateJobCodeRequest() # UpdateJobCodeRequest | A Upda
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**UpdateJobCodeRequest**](UpdateJobCodeRequest.md)| A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**UpdateJobCodeRequest**](UpdateJobCodeRequest.md)| A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update |
 
 ### Return type
 

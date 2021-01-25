@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_projects** | [**list[AggregateProject]**](AggregateProject.md) | A list of projects that are under this client | [optional] 
+**client_projects** | [**[AggregateProject]**](AggregateProject.md) | A list of projects that are under this client | [optional] 
 **id** | **int** | The ID of the client | [optional] 
 **organisation_id** | **int** | The ID of your organisation | [optional] 
 **client_name** | **str** | The name of the client | [optional] 

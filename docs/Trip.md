@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **total_trip_distance_meters** | **float** |  | [optional] 
 **start_address** | **str** |  | [optional] 
 **end_address** | **str** |  | [optional] 
-**path_coordinates** | [**list[TripCoordinate]**](TripCoordinate.md) |  | [optional] 
+**path_coordinates** | [**[TripCoordinate]**](TripCoordinate.md) |  | [optional] 
 **cache_expiry_date** | **datetime** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

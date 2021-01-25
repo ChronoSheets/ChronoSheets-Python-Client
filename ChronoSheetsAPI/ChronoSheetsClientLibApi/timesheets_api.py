@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     ChronoSheets API
 
@@ -10,18 +8,25 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from ChronoSheetsAPI.api_client import ApiClient
-from ChronoSheetsAPI.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from ChronoSheetsAPI.api_client import ApiClient, Endpoint
+from ChronoSheetsAPI.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.api_response_list_int32 import ApiResponseListInt32
+from ChronoSheetsAPI.model.api_response_list_timesheet import ApiResponseListTimesheet
+from ChronoSheetsAPI.model.batch_update_timesheet_request import BatchUpdateTimesheetRequest
+from ChronoSheetsAPI.model.timesheet import Timesheet
 
 
 class TimesheetsApi(object):
@@ -36,503 +41,544 @@ class TimesheetsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def timesheets_create_single_timesheet(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
+        def __timesheets_create_single_timesheet(
+            self,
+            x_chronosheets_auth,
+            request,
+            **kwargs
+        ):
+            """Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_create_single_timesheet(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param Timesheet request: A Timesheet Request object containing values for the new Timesheet to create (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseInt32
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.timesheets_create_single_timesheet_with_http_info(x_chronosheets_auth, request, **kwargs)  # noqa: E501
+            >>> thread = api.timesheets_create_single_timesheet(x_chronosheets_auth, request, async_req=True)
+            >>> result = thread.get()
 
-    def timesheets_create_single_timesheet_with_http_info(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
+            Args:
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
+                request (Timesheet): A Timesheet Request object containing values for the new Timesheet to create
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_create_single_timesheet_with_http_info(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param Timesheet request: A Timesheet Request object containing values for the new Timesheet to create (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseInt32, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                ApiResponseInt32
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            kwargs['request'] = \
+                request
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'x_chronosheets_auth',
-            'request'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.timesheets_create_single_timesheet = Endpoint(
+            settings={
+                'response_type': (ApiResponseInt32,),
+                'auth': [],
+                'endpoint_path': '/Timesheets/CreateSingleTimesheet',
+                'operation_id': 'timesheets_create_single_timesheet',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'required': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_chronosheets_auth':
+                        (str,),
+                    'request':
+                        (Timesheet,),
+                },
+                'attribute_map': {
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'x_chronosheets_auth': 'header',
+                    'request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__timesheets_create_single_timesheet
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method timesheets_create_single_timesheet" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `timesheets_create_single_timesheet`")  # noqa: E501
-        # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `request` when calling `timesheets_create_single_timesheet`")  # noqa: E501
+        def __timesheets_delete_timesheet(
+            self,
+            timesheet_id,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Delete a timesheet.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.timesheets_delete_timesheet(timesheet_id, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
+            Args:
+                timesheet_id (int): The ID of the Timesheet you want to delete
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseBoolean
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['timesheet_id'] = \
+                timesheet_id
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        if 'request' in local_var_params:
-            body_params = local_var_params['request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Timesheets/CreateSingleTimesheet', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseInt32',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def timesheets_delete_timesheet(self, timesheet_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a timesheet.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_delete_timesheet(timesheet_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int timesheet_id: The ID of the Timesheet you want to delete (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseBoolean
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.timesheets_delete_timesheet_with_http_info(timesheet_id, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def timesheets_delete_timesheet_with_http_info(self, timesheet_id, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Delete a timesheet.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_delete_timesheet_with_http_info(timesheet_id, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int timesheet_id: The ID of the Timesheet you want to delete (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseBoolean, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'timesheet_id',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.timesheets_delete_timesheet = Endpoint(
+            settings={
+                'response_type': (ApiResponseBoolean,),
+                'auth': [],
+                'endpoint_path': '/Timesheets/DeleteTimesheet',
+                'operation_id': 'timesheets_delete_timesheet',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'timesheet_id',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'timesheet_id',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'timesheet_id':
+                        (int,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'timesheet_id': 'TimesheetId',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'timesheet_id': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__timesheets_delete_timesheet
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method timesheets_delete_timesheet" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'timesheet_id' is set
-        if self.api_client.client_side_validation and ('timesheet_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['timesheet_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `timesheet_id` when calling `timesheets_delete_timesheet`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `timesheets_delete_timesheet`")  # noqa: E501
+        def __timesheets_get_timesheets(
+            self,
+            start_date,
+            end_date,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.timesheets_get_timesheets(start_date, end_date, x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'timesheet_id' in local_var_params and local_var_params['timesheet_id'] is not None:  # noqa: E501
-            query_params.append(('TimesheetId', local_var_params['timesheet_id']))  # noqa: E501
+            Args:
+                start_date (datetime): The start date of the date range
+                end_date (datetime): The end date of the date range
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseListTimesheet
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['start_date'] = \
+                start_date
+            kwargs['end_date'] = \
+                end_date
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Timesheets/DeleteTimesheet', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseBoolean',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def timesheets_get_timesheets(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_get_timesheets(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date of the date range (required)
-        :param datetime end_date: The end date of the date range (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseListTimesheet
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.timesheets_get_timesheets_with_http_info(start_date, end_date, x_chronosheets_auth, **kwargs)  # noqa: E501
-
-    def timesheets_get_timesheets_with_http_info(self, start_date, end_date, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_get_timesheets_with_http_info(start_date, end_date, x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param datetime start_date: The start date of the date range (required)
-        :param datetime end_date: The end date of the date range (required)
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseListTimesheet, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'start_date',
-            'end_date',
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.timesheets_get_timesheets = Endpoint(
+            settings={
+                'response_type': (ApiResponseListTimesheet,),
+                'auth': [],
+                'endpoint_path': '/Timesheets/GetTimesheets',
+                'operation_id': 'timesheets_get_timesheets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'start_date':
+                        (datetime,),
+                    'end_date':
+                        (datetime,),
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'start_date': 'StartDate',
+                    'end_date': 'EndDate',
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__timesheets_get_timesheets
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method timesheets_get_timesheets" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'start_date' is set
-        if self.api_client.client_side_validation and ('start_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['start_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `start_date` when calling `timesheets_get_timesheets`")  # noqa: E501
-        # verify the required parameter 'end_date' is set
-        if self.api_client.client_side_validation and ('end_date' not in local_var_params or  # noqa: E501
-                                                        local_var_params['end_date'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `end_date` when calling `timesheets_get_timesheets`")  # noqa: E501
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `timesheets_get_timesheets`")  # noqa: E501
+        def __timesheets_update_timesheets(
+            self,
+            x_chronosheets_auth,
+            request,
+            **kwargs
+        ):
+            """Batch update timesheets.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.timesheets_update_timesheets(x_chronosheets_auth, request, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
-            query_params.append(('StartDate', local_var_params['start_date']))  # noqa: E501
-        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
-            query_params.append(('EndDate', local_var_params['end_date']))  # noqa: E501
+            Args:
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
+                request (BatchUpdateTimesheetRequest): A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created.
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseListInt32
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            kwargs['request'] = \
+                request
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Timesheets/GetTimesheets', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseListTimesheet',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def timesheets_update_timesheets(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Batch update timesheets.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_update_timesheets(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param BatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseListInt32
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.timesheets_update_timesheets_with_http_info(x_chronosheets_auth, request, **kwargs)  # noqa: E501
-
-    def timesheets_update_timesheets_with_http_info(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Batch update timesheets.    Requires the 'SubmitTimesheets' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timesheets_update_timesheets_with_http_info(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param BatchUpdateTimesheetRequest request: A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseListInt32, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'x_chronosheets_auth',
-            'request'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.timesheets_update_timesheets = Endpoint(
+            settings={
+                'response_type': (ApiResponseListInt32,),
+                'auth': [],
+                'endpoint_path': '/Timesheets/UpdateTimesheets',
+                'operation_id': 'timesheets_update_timesheets',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'required': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_chronosheets_auth':
+                        (str,),
+                    'request':
+                        (BatchUpdateTimesheetRequest,),
+                },
+                'attribute_map': {
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'x_chronosheets_auth': 'header',
+                    'request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__timesheets_update_timesheets
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method timesheets_update_timesheets" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `timesheets_update_timesheets`")  # noqa: E501
-        # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `request` when calling `timesheets_update_timesheets`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'request' in local_var_params:
-            body_params = local_var_params['request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Timesheets/UpdateTimesheets', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseListInt32',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

@@ -18,10 +18,11 @@ Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import timesheets_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.timesheet import Timesheet
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,15 +34,29 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TimesheetsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.Timesheet() # Timesheet | A Timesheet Request object containing values for the new Timesheet to create
+    api_instance = timesheets_api.TimesheetsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = Timesheet(
+        timesheet_id=1,
+        user_id=1,
+        job_id=1,
+        task_id=1,
+        start_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        end_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        description="description_example",
+        trip_id=1,
+        file_attachment_count=1,
+        pay_amount=3.14,
+        overtime_pay_amount=3.14,
+        includes_overtime=True,
+    ) # Timesheet | A Timesheet Request object containing values for the new Timesheet to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.timesheets_create_single_timesheet(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TimesheetsApi->timesheets_create_single_timesheet: %s\n" % e)
 ```
 
@@ -49,8 +64,8 @@ request = ChronoSheetsAPI.Timesheet() # Timesheet | A Timesheet Request object c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**Timesheet**](Timesheet.md)| A Timesheet Request object containing values for the new Timesheet to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**Timesheet**](Timesheet.md)| A Timesheet Request object containing values for the new Timesheet to create |
 
 ### Return type
 
@@ -80,10 +95,10 @@ Delete a timesheet.    Requires the 'SubmitTimesheets' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import timesheets_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -95,15 +110,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TimesheetsApi(api_client)
-    timesheet_id = 56 # int | The ID of the Timesheet you want to delete
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = timesheets_api.TimesheetsApi(api_client)
+    timesheet_id = 1 # int | The ID of the Timesheet you want to delete
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a timesheet.    Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.timesheets_delete_timesheet(timesheet_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TimesheetsApi->timesheets_delete_timesheet: %s\n" % e)
 ```
 
@@ -111,8 +127,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timesheet_id** | **int**| The ID of the Timesheet you want to delete | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **timesheet_id** | **int**| The ID of the Timesheet you want to delete |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -142,10 +158,10 @@ Get timesheets between start and end dates.  Note: the date range cannot exceed 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import timesheets_api
+from ChronoSheetsAPI.model.api_response_list_timesheet import ApiResponseListTimesheet
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,16 +173,17 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TimesheetsApi(api_client)
-    start_date = '2013-10-20T19:20:30+01:00' # datetime | The start date of the date range
-end_date = '2013-10-20T19:20:30+01:00' # datetime | The end date of the date range
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = timesheets_api.TimesheetsApi(api_client)
+    start_date = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | The start date of the date range
+    end_date = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | The end date of the date range
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.timesheets_get_timesheets(start_date, end_date, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TimesheetsApi->timesheets_get_timesheets: %s\n" % e)
 ```
 
@@ -174,9 +191,9 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **datetime**| The start date of the date range | 
- **end_date** | **datetime**| The end date of the date range | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **start_date** | **datetime**| The start date of the date range |
+ **end_date** | **datetime**| The end date of the date range |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -206,10 +223,11 @@ Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import timesheets_api
+from ChronoSheetsAPI.model.api_response_list_int32 import ApiResponseListInt32
+from ChronoSheetsAPI.model.batch_update_timesheet_request import BatchUpdateTimesheetRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -221,15 +239,33 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.TimesheetsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.BatchUpdateTimesheetRequest() # BatchUpdateTimesheetRequest | A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created.
+    api_instance = timesheets_api.TimesheetsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = BatchUpdateTimesheetRequest(
+        timesheets=[
+            Timesheet(
+                timesheet_id=1,
+                user_id=1,
+                job_id=1,
+                task_id=1,
+                start_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                end_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                description="description_example",
+                trip_id=1,
+                file_attachment_count=1,
+                pay_amount=3.14,
+                overtime_pay_amount=3.14,
+                includes_overtime=True,
+            ),
+        ],
+    ) # BatchUpdateTimesheetRequest | A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created.
 
+    # example passing only required values which don't have defaults set
     try:
         # Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.timesheets_update_timesheets(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling TimesheetsApi->timesheets_update_timesheets: %s\n" % e)
 ```
 
@@ -237,8 +273,8 @@ request = ChronoSheetsAPI.BatchUpdateTimesheetRequest() # BatchUpdateTimesheetRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**BatchUpdateTimesheetRequest**](BatchUpdateTimesheetRequest.md)| A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**BatchUpdateTimesheetRequest**](BatchUpdateTimesheetRequest.md)| A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. |
 
 ### Return type
 

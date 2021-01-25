@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     ChronoSheets API
 
@@ -10,18 +8,22 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from ChronoSheetsAPI.api_client import ApiClient
-from ChronoSheetsAPI.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from ChronoSheetsAPI.api_client import ApiClient, Endpoint
+from ChronoSheetsAPI.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from ChronoSheetsAPI.model.api_response_organisation import ApiResponseOrganisation
+from ChronoSheetsAPI.model.api_response_update_organisation_response import ApiResponseUpdateOrganisationResponse
+from ChronoSheetsAPI.model.update_organisation_request import UpdateOrganisationRequest
 
 
 class OrganisationApi(object):
@@ -36,239 +38,258 @@ class OrganisationApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def organisation_get_organisation(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
+        def __organisation_get_organisation(
+            self,
+            x_chronosheets_auth,
+            **kwargs
+        ):
+            """Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.organisation_get_organisation(x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseOrganisation
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.organisation_get_organisation_with_http_info(x_chronosheets_auth, **kwargs)  # noqa: E501
+            >>> thread = api.organisation_get_organisation(x_chronosheets_auth, async_req=True)
+            >>> result = thread.get()
 
-    def organisation_get_organisation_with_http_info(self, x_chronosheets_auth, **kwargs):  # noqa: E501
-        """Get your organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
+            Args:
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.organisation_get_organisation_with_http_info(x_chronosheets_auth, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseOrganisation, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                ApiResponseOrganisation
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'x_chronosheets_auth'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.organisation_get_organisation = Endpoint(
+            settings={
+                'response_type': (ApiResponseOrganisation,),
+                'auth': [],
+                'endpoint_path': '/Organisation/GetOrganisation',
+                'operation_id': 'organisation_get_organisation',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_chronosheets_auth',
+                ],
+                'required': [
+                    'x_chronosheets_auth',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_chronosheets_auth':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'x_chronosheets_auth': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__organisation_get_organisation
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method organisation_get_organisation" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `organisation_get_organisation`")  # noqa: E501
+        def __organisation_update_organisation(
+            self,
+            x_chronosheets_auth,
+            request,
+            **kwargs
+        ):
+            """Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.organisation_update_organisation(x_chronosheets_auth, request, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
+            Args:
+                x_chronosheets_auth (str): The ChronoSheets Auth Token
+                request (UpdateOrganisationRequest): An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update
 
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                ApiResponseUpdateOrganisationResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_chronosheets_auth'] = \
+                x_chronosheets_auth
+            kwargs['request'] = \
+                request
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Organisation/GetOrganisation', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseOrganisation',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def organisation_update_organisation(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.organisation_update_organisation(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param UpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApiResponseUpdateOrganisationResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.organisation_update_organisation_with_http_info(x_chronosheets_auth, request, **kwargs)  # noqa: E501
-
-    def organisation_update_organisation_with_http_info(self, x_chronosheets_auth, request, **kwargs):  # noqa: E501
-        """Update an organisation.    Requires 'OrganisationAdmin' permission.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.organisation_update_organisation_with_http_info(x_chronosheets_auth, request, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_chronosheets_auth: The ChronoSheets Auth Token (required)
-        :param UpdateOrganisationRequest request: An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApiResponseUpdateOrganisationResponse, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'x_chronosheets_auth',
-            'request'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.organisation_update_organisation = Endpoint(
+            settings={
+                'response_type': (ApiResponseUpdateOrganisationResponse,),
+                'auth': [],
+                'endpoint_path': '/Organisation/UpdateOrganisation',
+                'operation_id': 'organisation_update_organisation',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'required': [
+                    'x_chronosheets_auth',
+                    'request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_chronosheets_auth':
+                        (str,),
+                    'request':
+                        (UpdateOrganisationRequest,),
+                },
+                'attribute_map': {
+                    'x_chronosheets_auth': 'x-chronosheets-auth',
+                },
+                'location_map': {
+                    'x_chronosheets_auth': 'header',
+                    'request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'multipart/form-data'
+                ],
+                'content_type': [
+                    'application/json',
+                    'text/json',
+                    'application/xml',
+                    'text/xml',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__organisation_update_organisation
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method organisation_update_organisation" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_chronosheets_auth' is set
-        if self.api_client.client_side_validation and ('x_chronosheets_auth' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_chronosheets_auth'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_chronosheets_auth` when calling `organisation_update_organisation`")  # noqa: E501
-        # verify the required parameter 'request' is set
-        if self.api_client.client_side_validation and ('request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `request` when calling `organisation_update_organisation`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-        if 'x_chronosheets_auth' in local_var_params:
-            header_params['x-chronosheets-auth'] = local_var_params['x_chronosheets_auth']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'request' in local_var_params:
-            body_params = local_var_params['request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Organisation/UpdateOrganisation', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApiResponseUpdateOrganisationResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

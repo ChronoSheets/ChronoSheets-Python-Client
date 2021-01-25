@@ -4,7 +4,7 @@ Contains a collection of Timesheet objects that are to be either created or upda
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timesheets** | [**list[Timesheet]**](Timesheet.md) | A collection of Timesheet objects to be either created or updated | [optional] 
+**timesheets** | [**[Timesheet]**](Timesheet.md) | A collection of Timesheet objects to be either created or updated | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,10 +21,11 @@ Create an organisation group.    Requires the 'ManageOrganisationGroups' permiss
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.insert_organisation_group_request import InsertOrganisationGroupRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -36,15 +37,21 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertOrganisationGroupRequest() # InsertOrganisationGroupRequest | An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertOrganisationGroupRequest(
+        organisation_group_name="organisation_group_name_example",
+        organisation_group_user_ids=[
+            1,
+        ],
+    ) # InsertOrganisationGroupRequest | An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
         api_response = api_instance.organisation_groups_create_organisation_group(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_create_organisation_group: %s\n" % e)
 ```
 
@@ -52,8 +59,8 @@ request = ChronoSheetsAPI.InsertOrganisationGroupRequest() # InsertOrganisationG
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertOrganisationGroupRequest**](InsertOrganisationGroupRequest.md)| An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertOrganisationGroupRequest**](InsertOrganisationGroupRequest.md)| An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create |
 
 ### Return type
 
@@ -83,10 +90,10 @@ No authorization required
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -98,14 +105,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    organisation_group_id = 56 # int | 
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    organisation_group_id = 1 # int | 
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.organisation_groups_delete_organisation_group(organisation_group_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_delete_organisation_group: %s\n" % e)
 ```
 
@@ -113,8 +121,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_group_id** | **int**|  | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **organisation_group_id** | **int**|  |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -144,10 +152,10 @@ Get a particular organisation group.    Requires the 'ManageOrganisationGroups',
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_organisation_group import ApiResponseOrganisationGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,15 +167,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    organisation_group_id = 56 # int | The ID of the OrganisationGroup you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    organisation_group_id = 1 # int | The ID of the OrganisationGroup you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
         api_response = api_instance.organisation_groups_get_organisation_group(organisation_group_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_get_organisation_group: %s\n" % e)
 ```
 
@@ -175,8 +184,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_group_id** | **int**| The ID of the OrganisationGroup you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **organisation_group_id** | **int**| The ID of the OrganisationGroup you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -206,10 +215,10 @@ Get a collection of organisation groups that are under your organisation.    Req
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_list_organisation_group import ApiResponseListOrganisationGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -221,14 +230,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a collection of organisation groups that are under your organisation.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
         api_response = api_instance.organisation_groups_get_organisation_groups(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_get_organisation_groups: %s\n" % e)
 ```
 
@@ -236,7 +246,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -266,10 +276,10 @@ Get org groups for a particular job.    Requires the 'ManageOrganisationGroups',
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_list_organisation_group import ApiResponseListOrganisationGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -281,15 +291,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    job_id = 56 # int | The ID of the job
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    job_id = 1 # int | The ID of the job
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get org groups for a particular job.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
         api_response = api_instance.organisation_groups_get_organisation_groups_for_job(job_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_get_organisation_groups_for_job: %s\n" % e)
 ```
 
@@ -297,8 +308,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **int**| The ID of the job | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **job_id** | **int**| The ID of the job |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -328,10 +339,10 @@ Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGrou
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.api_response_list_organisation_group import ApiResponseListOrganisationGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,15 +354,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    vehicle_id = 56 # int | The ID of the vehicle
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    vehicle_id = 1 # int | The ID of the vehicle
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
         api_response = api_instance.organisation_groups_get_organisation_groups_for_vehicle(vehicle_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_get_organisation_groups_for_vehicle: %s\n" % e)
 ```
 
@@ -359,8 +371,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vehicle_id** | **int**| The ID of the vehicle | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **vehicle_id** | **int**| The ID of the vehicle |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -390,10 +402,11 @@ Update an organisation group.    Requires the 'ManageOrganisationGroups' permiss
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import organisation_groups_api
+from ChronoSheetsAPI.model.save_organisation_group_request import SaveOrganisationGroupRequest
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -405,15 +418,20 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.OrganisationGroupsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.SaveOrganisationGroupRequest() # SaveOrganisationGroupRequest | A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update
+    api_instance = organisation_groups_api.OrganisationGroupsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = SaveOrganisationGroupRequest(
+        id=1,
+        organisation_group_name="organisation_group_name_example",
+        is_deleted=True,
+    ) # SaveOrganisationGroupRequest | A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
         api_response = api_instance.organisation_groups_update_organisation_group(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling OrganisationGroupsApi->organisation_groups_update_organisation_group: %s\n" % e)
 ```
 
@@ -421,8 +439,8 @@ request = ChronoSheetsAPI.SaveOrganisationGroupRequest() # SaveOrganisationGroup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**SaveOrganisationGroupRequest**](SaveOrganisationGroupRequest.md)| A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**SaveOrganisationGroupRequest**](SaveOrganisationGroupRequest.md)| A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update |
 
 ### Return type
 

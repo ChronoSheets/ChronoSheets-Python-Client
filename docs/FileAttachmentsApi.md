@@ -17,10 +17,10 @@ Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' p
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import file_attachments_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -32,15 +32,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
-    file_attachment_id = 56 # int | The Id of the file attachment to delete
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = file_attachments_api.FileAttachmentsApi(api_client)
+    file_attachment_id = 1 # int | The Id of the file attachment to delete
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
         api_response = api_instance.file_attachments_delete_timesheet_file_attachment(file_attachment_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling FileAttachmentsApi->file_attachments_delete_timesheet_file_attachment: %s\n" % e)
 ```
 
@@ -48,8 +49,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_attachment_id** | **int**| The Id of the file attachment to delete | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **file_attachment_id** | **int**| The Id of the file attachment to delete |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -79,10 +80,10 @@ Get a particular file attachment by ID.  User must own the file attachment for a
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import file_attachments_api
+from ChronoSheetsAPI.model.api_response_timesheet_file_attachment import ApiResponseTimesheetFileAttachment
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -94,15 +95,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
-    file_attachment_id = 56 # int | The ID of the file attachment
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = file_attachments_api.FileAttachmentsApi(api_client)
+    file_attachment_id = 1 # int | The ID of the file attachment
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular file attachment by ID.  User must own the file attachment for access.
         api_response = api_instance.file_attachments_get_file_attachment_by_id(file_attachment_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling FileAttachmentsApi->file_attachments_get_file_attachment_by_id: %s\n" % e)
 ```
 
@@ -110,8 +112,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file_attachment_id** | **int**| The ID of the file attachment | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **file_attachment_id** | **int**| The ID of the file attachment |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -134,17 +136,17 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **file_attachments_get_my_file_attachments**
-> ApiResponseForPaginatedListTimesheetFileAttachment file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
+> ApiResponseForPaginatedListTimesheetFileAttachment file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth)
 
 Get my file attachments.  Get files you've attached to timesheets.
 
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import file_attachments_api
+from ChronoSheetsAPI.model.api_response_for_paginated_list_timesheet_file_attachment import ApiResponseForPaginatedListTimesheetFileAttachment
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -156,18 +158,28 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.FileAttachmentsApi(api_client)
-    start_date = '2013-10-20T19:20:30+01:00' # datetime | The Start date of the date range.  File attachments after this date will be obtained.
-end_date = '2013-10-20T19:20:30+01:00' # datetime | The End date of the date range.  File attachments before this date will be obtained.
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-skip = 56 # int | Skip this many File attachments (optional)
-take = 56 # int | Take this many File attachments (optional)
+    api_instance = file_attachments_api.FileAttachmentsApi(api_client)
+    start_date = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | The Start date of the date range.  File attachments after this date will be obtained.
+    end_date = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | The End date of the date range.  File attachments before this date will be obtained.
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    skip = 1 # int | Skip this many File attachments (optional)
+    take = 1 # int | Take this many File attachments (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Get my file attachments.  Get files you've attached to timesheets.
+        api_response = api_instance.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth)
+        pprint(api_response)
+    except ChronoSheetsAPI.ApiException as e:
+        print("Exception when calling FileAttachmentsApi->file_attachments_get_my_file_attachments: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get my file attachments.  Get files you've attached to timesheets.
         api_response = api_instance.file_attachments_get_my_file_attachments(start_date, end_date, x_chronosheets_auth, skip=skip, take=take)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling FileAttachmentsApi->file_attachments_get_my_file_attachments: %s\n" % e)
 ```
 
@@ -175,11 +187,11 @@ take = 56 # int | Take this many File attachments (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **datetime**| The Start date of the date range.  File attachments after this date will be obtained. | 
- **end_date** | **datetime**| The End date of the date range.  File attachments before this date will be obtained. | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **skip** | **int**| Skip this many File attachments | [optional] 
- **take** | **int**| Take this many File attachments | [optional] 
+ **start_date** | **datetime**| The Start date of the date range.  File attachments after this date will be obtained. |
+ **end_date** | **datetime**| The End date of the date range.  File attachments before this date will be obtained. |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **skip** | **int**| Skip this many File attachments | [optional]
+ **take** | **int**| Take this many File attachments | [optional]
 
 ### Return type
 

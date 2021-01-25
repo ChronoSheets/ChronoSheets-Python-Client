@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **org_id** | **int** |  | [optional] 
 **geofence_name** | **str** |  | [optional] 
-**coordinates** | [**list[BasicCoordinate]**](BasicCoordinate.md) |  | [optional] 
+**coordinates** | [**[BasicCoordinate]**](BasicCoordinate.md) |  | [optional] 
 **user_id** | **int** |  | [optional] 
 **user_name** | **str** |  | [optional] 
 **first_name** | **str** |  | [optional] 

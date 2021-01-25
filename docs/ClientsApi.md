@@ -18,10 +18,11 @@ Create a client.    Requires the 'ManageClientsAndProjects' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import clients_api
+from ChronoSheetsAPI.model.api_response_int32 import ApiResponseInt32
+from ChronoSheetsAPI.model.insert_client_request import InsertClientRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,15 +34,28 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ClientsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.InsertClientRequest() # InsertClientRequest | An Insert Client Request object containing values for the new Client to create
+    api_instance = clients_api.ClientsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = InsertClientRequest(
+        client_name="client_name_example",
+        client_address_line1="client_address_line1_example",
+        client_address_line2="client_address_line2_example",
+        client_suburb="client_suburb_example",
+        client_state="client_state_example",
+        client_post_code="client_post_code_example",
+        person_of_contact="person_of_contact_example",
+        client_phone_number="client_phone_number_example",
+        client_mobile_number="client_mobile_number_example",
+        client_email_address="client_email_address_example",
+        client_web_url="client_web_url_example",
+    ) # InsertClientRequest | An Insert Client Request object containing values for the new Client to create
 
+    # example passing only required values which don't have defaults set
     try:
         # Create a client.    Requires the 'ManageClientsAndProjects' permission.
         api_response = api_instance.clients_create_client(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ClientsApi->clients_create_client: %s\n" % e)
 ```
 
@@ -49,8 +63,8 @@ request = ChronoSheetsAPI.InsertClientRequest() # InsertClientRequest | An Inser
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**InsertClientRequest**](InsertClientRequest.md)| An Insert Client Request object containing values for the new Client to create | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**InsertClientRequest**](InsertClientRequest.md)| An Insert Client Request object containing values for the new Client to create |
 
 ### Return type
 
@@ -80,10 +94,10 @@ Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJo
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import clients_api
+from ChronoSheetsAPI.model.api_response_client import ApiResponseClient
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -95,15 +109,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ClientsApi(api_client)
-    client_id = 56 # int | The ID of the Client you want to get
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = clients_api.ClientsApi(api_client)
+    client_id = 1 # int | The ID of the Client you want to get
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.clients_get_client(client_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ClientsApi->clients_get_client: %s\n" % e)
 ```
 
@@ -111,8 +126,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_id** | **int**| The ID of the Client you want to get | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **client_id** | **int**| The ID of the Client you want to get |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -142,10 +157,10 @@ Get a collection of clients that are under your organisation.    Requires the 'M
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import clients_api
+from ChronoSheetsAPI.model.api_response_list_client import ApiResponseListClient
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,14 +172,15 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ClientsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = clients_api.ClientsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get a collection of clients that are under your organisation.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
         api_response = api_instance.clients_get_clients(x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ClientsApi->clients_get_clients: %s\n" % e)
 ```
 
@@ -172,7 +188,7 @@ with ChronoSheetsAPI.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -202,10 +218,11 @@ Update a client.    Requires the 'ManageClientsAndProjects' permission.
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import clients_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
+from ChronoSheetsAPI.model.save_client_request import SaveClientRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -217,15 +234,29 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.ClientsApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.SaveClientRequest() # SaveClientRequest | A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update
+    api_instance = clients_api.ClientsApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = SaveClientRequest(
+        id=1,
+        client_name="client_name_example",
+        client_address_line1="client_address_line1_example",
+        client_address_line2="client_address_line2_example",
+        client_suburb="client_suburb_example",
+        client_state="client_state_example",
+        client_post_code="client_post_code_example",
+        person_of_contact="person_of_contact_example",
+        client_phone_number="client_phone_number_example",
+        client_mobile_number="client_mobile_number_example",
+        client_email_address="client_email_address_example",
+        client_web_url="client_web_url_example",
+    ) # SaveClientRequest | A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Update a client.    Requires the 'ManageClientsAndProjects' permission.
         api_response = api_instance.clients_update_client(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling ClientsApi->clients_update_client: %s\n" % e)
 ```
 
@@ -233,8 +264,8 @@ request = ChronoSheetsAPI.SaveClientRequest() # SaveClientRequest | A Save Clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**SaveClientRequest**](SaveClientRequest.md)| A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**SaveClientRequest**](SaveClientRequest.md)| A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update |
 
 ### Return type
 

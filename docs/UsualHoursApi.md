@@ -16,10 +16,10 @@ Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisat
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import usual_hours_api
+from ChronoSheetsAPI.model.api_response_list_usual_hours_day import ApiResponseListUsualHoursDay
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -31,15 +31,16 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsualHoursApi(api_client)
-    user_id = 56 # int | The ID of the User for which you want to get UsualHours for
-x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
+    api_instance = usual_hours_api.UsualHoursApi(api_client)
+    user_id = 1 # int | The ID of the User for which you want to get UsualHours for
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
 
+    # example passing only required values which don't have defaults set
     try:
         # Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.usual_hours_get_usual_hours(user_id, x_chronosheets_auth)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsualHoursApi->usual_hours_get_usual_hours: %s\n" % e)
 ```
 
@@ -47,8 +48,8 @@ x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the User for which you want to get UsualHours for | 
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
+ **user_id** | **int**| The ID of the User for which you want to get UsualHours for |
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
 
 ### Return type
 
@@ -78,10 +79,11 @@ Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisat
 ### Example
 
 ```python
-from __future__ import print_function
 import time
 import ChronoSheetsAPI
-from ChronoSheetsAPI.rest import ApiException
+from ChronoSheetsClientLibApi import usual_hours_api
+from ChronoSheetsAPI.model.api_response_boolean import ApiResponseBoolean
+from ChronoSheetsAPI.model.set_usual_hours_request import SetUsualHoursRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.chronosheets.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -93,15 +95,37 @@ configuration = ChronoSheetsAPI.Configuration(
 # Enter a context with an instance of the API client
 with ChronoSheetsAPI.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = ChronoSheetsAPI.UsualHoursApi(api_client)
-    x_chronosheets_auth = 'x_chronosheets_auth_example' # str | The ChronoSheets Auth Token
-request = ChronoSheetsAPI.SetUsualHoursRequest() # SetUsualHoursRequest | A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update
+    api_instance = usual_hours_api.UsualHoursApi(api_client)
+    x_chronosheets_auth = "x-chronosheets-auth_example" # str | The ChronoSheets Auth Token
+    request = SetUsualHoursRequest(
+        usual_hours_data=[
+            UsualHoursDay(
+                day_type="Monday",
+                time_slots=[
+                    TimeSlot(
+                        day_type="Monday",
+                        usual_hour_id=1,
+                        start_hour=1,
+                        start_minute=1,
+                        end_hour=1,
+                        end_minute=1,
+                        is_valid=True,
+                    ),
+                ],
+                delete_usual_hours=[
+                    1,
+                ],
+            ),
+        ],
+        user_id=1,
+    ) # SetUsualHoursRequest | A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update
 
+    # example passing only required values which don't have defaults set
     try:
         # Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
         api_response = api_instance.usual_hours_set_usual_hours(x_chronosheets_auth, request)
         pprint(api_response)
-    except ApiException as e:
+    except ChronoSheetsAPI.ApiException as e:
         print("Exception when calling UsualHoursApi->usual_hours_set_usual_hours: %s\n" % e)
 ```
 
@@ -109,8 +133,8 @@ request = ChronoSheetsAPI.SetUsualHoursRequest() # SetUsualHoursRequest | A Set 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token | 
- **request** | [**SetUsualHoursRequest**](SetUsualHoursRequest.md)| A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update | 
+ **x_chronosheets_auth** | **str**| The ChronoSheets Auth Token |
+ **request** | [**SetUsualHoursRequest**](SetUsualHoursRequest.md)| A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update |
 
 ### Return type
 
